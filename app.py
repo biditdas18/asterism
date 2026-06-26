@@ -16,6 +16,7 @@ body, .stApp { background-color: #0a0f1a; color: #e0e0e0; }
 .stSelectbox > div > div { background-color: #111827; color: #e0e0e0; }
 .bubble { background: #1a1f2e; border-radius: 12px; padding: 1rem; margin-bottom: 0.5rem; }
 .traversal-tag { font-size: 0.8rem; color: #a78bfa; font-family: monospace; }
+iframe { border: none !important; }
 </style>
 """, unsafe_allow_html=True)
 

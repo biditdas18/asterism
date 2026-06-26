@@ -1,9 +1,11 @@
 import os
 import re
 import anthropic
+from dotenv import load_dotenv
 from context import serialize_graph
 from db import strengthen_edge, add_node, add_edge, get_connection
 
+load_dotenv()
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 

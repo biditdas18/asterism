@@ -30,7 +30,8 @@ def render_graph() -> str:
         weight = data.get("weight", 1.0)
         size = 10 + weight * 6
         color = _weight_to_color(weight)
-        net.add_node(label, label=label, size=size, color=color, title=f"{label}\nweight: {round(weight, 2)}")
+        node_type = data.get("node_type", "concept")
+        net.add_node(label, label=label, size=size, color=color, title=f"label: {label}\ntype: {node_type}\nweight: {round(weight, 2)}")
 
     for src, tgt, data in G.edges(data=True):
         weight = data.get("weight", 1.0)
