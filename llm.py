@@ -37,6 +37,8 @@ def query(user_input: str, model: str = "claude-sonnet-4-6") -> dict:
     }
 
 def _parse_traversals(text: str) -> list[tuple[str, str]]:
-    pattern = r"TRAVERSAL:\s*(.+?)\s*->\s*(.+?)(?:\n|$)"
-    matches = re.findall(pattern, text)
-    return [(m[0].strip(), m[1].strip()) for m in matches]
+    pairs = []
+    for line in re.findall(r"TRAVERSAL:\s*(.+?)(?:\n|$)", text):
+        nodes = [n.strip() for n in line.split("->")]
+        pairs.extend(zip(nodes, nodes[1:]))
+    return pairs

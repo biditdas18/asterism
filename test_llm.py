@@ -40,6 +40,15 @@ def test_parse_traversals():
     assert ("Python", "Machine Learning") in result
     assert ("Machine Learning", "Neural Networks") in result
 
+def test_parse_traversals_chained():
+    text = "TRAVERSAL: Bidit -> Python -> Machine Learning -> Neural Networks\n"
+    result = _parse_traversals(text)
+    assert result == [
+        ("Bidit", "Python"),
+        ("Python", "Machine Learning"),
+        ("Machine Learning", "Neural Networks"),
+    ]
+
 def test_parse_traversals_empty():
     result = _parse_traversals("No traversals here.")
     assert result == []
