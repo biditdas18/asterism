@@ -10,7 +10,7 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 
 ![Constellation zoomed out — Bidit as central star](docs/screenshot-zoomed.png)
 
-![Hover tooltip showing node weight](docs/screenshot-hover.png)
+![Asterism central node — pulsar effect with radiating edges](docs/screenshot-hover.png)
 
 ## How it works
 
