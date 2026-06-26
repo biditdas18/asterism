@@ -2,7 +2,11 @@ import sqlite3
 import os
 from datetime import datetime
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "asterism.db")
+try:
+    from config import get_db_path
+    DB_PATH = get_db_path()
+except Exception:
+    DB_PATH = os.path.join(os.path.dirname(__file__), "asterism.db")
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), "schema.sql")
 
 

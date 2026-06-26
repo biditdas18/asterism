@@ -1,75 +1,57 @@
 # ✦ Asterism
-> Local-first personal knowledge graph with Hebbian TTL decay, rendered as a living constellation.
+> An X-ray of your brain.
 
-## What it does
+Every conversation you have with Claude leaves a trace. Asterism maps those traces into a living constellation — the more you think about something, the brighter it glows. Stop thinking about it, and it fades.
 
-Asterism lets you build a personal knowledge graph by adding nodes (concepts, entities, events) and edges between them. When you query it in natural language, a Claude-powered assistant reasons over the graph and explicitly traverses relevant connections — those edges get strengthened (higher weight) as a result, a form of Hebbian learning: *neurons that fire together, wire together*. Edges and nodes that aren't accessed decay over time via TTL, so the graph naturally forgets stale knowledge and keeps itself focused on what you actually use.
+![constellation](docs/constellation.png)
+
+## Install
+
+```bash
+pip install asterism-ai
+```
+
+## Usage
+
+```bash
+asterism init   # first-time setup: API key, extractor choice, DB init
+asterism chat   # launch the chat interface
+asterism view   # open the constellation in your browser
+```
+
+## How it works
+
+Every message you send is processed by an extraction model that pulls out knowledge graph triples — `(entity, relationship, entity)` — and writes them to a local SQLite database. When you revisit a topic, the edges connecting those concepts get stronger (higher weight) and glow brighter. When you stop thinking about something, a background decay process slowly erodes its weight until it fades from the graph entirely.
+
+This is Hebbian learning applied to memory: **neurons that fire together, wire together. Neurons that fire apart, drift apart.**
+
+The result is a constellation that is literally a map of your mind — shaped by what you think about, not what you were told to remember.
+
+## Privacy
+
+**Your graph never leaves your machine.** The only external call is to the Anthropic API for Claude responses and (optionally) Haiku-powered extraction. Your knowledge graph lives in `~/.asterism/asterism.db`. No telemetry, no cloud sync, no accounts.
 
 ## Stack
 
-- **Python** — all logic
-- **SQLite** — local storage for nodes and edges (with weight + TTL)
-- **NetworkX** — in-memory graph operations and shortest-path traversal
-- **pyvis** — constellation-style HTML graph render
-- **Streamlit** — web UI
-- **Anthropic Claude** (`claude-sonnet-4-6`) — LLM layer for natural language queries
-- **python-dotenv** — `.env` support for API key
+| Layer | Tech |
+|---|---|
+| Storage | SQLite (local, `~/.asterism/`) |
+| Graph | NetworkX |
+| Visualization | Vanilla JS force simulation (zero dependencies) |
+| LLM | Anthropic Claude (`claude-sonnet-4-6`) |
+| Extraction | Ollama `llama3.2:3b` (local) or Anthropic Haiku (cloud) |
+| UI | Streamlit |
+| CLI | Click |
 
-## Setup
+## Contributing
 
 ```bash
-# 1. Clone
 git clone https://github.com/biditdas18/asterism.git
 cd asterism
-
-# 2. Create virtualenv with uv
-uv venv .venv
-source .venv/bin/activate
-
-# 3. Install dependencies
+uv venv .venv && source .venv/bin/activate
 uv pip install -r requirements.txt
-
-# 4. Set your API key
-cp .env.example .env
-# Edit .env and replace with your real ANTHROPIC_API_KEY
-
-# 5. Initialize the database
-python -c "from db import init_db; init_db()"
+cp .env.example .env  # add your ANTHROPIC_API_KEY
+python -m pytest test_foundation.py test_llm.py -v
 ```
 
-## Run
-
-**Streamlit app:**
-```bash
-streamlit run app.py
-```
-
-**Decay scheduler** (separate terminal — runs TTL decay every 60s):
-```bash
-python decay_scheduler.py
-```
-
-## Project Structure
-
-| File | Description |
-|---|---|
-| `schema.sql` | SQLite schema — nodes and edges tables with weight + TTL columns |
-| `db.py` | CRUD layer: add/get/delete nodes and edges, decay, strengthen |
-| `graph.py` | NetworkX layer: build graph, traverse paths, summarize, run decay |
-| `context.py` | Serializes the graph into an LLM system prompt string |
-| `llm.py` | Claude API query, TRAVERSAL tag parser, edge strengthening on response |
-| `render.py` | pyvis constellation render — weight-based node size/color, dark bg |
-| `app.py` | Streamlit UI: sidebar graph editor, chat interface, inline graph view |
-| `decay_scheduler.py` | Background process: calls `run_decay()` every 60s with timestamped logs |
-| `test_foundation.py` | Tests for db.py and graph.py |
-| `test_llm.py` | Tests for context serializer and traversal parser |
-| `.env.example` | Template for your API key |
-
-## How the Hebbian loop works
-
-1. You add nodes and edges manually, or they're created implicitly when Claude traverses a new connection.
-2. When you ask a question, the graph is serialized and injected into Claude's system prompt.
-3. Claude responds and marks which nodes it traversed with `TRAVERSAL: A -> B -> C` tags.
-4. Asterism parses those tags and calls `strengthen_edge()` on each pair — weight goes up, TTL resets.
-5. Edges and nodes that are never traversed slowly lose weight and eventually decay away.
-6. What you think about survives. What you ignore fades.
+PRs welcome. Keep it local-first.

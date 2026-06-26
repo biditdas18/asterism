@@ -4,3 +4,4 @@ __pycache__/
 .env
 .DS_Store
 .venv/
+asterism_ai.egg-info/
