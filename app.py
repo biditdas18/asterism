@@ -1,14 +1,23 @@
+import atexit
+import time
 import webbrowser
 import streamlit as st
 import streamlit.components.v1 as components
 
 from config import is_configured, load_config
-from db import init_db, add_node, add_edge
+from db import init_db, add_node, add_edge, add_session_time
 from graph import run_decay, graph_summary
 from render import render_graph
 from llm import converse
 
 init_db()
+
+_session_start = time.time()
+
+def _flush_session():
+    add_session_time(int(time.time() - _session_start))
+
+atexit.register(_flush_session)
 
 st.set_page_config(page_title="Asterism", layout="wide", page_icon="✦")
 st.markdown("""

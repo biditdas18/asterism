@@ -23,22 +23,29 @@ def init_db():
         schema = f.read()
     with get_connection() as conn:
         conn.executescript(schema)
+        # migration: add column for existing DBs
+        try:
+            conn.execute("ALTER TABLE nodes ADD COLUMN session_seconds_exposed INTEGER DEFAULT 0")
+        except Exception:
+            pass  # column already exists
     print(f"DB initialized at {DB_PATH}")
 
 
 # --- NODE CRUD ---
 
 def add_node(label: str, node_type: str = "concept", ttl_seconds: int = 604800) -> int:
+    default_weight = 100.0 if node_type == "user" else 1.0
     sql = """
-        INSERT INTO nodes (label, node_type, ttl_seconds)
-        VALUES (?, ?, ?)
+        INSERT INTO nodes (label, node_type, ttl_seconds, weight)
+        VALUES (?, ?, ?, ?)
         ON CONFLICT(label) DO UPDATE SET
             last_accessed = CURRENT_TIMESTAMP,
-            weight = weight + 0.1
+            weight = CASE WHEN node_type = 'user' THEN MAX(weight, 100.0)
+                          ELSE weight + 0.1 END
         RETURNING id
     """
     with get_connection() as conn:
-        row = conn.execute(sql, (label, node_type, ttl_seconds)).fetchone()
+        row = conn.execute(sql, (label, node_type, ttl_seconds, default_weight)).fetchone()
         return row["id"]
 
 
@@ -56,13 +63,16 @@ def delete_node(label: str) -> bool:
         return cur.rowcount > 0
 
 
+def add_session_time(seconds: int):
+    """Accumulate session exposure time on all non-user nodes."""
+    sql = "UPDATE nodes SET session_seconds_exposed = session_seconds_exposed + ? WHERE node_type != 'user'"
+    with get_connection() as conn:
+        conn.execute(sql, (seconds,))
+
+
 def decay_nodes():
-    """Zero out nodes whose TTL has expired since last_accessed."""
-    sql = """
-        DELETE FROM nodes
-        WHERE (strftime('%s', 'now') - strftime('%s', last_accessed)) > ttl_seconds
-        AND node_type != 'user'
-    """
+    """Delete non-user nodes that have accumulated 3h of session exposure without traversal."""
+    sql = "DELETE FROM nodes WHERE session_seconds_exposed >= 10800 AND node_type != 'user'"
     with get_connection() as conn:
         cur = conn.execute(sql)
         print(f"Decayed {cur.rowcount} expired nodes.")
@@ -123,12 +133,14 @@ def decay_edges():
 
 def strengthen_edge(source_label: str, target_label: str, delta: float = 0.2):
     """Called when LLM traverses this edge. Resets TTL and increases weight."""
-    sql = """
+    edge_sql = """
         UPDATE edges
         SET weight = weight + ?,
             last_accessed = CURRENT_TIMESTAMP
         WHERE source_id = (SELECT id FROM nodes WHERE label = ?)
         AND target_id = (SELECT id FROM nodes WHERE label = ?)
     """
+    reset_sql = "UPDATE nodes SET session_seconds_exposed = 0 WHERE label IN (?, ?)"
     with get_connection() as conn:
-        conn.execute(sql, (delta, source_label, target_label))
+        conn.execute(edge_sql, (delta, source_label, target_label))
+        conn.execute(reset_sql, (source_label, target_label))

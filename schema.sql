@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS nodes (
     weight REAL NOT NULL DEFAULT 1.0,           -- glow intensity in constellation
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_accessed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ttl_seconds INTEGER NOT NULL DEFAULT 604800  -- 7 days default
+    ttl_seconds INTEGER NOT NULL DEFAULT 604800,  -- 7 days default
+    session_seconds_exposed INTEGER DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS edges (

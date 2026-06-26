@@ -348,14 +348,12 @@ function draw(t) {
     ctx.fillStyle='rgba(255,255,255,'+baseA+')';
     ctx.fill();
 
-    // label: user node always; others only if weight > 20
-    var showLabel = n.isUser || n.weight > 20;
-    if (showLabel) {
-      ctx.fillStyle='rgba(255,255,255,'+(Math.min(1,baseA*1.2))+')';
-      ctx.font=(10*cam.z)+'px monospace';
-      ctx.textAlign='center';
-      ctx.fillText(n.label, sx, sy-r-8*cam.z);
-    }
+    var lSize = n.isUser ? 14 : n.weight > 50 ? 13 : 11;
+    var lColor = n.isUser ? '255,255,255' : n.weight > 50 ? '204,204,255' : '170,170,204';
+    ctx.fillStyle='rgba('+lColor+','+Math.min(1,baseA)+')';
+    ctx.font=(lSize*cam.z)+'px monospace';
+    ctx.textAlign='center';
+    ctx.fillText(n.label, sx, sy+r+(3+lSize)*cam.z);
   });
 }
 
