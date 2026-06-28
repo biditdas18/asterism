@@ -184,6 +184,9 @@ def view():
 @click.option("--path", required=True, help="Path to the export file (conversations.json).")
 def crawl(source, path):
     """Import a conversation export into the knowledge graph."""
+    if not is_configured():
+        click.echo("Run asterism init first.")
+        sys.exit(1)
     from crawler import crawl_claude
     if source == "claude":
         crawl_claude(path)
