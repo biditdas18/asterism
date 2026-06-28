@@ -8,7 +8,7 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 
 ## What it looks like
 
-![Asterism Demo](docs/asterism-demo.gif)
+![Asterism Demo](docs/asterism.gif)
 
 ![Constellation zoomed out — Bidit as central star](docs/screenshot-zoomed.png)
 
