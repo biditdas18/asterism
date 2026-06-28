@@ -20,15 +20,17 @@ if [ ! -f .env ]; then
   echo "✦ Created .env — add your ANTHROPIC_API_KEY"
 fi
 
-# Init database
-asterism init
-
 echo ""
-echo "✦ Asterism ready."
+echo "✦ Setup complete. Next steps:"
 echo ""
-echo "Next steps:"
-echo "  1. Add your API key to .env"
-echo "  2. Export your Claude data from claude.ai/settings"
-echo "  3. Run: asterism crawl --source claude --path YOUR_EXPORT_PATH"
-echo "  4. Run: asterism view"
+echo "  1. Run: asterism init"
+echo "     (guided setup — asks for your name and API key)"
+echo ""
+echo "  2. Export your Claude data:"
+echo "     claude.ai → Settings → Export Data"
+echo "     Check email → download zip → unzip"
+echo ""
+echo "  3. Run: asterism crawl --source claude --path path/to/conversations.json"
+echo ""
+echo "  4. Your constellation opens automatically."
 echo ""

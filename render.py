@@ -197,7 +197,7 @@ var dragging=null, dragOx=0, dragOy=0;
 var panStart=null, camStart=null;
 var focusNode=null;
 var hoverNode=-1;
-var hoverPathNodes=null; // Set of node indices on BFS path from Bidit
+var hoverPathNodes=null; // Set of node indices on BFS path from user node
 var hoverPathEdges=null; // Set of edge indices on that path
 var settled=true;
 

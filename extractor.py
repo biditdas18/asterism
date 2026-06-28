@@ -43,7 +43,7 @@ def _extract_local(prompt: str, config: dict) -> list[dict]:
 def _extract_haiku(prompt: str, config: dict) -> list[dict]:
     client = anthropic.Anthropic(api_key=config["anthropic_api_key"])
     message = client.messages.create(
-        model="claude-haiku-4-5",
+        model="claude-haiku-4-5-20251001",
         max_tokens=512,
         messages=[{"role": "user", "content": prompt}],
     )
