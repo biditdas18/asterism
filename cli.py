@@ -8,6 +8,24 @@ import click
 from config import load_config, save_config, is_configured, get_db_path, CONFIG_DIR
 
 
+def _write_env_key(env_path: str, key: str, value: str):
+    """Upsert a KEY=value line in an .env file."""
+    lines = []
+    if os.path.exists(env_path):
+        with open(env_path) as f:
+            lines = f.readlines()
+    updated = False
+    for i, line in enumerate(lines):
+        if line.startswith(f"{key}="):
+            lines[i] = f"{key}={value}\n"
+            updated = True
+            break
+    if not updated:
+        lines.append(f"{key}={value}\n")
+    with open(env_path, "w") as f:
+        f.writelines(lines)
+
+
 @click.group()
 def cli():
     """✦ Asterism — an X-ray of your brain."""
@@ -16,48 +34,52 @@ def cli():
 @cli.command()
 def init():
     """Set up Asterism for the first time."""
-    click.echo("\n✦ Welcome to Asterism — an X-ray of your brain.\n")
+    click.echo("\n✦ Welcome to Asterism\n")
 
-    api_key = click.prompt("Anthropic API key", hide_input=True)
-    if not api_key.strip():
-        click.echo("API key cannot be empty.")
-        sys.exit(1)
+    # Step 1: name
+    name = click.prompt("Your name (this becomes your central node)").strip()
+    if not name:
+        name = "You"
 
-    click.echo("\nHow should Asterism extract knowledge?")
-    click.echo("  1. Local (free, private) — uses Ollama + llama3.2:3b (~2GB download)")
-    click.echo("  2. Cloud (fast, ~$0.001/msg) — uses Anthropic Haiku\n")
-    choice = click.prompt("Choice", type=click.Choice(["1", "2"]), default="2")
+    # Step 2: API key with format validation loop
+    while True:
+        api_key = click.prompt("Anthropic API key (sk-ant-...)", hide_input=True).strip()
+        if api_key.startswith("sk-ant-"):
+            break
+        click.echo("  ✗ Key must start with sk-ant-  — try again.")
 
     config = load_config()
-    config["anthropic_api_key"] = api_key.strip()
-
-    if choice == "1":
-        config["extractor_mode"] = "local"
-        # check ollama
-        result = subprocess.run(["ollama", "--version"], capture_output=True)
-        if result.returncode != 0:
-            click.echo("\nOllama not found. Installing...")
-            platform = sys.platform
-            if platform in ("darwin", "linux"):
-                subprocess.run("curl -fsSL https://ollama.com/install.sh | sh", shell=True, check=True)
-            else:
-                click.echo("Windows: download Ollama manually from https://ollama.com/download")
-                click.echo("Then re-run: asterism init")
-                sys.exit(1)
-        click.echo("\nPulling llama3.2:3b (this may take a few minutes)...")
-        subprocess.run(["ollama", "pull", "llama3.2:3b"], check=True)
-    else:
-        config["extractor_mode"] = "haiku"
+    config["anthropic_api_key"] = api_key
+    config["user_name"] = name
+    config["extractor_mode"] = "haiku"
 
     os.makedirs(CONFIG_DIR, exist_ok=True)
 
-    # init DB at ~/.asterism/asterism.db
+    # write key to .env in cwd for dotenv compatibility
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    _write_env_key(env_path, "ANTHROPIC_API_KEY", api_key)
+
+    # init DB silently
     import db as _db
     _db.DB_PATH = get_db_path()
     _db.init_db()
 
     save_config(config)
-    click.echo("\n✓ Ready. Run: asterism chat\n")
+
+    click.echo(f"\n✦ Export your Claude conversations:")
+    click.echo("   → Go to: claude.ai/settings")
+    click.echo("   → Click Account → Export Data")
+    click.echo("   → Check your email for the download link")
+    click.echo("   → Unzip the file")
+    click.echo("")
+    click.echo("   Once downloaded, run:")
+    click.echo("     asterism crawl --source claude --path /path/to/conversations.json")
+    click.echo("")
+    click.echo("   Then run:")
+    click.echo("     asterism view")
+    click.echo("")
+    click.echo("   Your constellation will open automatically.")
+    click.echo(f"\n✦ Asterism ready. Your constellation awaits.\n")
 
 
 @cli.command()

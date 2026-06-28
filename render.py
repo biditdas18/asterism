@@ -31,11 +31,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000000}
   color:#2a1f5a;font:12px/1 monospace;letter-spacing:.14em;pointer-events:none}
 #tip{position:fixed;display:none;pointer-events:none;
   background:rgba(8,8,20,0.72);border:1px solid rgba(150,150,255,0.3);
-  border-radius:8px;padding:10px 14px;font:11px/1.6 monospace;
-  color:#aaaaff;max-width:180px;z-index:20;
+  border-radius:8px;padding:10px 14px;font:12px/1.4 monospace;
+  color:#aaaaff;max-width:220px;max-height:120px;overflow:hidden;z-index:20;
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-#tip b{color:#ffffff;font-size:13px;font-weight:600;
-  letter-spacing:0.03em;display:block;margin-bottom:2px}
+#tip b{color:#ffffff;font-size:12px;font-weight:600;
+  letter-spacing:0.03em;display:block;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:196px}
 #tip .tip-type{color:#8888cc;font-size:10px;text-transform:uppercase;
   letter-spacing:0.1em;display:block;margin-bottom:3px}
 #tip .bar-bg{background:rgba(255,255,255,0.1);border-radius:2px;height:2px;margin-top:6px}
@@ -232,11 +233,25 @@ function computeHoverPath(hit) {
   if (!path){ hoverPathNodes=null; hoverPathEdges=null; return; }
   hoverPathNodes=new Set(path);
   hoverPathEdges=new Set();
+  // mark edges along the BFS path
   for (var k=0;k<path.length-1;k++) {
     var a=path[k], b=path[k+1];
     for (var i=0;i<edges.length;i++) {
       var e=edges[i];
       if ((e.s===a&&e.t===b)||(e.s===b&&e.t===a)) { hoverPathEdges.add(i); break; }
+    }
+  }
+  // if hovered node is a cluster hub, expand all its children into the highlight
+  if (nodes[hit].node_type==='cluster') {
+    for (var i=0;i<edges.length;i++) {
+      var e=edges[i];
+      var child=-1;
+      if (e.s===hit) child=e.t;
+      else if (e.t===hit) child=e.s;
+      if (child>=0&&child!==userIdx) {
+        hoverPathNodes.add(child);
+        hoverPathEdges.add(i);
+      }
     }
   }
 }
@@ -266,7 +281,10 @@ canvas.addEventListener('pointermove', function(e) {
   if (dragging===null&&hit!==hoverNode){ hoverNode=hit; computeHoverPath(hit); }
   if (hit>=0) {
     var n=nodes[hit];
-    document.getElementById('tip-label').textContent=n.label;
+    var tipLabel=document.getElementById('tip-label');
+    var fullLabel=n.label.replace(/^💬\s*/,'');
+    tipLabel.textContent=fullLabel.length>40?fullLabel.slice(0,40)+'…':fullLabel;
+    tipLabel.title=fullLabel;
     document.getElementById('tip-type').textContent=n.node_type;
     document.getElementById('tip-w').textContent='weight '+n.weight.toFixed(1);
     document.getElementById('tip-bar').style.width=Math.min(100,n.weight/5*100)+'%';
@@ -350,6 +368,60 @@ canvas.addEventListener('touchend',function(e){
   dragging=null; panStart=null;
 },{passive:false});
 
+// ---- label rendering with collision avoidance ----
+var _labelSlots = [];  // [{x,y,w,h}] per frame, reset each draw call
+
+function _labelPriority(n) {
+  if (n.isUser)               return 4;
+  if (n.node_type==='domain') return 3;
+  if (n.node_type==='theme')  return 2;
+  return 1;
+}
+
+function _labelProps(n, cz) {
+  if (n.isUser)               return {size:14*cz, bold:true,  color:'255,255,255', shadow:'rgba(0,0,0,0.9)', shadowBlur:8};
+  if (n.node_type==='domain') return {size:13*cz, bold:true,  color:'255,255,255', shadow:'rgba(150,150,255,0.6)', shadowBlur:12};
+  if (n.node_type==='theme')  return {size:11*cz, bold:true,  color:'204,204,255', shadow:'rgba(0,0,0,0.9)', shadowBlur:8};
+  return                             {size:9*cz,  bold:false, color:'170,170,204', shadow:'rgba(0,0,0,0.9)', shadowBlur:8};
+}
+
+function _slotFree(x, y, w, h) {
+  for (var k=0; k<_labelSlots.length; k++) {
+    var s=_labelSlots[k];
+    if (Math.abs(x-s.x)<(w+s.w)/2+4 && Math.abs(y-s.y)<(h+s.h)/2+4) return false;
+  }
+  return true;
+}
+
+function _drawLabel(ctx, n, idx, sx, sy, r, baseA, cz) {
+  if (baseA < 0.05) return;
+  var p=_labelProps(n, cz);
+  var isDomain=(n.node_type==='domain');
+  ctx.font=(p.bold?'bold ':'')+p.size+'px monospace';
+  var tw=ctx.measureText(n.label).width;
+  var th=p.size;
+  // try below first, then above for lower-priority nodes
+  var yBelow=sy+r+(3+p.size);
+  var yAbove=sy-r-3;
+  var chosen=null;
+  if (_slotFree(sx, yBelow, tw, th)) {
+    chosen=yBelow;
+  } else if (!isDomain && _slotFree(sx, yAbove, tw, th)) {
+    chosen=yAbove;
+  } else if (isDomain) {
+    chosen=yBelow; // domain labels always render, even if overlapping
+  }
+  if (chosen===null) return;
+  _labelSlots.push({x:sx, y:chosen, w:tw, h:th});
+  ctx.save();
+  ctx.shadowColor=p.shadow; ctx.shadowBlur=p.shadowBlur;
+  var alpha=isDomain?Math.max(0.85,baseA):Math.min(1,baseA);
+  ctx.fillStyle='rgba('+p.color+','+alpha+')';
+  ctx.textAlign='center';
+  ctx.fillText(n.label, sx, chosen);
+  ctx.restore();
+}
+
 // ---- draw ----
 function draw(t) {
   ctx.clearRect(0,0,W,H);
@@ -427,21 +499,27 @@ function draw(t) {
     ctx.fillStyle='rgba('+cR+','+cG+','+cB+','+baseA+')';
     ctx.fill();
 
-    // labels: always for hovered/path nodes, normal otherwise
-    var onPath=isHovering&&hoverPathNodes&&hoverPathNodes.has(i);
-    if (onPath&&!isHoveredNode) {
-      // floating name above node for path nodes
+    // store computed values for label pass
+    n._sx=sx; n._sy=sy; n._r=r; n._baseA=baseA; n._onPath=isHovering&&hoverPathNodes&&hoverPathNodes.has(i);
+  });
+
+  // ---- label pass: priority order so domain/theme always win slots ----
+  _labelSlots=[];
+  var labelOrder=nodes.map(function(_,i){return i;});
+  labelOrder.sort(function(a,b){ return _labelPriority(nodes[b])-_labelPriority(nodes[a]); });
+  labelOrder.forEach(function(i) {
+    var n=nodes[i];
+    if (n._onPath&&i!==hoverNode) {
+      // path hover label: above node, no slot tracking needed (transient)
+      ctx.save();
+      ctx.shadowColor='rgba(0,0,0,0.9)'; ctx.shadowBlur=8;
       ctx.fillStyle='rgba(204,204,255,0.9)';
       ctx.font='10px monospace';
       ctx.textAlign='center';
-      ctx.fillText(n.label, sx, sy-r-8*cam.z);
+      ctx.fillText(n.label, n._sx, n._sy-n._r-8*cam.z);
+      ctx.restore();
     } else if (!isHovering) {
-      var lSize = n.isUser ? 14 : n.weight > 50 ? 13 : 11;
-      var lColor = n.isUser ? '255,255,255' : n.weight > 50 ? '204,204,255' : '170,170,204';
-      ctx.fillStyle='rgba('+lColor+','+Math.min(1,baseA)+')';
-      ctx.font=(lSize*cam.z)+'px monospace';
-      ctx.textAlign='center';
-      ctx.fillText(n.label, sx, sy+r+(3+lSize)*cam.z);
+      _drawLabel(ctx, n, i, n._sx, n._sy, n._r, n._baseA, cam.z);
     }
   });
 }

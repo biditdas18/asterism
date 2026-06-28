@@ -69,6 +69,50 @@ def graph_summary() -> dict:
     }
 
 
+def record_traversal_session(node_list: list[str]):
+    """
+    After an LLM query, form shortcuts between co-traversed nodes
+    that share a non-traversed bridge node.
+    A → B → C where B not traversed → create/strengthen A→C directly.
+    """
+    if len(node_list) < 2:
+        return
+    G = build_graph()
+    U = G.to_undirected()
+    traversed = set(node_list)
+
+    for i, a in enumerate(node_list):
+        if a not in U:
+            continue
+        a_neighbors = set(U.neighbors(a))
+        for c in node_list[i + 1:]:
+            if c not in U or U.has_edge(a, c):
+                continue
+            # any common neighbor not traversed this session = valid bridge
+            bridging = (a_neighbors & set(U.neighbors(c))) - traversed
+            if not bridging:
+                continue
+            _upsert_shortcut(a, c)
+            print(f"✦ Shortcut formed: {a} → {c}")
+
+
+def _upsert_shortcut(source: str, target: str):
+    """Create a shortcut edge at weight 30, or strengthen by 10 if it already exists."""
+    sql = """
+        INSERT INTO edges (source_id, target_id, weight)
+        VALUES (
+            (SELECT id FROM nodes WHERE label = ?),
+            (SELECT id FROM nodes WHERE label = ?),
+            30.0
+        )
+        ON CONFLICT(source_id, target_id) DO UPDATE SET
+            weight = weight + 10,
+            last_accessed = CURRENT_TIMESTAMP
+    """
+    with get_connection() as conn:
+        conn.execute(sql, (source, target))
+
+
 def run_decay():
     """Trigger TTL decay on both nodes and edges."""
     decay_edges()
