@@ -8,3 +8,4 @@ __pycache__/
 asterism_graph.html
 lib/
 ~/.asterism/
+data/

@@ -23,23 +23,18 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 ## Quick Start
 
 ```bash
-# Install
-pip install -r requirements.txt
-
-# First-time setup (API key + extractor choice + DB init)
-asterism init
-
-# Set your Anthropic API key
-export ANTHROPIC_API_KEY=sk-ant-...
-# or drop it in .env:
-echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
-
-# Launch
-asterism chat      # opens the Streamlit chat UI
-asterism view      # open the constellation in your browser
+git clone https://github.com/biditdas18/asterism
+cd asterism
+chmod +x setup.sh && ./setup.sh
 ```
 
-> Requires Python 3.10+. For local extraction, [Ollama](https://ollama.com) must be installed and `llama3.2:3b` pulled.
+Then:
+1. Add your Anthropic API key to `.env`
+2. Export your Claude data: claude.ai → Settings → Export Data
+3. `asterism crawl --source claude --path path/to/conversations.json`
+4. `asterism view`
+
+That's it. Your mind as a constellation.
 
 ## Privacy
 

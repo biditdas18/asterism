@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [tool.setuptools]
-py-modules = ["cli", "app", "config", "context", "db", "extractor", "graph", "llm", "render", "decay_scheduler"]
+py-modules = ["cli", "app", "config", "context", "db", "extractor", "graph", "llm", "render", "decay_scheduler", "crawler"]
 
 [tool.setuptools.package-dir]
 "" = "."

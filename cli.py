@@ -82,5 +82,15 @@ def view():
     webbrowser.open(f"file://{html_path}")
 
 
+@cli.command()
+@click.option("--source", type=click.Choice(["claude"]), required=True, help="Export source type.")
+@click.option("--path", required=True, help="Path to the export file (conversations.json).")
+def crawl(source, path):
+    """Import a conversation export into the knowledge graph."""
+    from crawler import crawl_claude
+    if source == "claude":
+        crawl_claude(path)
+
+
 if __name__ == "__main__":
     cli()

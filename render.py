@@ -30,12 +30,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000000}
 #hud{position:fixed;top:14px;left:50%;transform:translateX(-50%);
   color:#2a1f5a;font:12px/1 monospace;letter-spacing:.14em;pointer-events:none}
 #tip{position:fixed;display:none;pointer-events:none;
-  background:#0d0a1a;border:1px solid #2d1b69;border-radius:10px;
-  padding:10px 14px;font:12px/1.7 monospace;color:#c4b5fd;
-  min-width:150px;z-index:20}
-#tip b{color:#e0d7ff;font-size:13px}
-#tip .bar-bg{background:#1a1040;border-radius:3px;height:4px;margin-top:5px}
-#tip .bar-fill{background:#8b5cf6;border-radius:3px;height:4px;transition:width .3s}
+  background:rgba(8,8,20,0.72);border:1px solid rgba(150,150,255,0.3);
+  border-radius:8px;padding:10px 14px;font:11px/1.6 monospace;
+  color:#aaaaff;max-width:180px;z-index:20;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#tip b{color:#ffffff;font-size:13px;font-weight:600;
+  letter-spacing:0.03em;display:block;margin-bottom:2px}
+#tip .tip-type{color:#8888cc;font-size:10px;text-transform:uppercase;
+  letter-spacing:0.1em;display:block;margin-bottom:3px}
+#tip .bar-bg{background:rgba(255,255,255,0.1);border-radius:2px;height:2px;margin-top:6px}
+#tip .bar-fill{background:#8b5cf6;border-radius:2px;height:2px;transition:width .3s}
 #pin{position:fixed;top:20px;right:20px;display:none;
   background:#0d0a1a;border:1px solid #3d2a7a;border-radius:12px;
   padding:14px 18px;font:12px/1.8 monospace;color:#c4b5fd;
@@ -59,9 +63,10 @@ HTML_STARS_CLOSE = """\
 </svg>
 <canvas id="c"></canvas>
 <div id="hud">❆ ASTERISM &nbsp;·&nbsp; scroll to zoom &nbsp;·&nbsp; drag to pan &nbsp;·&nbsp; click node to focus</div>
-<div id="tip"><b id="tip-label"></b><br>
-  <span id="tip-type" style="color:#6d5aab;font-size:11px"></span><br>
-  weight: <span id="tip-w"></span>
+<div id="tip">
+  <b id="tip-label"></b>
+  <span class="tip-type" id="tip-type"></span>
+  <span id="tip-w" style="font-size:11px"></span>
   <div class="bar-bg"><div class="bar-fill" id="tip-bar"></div></div>
 </div>
 <div id="pin">
@@ -112,7 +117,7 @@ var edges = EDGES.map(function(e) {
 
 function nodeRadius(w, isUser) {
   if (isUser) return 32;
-  return Math.max(8, Math.min(32, 8 + (w / 100) * 24));
+  return Math.max(3.5, Math.min(32, 3.5 + (w / 100) * 28.5));
 }
 
 function nodeAlpha(w) {
@@ -190,7 +195,51 @@ function hitTest(sx,sy) {
 var dragging=null, dragOx=0, dragOy=0;
 var panStart=null, camStart=null;
 var focusNode=null;
+var hoverNode=-1;
+var hoverPathNodes=null; // Set of node indices on BFS path from Bidit
+var hoverPathEdges=null; // Set of edge indices on that path
 var settled=true;
+
+function bfsPath(src, dst) {
+  if (src===dst) return [src];
+  var prev=new Int32Array(nodes.length).fill(-1);
+  var seen=new Uint8Array(nodes.length);
+  seen[src]=1;
+  var q=[src], qi=0;
+  outer: while (qi<q.length) {
+    var u=q[qi++];
+    for (var i=0;i<edges.length;i++) {
+      var e=edges[i], v=-1;
+      if (e.s===u&&!seen[e.t]) v=e.t;
+      else if (e.t===u&&!seen[e.s]) v=e.s;
+      if (v<0) continue;
+      seen[v]=1; prev[v]=u; q.push(v);
+      if (v===dst) break outer;
+    }
+  }
+  if (prev[dst]<0&&dst!==src) return null;
+  var path=[]; var c=dst;
+  while (c>=0){ path.unshift(c); c=prev[c]; }
+  return path;
+}
+
+function computeHoverPath(hit) {
+  var userIdx=-1;
+  for (var i=0;i<nodes.length;i++){ if (nodes[i].node_type==='user'){userIdx=i;break;} }
+  if (userIdx<0||hit<0){ hoverPathNodes=null; hoverPathEdges=null; return; }
+  if (hit===userIdx){ hoverPathNodes=new Set([userIdx]); hoverPathEdges=new Set(); return; }
+  var path=bfsPath(userIdx,hit);
+  if (!path){ hoverPathNodes=null; hoverPathEdges=null; return; }
+  hoverPathNodes=new Set(path);
+  hoverPathEdges=new Set();
+  for (var k=0;k<path.length-1;k++) {
+    var a=path[k], b=path[k+1];
+    for (var i=0;i<edges.length;i++) {
+      var e=edges[i];
+      if ((e.s===a&&e.t===b)||(e.s===b&&e.t===a)) { hoverPathEdges.add(i); break; }
+    }
+  }
+}
 
 // pointer
 canvas.addEventListener('pointerdown', function(e) {
@@ -214,21 +263,23 @@ canvas.addEventListener('pointermove', function(e) {
     cam.y=camStart[1]+e.clientY-panStart[1];
   }
   var hit=hitTest(e.clientX,e.clientY);
+  if (dragging===null&&hit!==hoverNode){ hoverNode=hit; computeHoverPath(hit); }
   if (hit>=0) {
     var n=nodes[hit];
     document.getElementById('tip-label').textContent=n.label;
     document.getElementById('tip-type').textContent=n.node_type;
-    document.getElementById('tip-w').textContent=n.weight.toFixed(1);
+    document.getElementById('tip-w').textContent='weight '+n.weight.toFixed(1);
     document.getElementById('tip-bar').style.width=Math.min(100,n.weight/5*100)+'%';
     tip.style.display='block';
     tip.style.left=(e.clientX+16)+'px';
-    tip.style.top=(e.clientY-10)+'px';
+    tip.style.top=(e.clientY-8)+'px';
     canvas.style.cursor='pointer';
   } else {
     tip.style.display='none';
     canvas.style.cursor='default';
   }
 });
+canvas.addEventListener('pointerleave', function() { hoverNode=-1; hoverPathNodes=null; hoverPathEdges=null; tip.style.display='none'; });
 canvas.addEventListener('pointerup', function(e) {
   if (dragging===null && panStart===null) {
     // click
@@ -304,27 +355,48 @@ function draw(t) {
   ctx.clearRect(0,0,W,H);
 
   // edges first
-  edges.forEach(function(e) {
+  var isHovering=(hoverPathNodes!==null);
+  edges.forEach(function(e,ei) {
     var a=nodes[e.s], b=nodes[e.t];
     var as_=toScreen(a.x,a.y), bs_=toScreen(b.x,b.y);
     var style=edgeStyle(a.weight,b.weight,e.weight);
-    var focused=(focusNode===null)||(e.s===focusNode||e.t===focusNode);
-    var op=focused?style.op:style.op*0.2;
+    var color=style.color, op, lw;
+    if (isHovering) {
+      if (hoverPathEdges.has(ei)) {
+        color='255,255,255'; op=1.0; lw=2.5*cam.z;           // path beam
+      } else if (e.s===hoverNode||e.t===hoverNode) {
+        op=0.4; lw=style.w*cam.z;                             // direct neighbours
+      } else {
+        op=0.08; lw=style.w*cam.z;                            // everything else
+      }
+    } else {
+      var focused=(focusNode===null)||(e.s===focusNode||e.t===focusNode);
+      op=focused?style.op:style.op*0.2;
+      lw=(focusNode!==null&&focused?style.w*1.8:style.w)*cam.z;
+    }
     ctx.beginPath(); ctx.moveTo(as_[0],as_[1]); ctx.lineTo(bs_[0],bs_[1]);
-    ctx.strokeStyle='rgba('+style.color+','+op+')';
-    ctx.lineWidth=(focusNode!==null&&focused?style.w*1.8:style.w)*cam.z;
+    ctx.strokeStyle='rgba('+color+','+op+')';
+    ctx.lineWidth=lw;
     ctx.stroke();
   });
 
   // nodes
   nodes.forEach(function(n,i) {
     var s=toScreen(n.x,n.y), sx=s[0], sy=s[1];
-    var r=n.r*cam.z;
-    var isFocused=(focusNode===null)||focusNode===i||
-      edges.some(function(e){return (e.s===focusNode&&e.t===i)||(e.t===focusNode&&e.s===i);});
-    var dimFactor=isFocused?1:0.2;
+    var isHoveredNode=(i===hoverNode);
+    var r=(isHoveredNode ? n.r+4 : n.r)*cam.z;
     var pulse=pulseAlpha(n,t);
-    var baseA=nodeAlpha(n.weight)*pulse*dimFactor;
+    var dimFactor;
+    if (isHovering) {
+      if (isHoveredNode)                  dimFactor=1;   // hovered — full
+      else if (hoverPathNodes.has(i))     dimFactor=1;   // on path — full
+      else                                dimFactor=0.08; // off path — near invisible
+    } else {
+      var isFocused=(focusNode===null)||focusNode===i||
+        edges.some(function(e){return (e.s===focusNode&&e.t===i)||(e.t===focusNode&&e.s===i);});
+      dimFactor=isFocused?1:0.2;
+    }
+    var baseA=isHoveredNode?1.0:nodeAlpha(n.weight)*pulse*dimFactor;
 
     // glow — all nodes, stronger for user/heavy nodes
     var isStrong=(n.isUser||n.weight>=3.0);
@@ -337,23 +409,40 @@ function draw(t) {
     ctx.beginPath(); ctx.arc(sx,sy,glowR,0,Math.PI*2);
     ctx.fillStyle=glow; ctx.fill();
 
+    // blue-purple glow fill at 2.5x radius — marks graph nodes vs bg stars
+    ctx.beginPath(); ctx.arc(sx,sy,r*2.5,0,Math.PI*2);
+    ctx.fillStyle='rgba(102,119,255,'+(0.12*dimFactor)+')';
+    ctx.fill();
+
     // white border ring (2px)
     ctx.beginPath(); ctx.arc(sx,sy,r+2*cam.z,0,Math.PI*2);
     ctx.strokeStyle='rgba(255,255,255,'+(baseA*0.6)+')';
     ctx.lineWidth=2*cam.z;
     ctx.stroke();
 
-    // inner core — solid white
+    // inner core — low weight=#AAB8FF, high weight=#FFFFFF, interpolated
+    var wt=Math.min(1,Math.max(0,(n.weight-0)/(70)));
+    var cR=Math.round(170+wt*85), cG=Math.round(184+wt*71), cB=255;
     ctx.beginPath(); ctx.arc(sx,sy,r,0,Math.PI*2);
-    ctx.fillStyle='rgba(255,255,255,'+baseA+')';
+    ctx.fillStyle='rgba('+cR+','+cG+','+cB+','+baseA+')';
     ctx.fill();
 
-    var lSize = n.isUser ? 14 : n.weight > 50 ? 13 : 11;
-    var lColor = n.isUser ? '255,255,255' : n.weight > 50 ? '204,204,255' : '170,170,204';
-    ctx.fillStyle='rgba('+lColor+','+Math.min(1,baseA)+')';
-    ctx.font=(lSize*cam.z)+'px monospace';
-    ctx.textAlign='center';
-    ctx.fillText(n.label, sx, sy+r+(3+lSize)*cam.z);
+    // labels: always for hovered/path nodes, normal otherwise
+    var onPath=isHovering&&hoverPathNodes&&hoverPathNodes.has(i);
+    if (onPath&&!isHoveredNode) {
+      // floating name above node for path nodes
+      ctx.fillStyle='rgba(204,204,255,0.9)';
+      ctx.font='10px monospace';
+      ctx.textAlign='center';
+      ctx.fillText(n.label, sx, sy-r-8*cam.z);
+    } else if (!isHovering) {
+      var lSize = n.isUser ? 14 : n.weight > 50 ? 13 : 11;
+      var lColor = n.isUser ? '255,255,255' : n.weight > 50 ? '204,204,255' : '170,170,204';
+      ctx.fillStyle='rgba('+lColor+','+Math.min(1,baseA)+')';
+      ctx.font=(lSize*cam.z)+'px monospace';
+      ctx.textAlign='center';
+      ctx.fillText(n.label, sx, sy+r+(3+lSize)*cam.z);
+    }
   });
 }
 
