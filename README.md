@@ -8,6 +8,8 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 
 ## What it looks like
 
+![Asterism Demo](docs/asterism-demo.gif)
+
 ![Constellation zoomed out — Bidit as central star](docs/screenshot-zoomed.png)
 
 ![Asterism central node — pulsar effect with radiating edges](docs/screenshot-hover.png)
@@ -29,16 +31,29 @@ chmod +x setup.sh && ./setup.sh
 ```
 
 Then:
-1. Add your Anthropic API key to `.env`
-2. Export your Claude data: claude.ai → Settings → Export Data
+1. Run `asterism init` — guided setup wizard
+2. Export your Claude data: claude.ai → Settings → Export Data → check email → download zip
 3. `asterism crawl --source claude --path path/to/conversations.json`
-4. `asterism view`
+4. Your constellation opens automatically
 
 That's it. Your mind as a constellation.
 
 ## Privacy
 
 Your graph never leaves your machine. The only external calls are to the Anthropic API for Claude responses and (optionally) Haiku-powered triple extraction. The LLM only sees what you explicitly inject from your local graph — it has no access to the raw database. Delete `~/.asterism/` to get a clean slate. No telemetry, no analytics, no accounts.
+
+## Research
+
+Asterism introduces several novel contributions to personal AI memory systems:
+
+- **Hebbian knowledge graph** — edges strengthen on traversal, decay on disuse
+- **Session-based TTL** — decay counts only active session time, not wall-clock time
+- **Graph-as-index** — the graph acts as a weighted B-tree index over LLM flat memory
+- **Four biological mechanics** — strengthening, pruning, pathway optimization, chain healing
+- **Causal chain topology** — conversations organized by how ideas evolved, not just topic similarity
+
+A formal research paper is in preparation.
+See [RESEARCH.md](RESEARCH.md) for full details.
 
 ## Built with
 
