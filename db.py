@@ -33,23 +33,90 @@ def init_db():
 
 # --- NODE CRUD ---
 
+# --- embedding fallback for _resolve_label ---
+# Local, offline (ONNX via fastembed — no torch, no network calls after the
+# one-time ~67MB model download). Lazily loaded: only paid by callers that
+# actually reach the embedding fallback (i.e. add_node() on a cache miss),
+# never by pure reads like llm._load_graph_data().
+_EMBED_MODEL_NAME = "BAAI/bge-small-en-v1.5"
+_EMBED_SIMILARITY_THRESHOLD = 0.92  # see calibration notes below _embedding_match
+_embed_model = None
+_embed_cache: dict[str, "list[float]"] = {}
+
+
+def _get_embed_model():
+    global _embed_model
+    if _embed_model is None:
+        from fastembed import TextEmbedding
+        _embed_model = TextEmbedding(model_name=_EMBED_MODEL_NAME)
+    return _embed_model
+
+
+def _embed_texts(texts: list[str]) -> list:
+    return list(_get_embed_model().embed(texts))
+
+
+def _embedding_match(label: str, existing_labels: list[str]) -> str | None:
+    """
+    Second-pass fallback for _resolve_label: catches same-concept labels
+    the prefix pass misses (mid-string edits, reordered phrasing, or
+    short labels below the prefix pass's 10-char guard).
+
+    ponytail: calibrated against the live ~50-node asterism.db (see
+    poc_results.json-era dataset) — at threshold 0.92 it catches every
+    real near-duplicate in that DB (0.93-0.98 range: "CLI Tools"/"CLI
+    tool", "AI Memory Tools"/"AI memory tooling", "LLM context
+    limitations"/"...window limitations") with zero false merges (highest
+    genuinely-distinct pair topped out at 0.885: "Knowledge graph
+    architecture research"/"knowledge graphs"). Known ceiling: it's good
+    at reworded/reordered phrasing that reuses the same vocabulary, but
+    true synonym substitution (different words for the same thing, e.g.
+    "LLM" vs "Large Language Models", "GPUs" vs "graphics processors")
+    scores 0.58-0.80 on this model — below the safe threshold, so those
+    stay unmerged rather than risk false merges. Upgrade path: a
+    larger/instruction-tuned local model or an API-embedding fallback
+    (flagged, not implemented — needs confirmation before adding cost).
+    """
+    if not existing_labels:
+        return None
+    try:
+        import numpy as np
+
+        to_embed = [l for l in existing_labels if l not in _embed_cache]
+        if to_embed:
+            for l, v in zip(to_embed, _embed_texts(to_embed)):
+                _embed_cache[l] = v
+        if label not in _embed_cache:
+            _embed_cache[label] = _embed_texts([label])[0]
+
+        cand = np.array(_embed_cache[label])
+        cand_norm = np.linalg.norm(cand)
+        best_label, best_score = None, 0.0
+        for existing in existing_labels:
+            v = np.array(_embed_cache[existing])
+            score = float(np.dot(cand, v) / (cand_norm * np.linalg.norm(v)))
+            if score > best_score:
+                best_label, best_score = existing, score
+        if best_score >= _EMBED_SIMILARITY_THRESHOLD:
+            return best_label
+    except Exception:
+        pass
+    return None
+
+
 def _resolve_label(label: str, conn: sqlite3.Connection) -> str:
     """
-    Map a proposed label onto an existing near-duplicate (case/whitespace
-    variant, or a verbose restatement that's a prefix of an existing
-    label — e.g. "AI memory tooling" -> "AI Memory Tools") so callers
+    Map a proposed label onto an existing near-duplicate so callers
     strengthen the existing node instead of forking a new one per
-    LLM-extracted phrasing.
-    ponytail: prefix-only match, min 10 chars — catches case/whitespace
-    dupes and "X" vs "X reading"/"X process" extractor variants without
-    merging unrelated labels that share a suffix (e.g. "Gym routine
-    design" vs "Package structure design"). Misses mid-string variants
-    like "LLM context limitations" vs "LLM context window limitations";
-    upgrade to embedding similarity if that starts to matter.
+    LLM-extracted phrasing. Two passes:
+      1. exact/prefix match (fast, no model) - case/whitespace variants
+         and "X" vs "X reading"/"X process" style extractor variants.
+      2. embedding similarity fallback (see _embedding_match) for
+         same-concept labels that don't share a prefix.
     """
+    existing_labels = [row["label"] for row in conn.execute("SELECT label FROM nodes").fetchall()]
     norm = " ".join(label.strip().lower().split())
-    for row in conn.execute("SELECT label FROM nodes").fetchall():
-        existing = row["label"]
+    for existing in existing_labels:
         existing_norm = " ".join(existing.strip().lower().split())
         if existing_norm == norm:
             return existing
@@ -59,6 +126,11 @@ def _resolve_label(label: str, conn: sqlite3.Connection) -> str:
         )
         if len(shorter) >= 10 and longer.startswith(shorter):
             return existing
+
+    embedding_match = _embedding_match(label, existing_labels)
+    if embedding_match:
+        return embedding_match
+
     return label
 
 

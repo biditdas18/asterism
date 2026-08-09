@@ -16,6 +16,7 @@ dependencies = [
   "click>=8.1.0",
   "python-dotenv>=1.0.1",
   "requests>=2.31.0",
+  "fastembed>=0.8.0",
 ]
 
 [tool.setuptools]

@@ -59,6 +59,24 @@ def test_add_node_does_not_merge_unrelated_labels():
     assert get_node("Package structure design") is not None
 
 
+def test_add_node_merges_reworded_synonym_via_embedding():
+    """No shared prefix, so this only merges via the embedding fallback."""
+    add_node("Database indexing strategy", node_type="concept")
+    add_node("Strategy for indexing databases")  # same concept, reworded
+    node = get_node("Database indexing strategy")
+    assert node["weight"] > 1.0
+    assert get_node("Strategy for indexing databases") is None
+
+
+def test_add_node_does_not_merge_close_but_distinct_concepts_via_embedding():
+    """Close but wrong: shares a word and a topic area, but is a genuinely
+    different entity - the embedding fallback must not merge these."""
+    add_node("Philosophy & Identity", node_type="domain")
+    add_node("Research Identity", node_type="theme")
+    assert get_node("Philosophy & Identity") is not None
+    assert get_node("Research Identity") is not None
+
+
 def test_delete_node():
     add_node("Rust")
     result = delete_node("Rust")
