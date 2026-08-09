@@ -23,9 +23,17 @@ def init_db():
         schema = f.read()
     with get_connection() as conn:
         conn.executescript(schema)
-        # migration: add column for existing DBs
+        # migration: add columns for existing DBs
         try:
             conn.execute("ALTER TABLE nodes ADD COLUMN session_seconds_exposed INTEGER DEFAULT 0")
+        except Exception:
+            pass  # column already exists
+        try:
+            conn.execute("ALTER TABLE edges ADD COLUMN relationship TEXT NOT NULL DEFAULT ''")
+        except Exception:
+            pass  # column already exists
+        try:
+            conn.execute("ALTER TABLE edges ADD COLUMN superseded_by INTEGER REFERENCES edges(id) ON DELETE SET NULL")
         except Exception:
             pass  # column already exists
     print(f"DB initialized at {DB_PATH}")
@@ -182,20 +190,47 @@ def decay_nodes():
 
 # --- EDGE CRUD ---
 
-def add_edge(source_label: str, target_label: str, ttl_seconds: int = 604800) -> int:
+# ttl_seconds a superseded edge is dropped to: -1 guarantees
+# (now - last_accessed) > ttl_seconds on the very next decay_edges() sweep
+# even if superseded within the same wall-clock second last_accessed was
+# set, rather than waiting out the normal 7-day TTL.
+_SUPERSEDED_TTL_SECONDS = -1
+
+
+def add_edge(source_label: str, target_label: str, relationship: str = "", ttl_seconds: int = 604800) -> int:
     source_id = add_node(source_label)
     target_id = add_node(target_label)
     sql = """
-        INSERT INTO edges (source_id, target_id, ttl_seconds)
-        VALUES (?, ?, ?)
+        INSERT INTO edges (source_id, target_id, relationship, ttl_seconds)
+        VALUES (?, ?, ?, ?)
         ON CONFLICT(source_id, target_id) DO UPDATE SET
             last_accessed = CURRENT_TIMESTAMP,
-            weight = weight + 0.1
+            weight = weight + 0.1,
+            superseded_by = NULL
         RETURNING id
     """
     with get_connection() as conn:
-        row = conn.execute(sql, (source_id, target_id, ttl_seconds)).fetchone()
-        return row["id"]
+        row = conn.execute(sql, (source_id, target_id, relationship, ttl_seconds)).fetchone()
+        edge_id = row["id"]
+        if relationship:
+            _mark_superseded_conflicts(conn, source_id, relationship, target_id, edge_id)
+        return edge_id
+
+
+def _mark_superseded_conflicts(conn: sqlite3.Connection, source_id: int, relationship: str,
+                                new_target_id: int, new_edge_id: int):
+    """
+    Requirement 2's narrow conflict rule: same source + same relationship
+    label + different target = the old edge is superseded by the new one.
+    Also drops the old edge's ttl so it's eligible for pruning on the next
+    decay_edges() sweep (requirement 4) instead of waiting out its normal TTL.
+    """
+    conn.execute("""
+        UPDATE edges
+        SET superseded_by = ?, ttl_seconds = ?
+        WHERE source_id = ? AND relationship = ? AND target_id != ?
+              AND id != ? AND superseded_by IS NULL
+    """, (new_edge_id, _SUPERSEDED_TTL_SECONDS, source_id, relationship, new_target_id, new_edge_id))
 
 
 def get_edges(label: str) -> list[dict]:

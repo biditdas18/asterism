@@ -162,3 +162,55 @@ def test_graph_summary():
 def test_run_decay_does_not_crash():
     add_edge("Bidit", "Python")
     run_decay()  # should not raise
+
+
+# --- TEMPORAL / SUPERSESSION TESTS ---
+
+def test_add_edge_conflict_marks_old_edge_superseded():
+    add_edge("Alex", "Postgres", relationship="uses")
+    add_edge("Alex", "SQLite", relationship="uses")  # same source+relationship, different target
+
+    postgres_edge = next(e for e in get_edges("Postgres") if e["source_label"] == "Alex")
+    sqlite_edge = next(e for e in get_edges("SQLite") if e["source_label"] == "Alex")
+
+    assert postgres_edge["superseded_by"] == sqlite_edge["id"]
+    assert sqlite_edge["superseded_by"] is None
+
+    # unrelated relationship on the same source must not be caught up in this
+    add_edge("Alex", "Databases", relationship="studies")
+    studies_edge = next(e for e in get_edges("Databases") if e["source_label"] == "Alex")
+    assert studies_edge["superseded_by"] is None
+
+
+def test_superseded_edge_excluded_from_graph_summary_by_default():
+    add_edge("Alex", "Postgres", relationship="uses")
+    add_edge("Alex", "SQLite", relationship="uses")
+
+    default_pairs = [(s, t) for s, t, _ in graph_summary()["edge_list"]]
+    assert ("Alex", "SQLite") in default_pairs
+    assert ("Alex", "Postgres") not in default_pairs
+
+    # not deleted - still there if explicitly asked for history
+    history_pairs = [(s, t) for s, t, _ in graph_summary(include_superseded=True)["edge_list"]]
+    assert ("Alex", "Postgres") in history_pairs
+    assert get_node("Postgres") is not None
+
+
+def test_superseded_edge_removal_does_not_orphan_node_with_other_paths():
+    add_node("Alex", node_type="user")
+    add_edge("Alex", "Postgres", relationship="uses")
+    add_edge("Alex", "SQLite", relationship="uses")   # supersedes Postgres fact-edge, ttl -> 0
+    add_edge("Alex", "Backend Learning")               # unrelated structural edge
+    add_edge("Backend Learning", "Postgres")           # Postgres also reachable via this path
+
+    decay_edges()  # sweeps the now-eligible-for-immediate-pruning superseded edge
+
+    postgres_edges = get_edges("Postgres")
+    assert not any(e["relationship"] == "uses" for e in postgres_edges)  # superseded edge is gone
+    assert get_node("Postgres") is not None  # node itself untouched
+
+    from decay_scheduler import _rescue_orphans
+    _rescue_orphans()  # must not crash, and must not treat Postgres as an orphan
+
+    rescue_edges = [e for e in get_edges("Postgres") if e["weight"] == 20.0]
+    assert rescue_edges == []  # no rescue edge created - it was never orphaned

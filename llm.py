@@ -55,16 +55,32 @@ def _load_graph_data() -> tuple[list[dict], dict[str, list[str]]]:
     Returns:
       nodes: list of {label, weight, node_type} sorted by weight desc
       parents: label → list[parent_label] (direct DB parents, highest-weight first)
+
+    Excludes superseded facts from context injection: a node is left out
+    only if every fact-edge (relationship != '') pointing at it has been
+    superseded — nodes with no fact-edges (structural/hierarchy nodes) or
+    with at least one still-current fact-edge are unaffected. Edges used
+    for the parent map exclude superseded edges outright, same reasoning
+    as db.add_edge's relationship-conflict handling.
     """
     with get_connection() as conn:
-        rows = conn.execute(
-            "SELECT label, weight, node_type FROM nodes ORDER BY weight DESC"
-        ).fetchall()
+        rows = conn.execute("""
+            SELECT label, weight, node_type FROM nodes n
+            WHERE NOT EXISTS (
+                SELECT 1 FROM edges e WHERE e.target_id = n.id AND e.relationship != ''
+            )
+            OR EXISTS (
+                SELECT 1 FROM edges e
+                WHERE e.target_id = n.id AND e.relationship != '' AND e.superseded_by IS NULL
+            )
+            ORDER BY weight DESC
+        """).fetchall()
         edges = conn.execute("""
             SELECT n_src.label AS src, n_tgt.label AS tgt, e.weight AS w
             FROM edges e
             JOIN nodes n_src ON n_src.id = e.source_id
             JOIN nodes n_tgt ON n_tgt.id = e.target_id
+            WHERE e.superseded_by IS NULL
         """).fetchall()
 
     nodes = [{"label": r["label"], "weight": r["weight"], "node_type": r["node_type"]}
@@ -180,7 +196,7 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
         triples = extract_triples(user_msg, response_text)
         for t in triples:
             try:
-                add_edge(t["source"], t["target"])
+                add_edge(t["source"], t["target"], relationship=t.get("relationship", ""))
             except Exception:
                 pass
 

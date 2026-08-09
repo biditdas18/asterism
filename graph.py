@@ -5,17 +5,26 @@ from db import (
 )
 
 
-def build_graph() -> nx.DiGraph:
-    """Load full graph from SQLite into NetworkX."""
+def build_graph(include_superseded: bool = False) -> nx.DiGraph:
+    """
+    Load full graph from SQLite into NetworkX. By default, edges that have
+    been superseded (a newer, conflicting fact replaced them - see
+    db.add_edge's relationship-conflict handling) are left out of current
+    context, same as any other "outdated fact should not surface" case.
+    Pass include_superseded=True for history queries ("what did you used
+    to think") - the edges are never deleted, just excluded by default.
+    """
     G = nx.DiGraph()
+    edge_filter = "" if include_superseded else "WHERE e.superseded_by IS NULL"
 
     with get_connection() as conn:
         nodes = conn.execute("SELECT * FROM nodes").fetchall()
-        edges = conn.execute("""
+        edges = conn.execute(f"""
             SELECT e.*, n1.label AS source_label, n2.label AS target_label
             FROM edges e
             JOIN nodes n1 ON e.source_id = n1.id
             JOIN nodes n2 ON e.target_id = n2.id
+            {edge_filter}
         """).fetchall()
 
     for n in nodes:
@@ -57,9 +66,9 @@ def traverse(source_label: str, target_label: str) -> list[str]:
     return path
 
 
-def graph_summary() -> dict:
+def graph_summary(include_superseded: bool = False) -> dict:
     """Return basic stats about the current graph state."""
-    G = build_graph()
+    G = build_graph(include_superseded=include_superseded)
     return {
         "nodes": G.number_of_nodes(),
         "edges": G.number_of_edges(),

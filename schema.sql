@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS edges (
     source_id INTEGER NOT NULL REFERENCES nodes(id) ON DELETE CASCADE,
     target_id INTEGER NOT NULL REFERENCES nodes(id) ON DELETE CASCADE,
     weight REAL NOT NULL DEFAULT 1.0,           -- strengthens on LLM traversal
+    relationship TEXT NOT NULL DEFAULT '',      -- verb label e.g. "uses"; '' = structural, not a fact claim
+    superseded_by INTEGER REFERENCES edges(id) ON DELETE SET NULL,  -- non-null = replaced by a newer fact
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_accessed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ttl_seconds INTEGER NOT NULL DEFAULT 604800,
