@@ -13,24 +13,29 @@ deterministic, pre-registered keyword+structure classifier - see the
 CLASSIFIER RUBRIC block below, written before this eval was run against
 the new 24-query set, not tuned to its output.
 
-Outputs:
+Outputs (in research/results/):
   poc_results.md / .json   - full side-by-side responses (as before, all 72)
   poc_eval_results.md      - the quantitative commit-rate table + all
                               72 raw per-query labels, auditable
 
-Usage: python poc_compare.py
+Usage: python research/poc_compare.py (from repo root, or anywhere)
 Requires ANTHROPIC_API_KEY configured (see config.py / .env).
 """
 import datetime
 import json
 import os
 import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, ROOT)
 
 import db
 from db import init_db, add_node, add_edge, get_connection
 from llm import converse
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(HERE, "results")
 EVAL_DB_PATH = os.path.join(HERE, "poc_eval.db")
 
 MODES = ["graph", "flat_list", "none"]
@@ -385,16 +390,18 @@ def render_markdown(results: list[dict]) -> str:
 if __name__ == "__main__":
     results = run()
 
-    with open("poc_results.json", "w") as f:
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
+    with open(os.path.join(RESULTS_DIR, "poc_results.json"), "w") as f:
         json.dump({"results": results}, f, indent=2)
 
-    with open("poc_results.md", "w") as f:
+    with open(os.path.join(RESULTS_DIR, "poc_results.md"), "w") as f:
         f.write(render_markdown(results))
 
-    with open("poc_eval_results.md", "w") as f:
+    with open(os.path.join(RESULTS_DIR, "poc_eval_results.md"), "w") as f:
         f.write(render_eval_markdown(results))
 
     if os.path.exists(EVAL_DB_PATH):
         os.remove(EVAL_DB_PATH)
 
-    print("\nWrote poc_results.md, poc_results.json, poc_eval_results.md")
+    print(f"\nWrote poc_results.md, poc_results.json, poc_eval_results.md in {RESULTS_DIR}")

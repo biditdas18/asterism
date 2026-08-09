@@ -11,21 +11,26 @@ graphs (same shape as demo_seed.py, not flat random nodes) at
 100 / 1,000 / 10,000 nodes, times the retrieval call 20x per scale,
 and writes min/mean/p95/max to benchmark_results.md.
 
-Usage: python benchmark_latency.py
+Usage: python research/benchmark_latency.py (from repo root, or anywhere)
 """
 import datetime
 import os
 import random
 import sqlite3
 import statistics
+import sys
 import time
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, ROOT)
 
 import db
 import llm
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(HERE, "results")
 TEST_DB_PATH = os.path.join(HERE, "test_benchmark.db")
-SCHEMA_PATH = os.path.join(HERE, "schema.sql")
+SCHEMA_PATH = os.path.join(ROOT, "schema.sql")
 SCALES = [100, 1_000, 10_000]
 RUNS_PER_SCALE = 20
 
@@ -174,8 +179,9 @@ def render_markdown(results: list[dict]) -> str:
 if __name__ == "__main__":
     results = run()
     md = render_markdown(results)
-    with open("benchmark_results.md", "w") as f:
+    out_path = os.path.join(RESULTS_DIR, "benchmark_results.md")
+    with open(out_path, "w") as f:
         f.write(md)
     if os.path.exists(TEST_DB_PATH):
         os.remove(TEST_DB_PATH)
-    print("\nWrote benchmark_results.md; cleaned up test DB.")
+    print(f"\nWrote {out_path}; cleaned up test DB.")

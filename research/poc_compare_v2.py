@@ -28,7 +28,7 @@ Fixes in this version, per explicit instruction:
      output, which does not exist yet at validation time. The scorer is
      locked before the live 36-call run and not adjusted afterward.
 
-Usage: python poc_compare_v2.py
+Usage: python research/poc_compare_v2.py (from repo root, or anywhere)
 Requires ANTHROPIC_API_KEY configured (see config.py / .env).
 """
 import datetime
@@ -37,8 +37,14 @@ import os
 import re
 import sys
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, ROOT)
+
 from poc_compare import _seed_demo_graph, PRIORITY_QUERIES, MODES, EVAL_DB_PATH
 from llm import converse
+
+RESULTS_DIR = os.path.join(HERE, "results")
 
 # ============================================================
 # CLASSIFIER RUBRIC v2 (pre-registered; locked before the 36-call run)
@@ -432,16 +438,18 @@ if __name__ == "__main__":
 
     results = run()
 
-    with open("poc_results_v2.json", "w") as f:
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
+    with open(os.path.join(RESULTS_DIR, "poc_results_v2.json"), "w") as f:
         json.dump({"validation": VALIDATION_SET, "results": results}, f, indent=2)
 
-    with open("poc_results_v2.md", "w") as f:
+    with open(os.path.join(RESULTS_DIR, "poc_results_v2.md"), "w") as f:
         f.write(render_full_markdown(results))
 
-    with open("poc_eval_results_v2.md", "w") as f:
+    with open(os.path.join(RESULTS_DIR, "poc_eval_results_v2.md"), "w") as f:
         f.write(render_eval_markdown(results))
 
     if os.path.exists(EVAL_DB_PATH):
         os.remove(EVAL_DB_PATH)
 
-    print("\nWrote poc_results_v2.md, poc_results_v2.json, poc_eval_results_v2.md")
+    print(f"\nWrote poc_results_v2.md, poc_results_v2.json, poc_eval_results_v2.md in {RESULTS_DIR}")
