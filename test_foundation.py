@@ -44,6 +44,21 @@ def test_add_node_conflict_increases_weight():
     assert node["weight"] > 1.0
 
 
+def test_add_node_merges_near_duplicate_label():
+    add_node("Marcus Aurelius", node_type="entity")
+    add_node("Marcus Aurelius introduction")  # verbose extractor variant of the same entity
+    node = get_node("Marcus Aurelius")
+    assert node["weight"] > 1.0  # existing node strengthened...
+    assert get_node("Marcus Aurelius introduction") is None  # ...not forked into a new one
+
+
+def test_add_node_does_not_merge_unrelated_labels():
+    add_node("Gym routine design")
+    add_node("Package structure design")  # shares a suffix, different entity
+    assert get_node("Gym routine design") is not None
+    assert get_node("Package structure design") is not None
+
+
 def test_delete_node():
     add_node("Rust")
     result = delete_node("Rust")

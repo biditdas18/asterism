@@ -1,0 +1,468 @@
+{
+  "injected_nodes": [
+    {
+      "label": "Alex",
+      "weight": 100.0,
+      "node_type": "user"
+    },
+    {
+      "label": "Open Source Development",
+      "weight": 85.39999999999998,
+      "node_type": "domain"
+    },
+    {
+      "label": "AI Memory Tools",
+      "weight": 80.49999999999997,
+      "node_type": "theme"
+    },
+    {
+      "label": "LLM context window limitations",
+      "weight": 80.39999999999998,
+      "node_type": "concept"
+    },
+    {
+      "label": "Knowledge graph architecture research",
+      "weight": 76.39999999999998,
+      "node_type": "concept"
+    },
+    {
+      "label": "Career Growth",
+      "weight": 75.39999999999998,
+      "node_type": "domain"
+    },
+    {
+      "label": "Hebbian decay design",
+      "weight": 72.39999999999998,
+      "node_type": "concept"
+    },
+    {
+      "label": "CLI Tools",
+      "weight": 72.19999999999999,
+      "node_type": "theme"
+    },
+    {
+      "label": "Python project ideation",
+      "weight": 72.19999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Research Identity",
+      "weight": 70.19999999999999,
+      "node_type": "theme"
+    },
+    {
+      "label": "First academic paper idea",
+      "weight": 70.19999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Click framework exploration",
+      "weight": 68.6,
+      "node_type": "concept"
+    },
+    {
+      "label": "Graph as retrieval index insight",
+      "weight": 68.19999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "arXiv submission process",
+      "weight": 66.69999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Technical Skills",
+      "weight": 65.19999999999999,
+      "node_type": "theme"
+    },
+    {
+      "label": "Distributed systems fundamentals",
+      "weight": 65.19999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Philosophy & Identity",
+      "weight": 65.19999999999999,
+      "node_type": "domain"
+    },
+    {
+      "label": "Package structure design",
+      "weight": 64.99999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Constellation visualization build",
+      "weight": 64.19999999999999,
+      "node_type": "concept"
+    },
+    {
+      "label": "Peer review participation",
+      "weight": 63.2,
+      "node_type": "concept"
+    },
+    {
+      "label": "Data intensive applications reading",
+      "weight": 62.0,
+      "node_type": "concept"
+    },
+    {
+      "label": "User adoption optimization",
+      "weight": 61.300000000000004,
+      "node_type": "concept"
+    },
+    {
+      "label": "Stoicism",
+      "weight": 60.50000000000001,
+      "node_type": "theme"
+    },
+    {
+      "label": "PyPI packaging strategy",
+      "weight": 60.2,
+      "node_type": "concept"
+    },
+    {
+      "label": "Marcus Aurelius introduction",
+      "weight": 60.2,
+      "node_type": "concept"
+    },
+    {
+      "label": "Conference paper planning",
+      "weight": 59.7,
+      "node_type": "concept"
+    },
+    {
+      "label": "B-tree index deep dive",
+      "weight": 58.7,
+      "node_type": "concept"
+    },
+    {
+      "label": "Meditations first reading",
+      "weight": 57.2,
+      "node_type": "concept"
+    },
+    {
+      "label": "Reddit launch preparation",
+      "weight": 56.1,
+      "node_type": "concept"
+    },
+    {
+      "label": "Citation building strategy",
+      "weight": 56.1,
+      "node_type": "concept"
+    }
+  ],
+  "injected_edges": [
+    {
+      "src": "Alex",
+      "tgt": "Open Source Development",
+      "w": 1.7
+    },
+    {
+      "src": "Open Source Development",
+      "tgt": "AI Memory Tools",
+      "w": 1.4
+    },
+    {
+      "src": "AI Memory Tools",
+      "tgt": "LLM context window limitations",
+      "w": 1.3
+    },
+    {
+      "src": "LLM context window limitations",
+      "tgt": "Knowledge graph architecture research",
+      "w": 1.5999999999999999
+    },
+    {
+      "src": "Knowledge graph architecture research",
+      "tgt": "Hebbian decay design",
+      "w": 1.3
+    },
+    {
+      "src": "Hebbian decay design",
+      "tgt": "Graph as retrieval index insight",
+      "w": 1.0
+    },
+    {
+      "src": "Graph as retrieval index insight",
+      "tgt": "Constellation visualization build",
+      "w": 1.0
+    },
+    {
+      "src": "Constellation visualization build",
+      "tgt": "PyPI packaging strategy",
+      "w": 1.0
+    },
+    {
+      "src": "PyPI packaging strategy",
+      "tgt": "Reddit launch preparation",
+      "w": 1.0
+    },
+    {
+      "src": "Open Source Development",
+      "tgt": "CLI Tools",
+      "w": 1.0
+    },
+    {
+      "src": "CLI Tools",
+      "tgt": "Python project ideation",
+      "w": 1.2
+    },
+    {
+      "src": "Python project ideation",
+      "tgt": "Click framework exploration",
+      "w": 1.0
+    },
+    {
+      "src": "Click framework exploration",
+      "tgt": "Package structure design",
+      "w": 1.0
+    },
+    {
+      "src": "Package structure design",
+      "tgt": "User adoption optimization",
+      "w": 1.0
+    },
+    {
+      "src": "Alex",
+      "tgt": "Career Growth",
+      "w": 1.0
+    },
+    {
+      "src": "Career Growth",
+      "tgt": "Research Identity",
+      "w": 1.2
+    },
+    {
+      "src": "Research Identity",
+      "tgt": "First academic paper idea",
+      "w": 1.5999999999999999
+    },
+    {
+      "src": "First academic paper idea",
+      "tgt": "arXiv submission process",
+      "w": 1.4
+    },
+    {
+      "src": "arXiv submission process",
+      "tgt": "Peer review participation",
+      "w": 1.0
+    },
+    {
+      "src": "Peer review participation",
+      "tgt": "Conference paper planning",
+      "w": 1.0
+    },
+    {
+      "src": "Conference paper planning",
+      "tgt": "Citation building strategy",
+      "w": 1.0
+    },
+    {
+      "src": "Career Growth",
+      "tgt": "Technical Skills",
+      "w": 1.0
+    },
+    {
+      "src": "Technical Skills",
+      "tgt": "Distributed systems fundamentals",
+      "w": 1.0
+    },
+    {
+      "src": "Distributed systems fundamentals",
+      "tgt": "Data intensive applications reading",
+      "w": 1.0
+    },
+    {
+      "src": "Data intensive applications reading",
+      "tgt": "B-tree index deep dive",
+      "w": 1.0
+    },
+    {
+      "src": "Alex",
+      "tgt": "Philosophy & Identity",
+      "w": 1.0
+    },
+    {
+      "src": "Philosophy & Identity",
+      "tgt": "Stoicism",
+      "w": 1.0
+    },
+    {
+      "src": "Stoicism",
+      "tgt": "Marcus Aurelius introduction",
+      "w": 1.2
+    },
+    {
+      "src": "Marcus Aurelius introduction",
+      "tgt": "Meditations first reading",
+      "w": 1.2
+    },
+    {
+      "src": "Alex",
+      "tgt": "AI Memory Tools",
+      "w": 1.1
+    },
+    {
+      "src": "Alex",
+      "tgt": "Knowledge graph architecture research",
+      "w": 1.0
+    },
+    {
+      "src": "Stoicism",
+      "tgt": "Career Growth",
+      "w": 1.0
+    },
+    {
+      "src": "Alex",
+      "tgt": "Stoicism",
+      "w": 1.0
+    },
+    {
+      "src": "Python project ideation",
+      "tgt": "Package structure design",
+      "w": 30.0
+    }
+  ],
+  "flat_list_labels": [
+    "AI Memory Tools",
+    "AI memory tool",
+    "AI memory tooling",
+    "Alex",
+    "Asterism",
+    "B-tree index deep dive",
+    "CLI Prototype",
+    "CLI Tools",
+    "Career Growth",
+    "Citation building strategy",
+    "Click Framework",
+    "Click framework",
+    "Click framework exploration",
+    "Conference paper planning",
+    "Constellation visualization build",
+    "Daily practice implementation",
+    "Data intensive applications reading",
+    "Designing Data-Intensive Applications",
+    "Dichotomy of control",
+    "Distributed systems fundamentals",
+    "First academic paper",
+    "First academic paper idea",
+    "Fitness",
+    "Graph as Retrieval Index",
+    "Graph as retrieval index insight",
+    "Gym routine design",
+    "Health & Wellbeing",
+    "Hebbian decay design",
+    "Knowledge Graph Architecture",
+    "Knowledge graph architecture research",
+    "LLM Context Window Limitations",
+    "LLM context limitations",
+    "LLM context window limitations",
+    "Marcus Aurelius",
+    "Marcus Aurelius introduction",
+    "Meditations",
+    "Meditations first reading",
+    "Nutrition basics",
+    "Open Source Development",
+    "Open source development",
+    "Package structure design",
+    "Peer review participation",
+    "Philosophy & Identity",
+    "PyPI packaging strategy",
+    "Python",
+    "Python CLI tool",
+    "Python project ideation",
+    "Reddit launch preparation",
+    "Research Identity",
+    "Stoic principles for career",
+    "Stoicism",
+    "System design patterns",
+    "Technical Skills",
+    "User",
+    "User adoption optimization",
+    "academic paper",
+    "arXiv Submission",
+    "arXiv submission",
+    "arXiv submission process",
+    "knowledge graph architecture",
+    "knowledge graphs",
+    "open source development",
+    "user"
+  ],
+  "results": [
+    {
+      "query": "What have I been working on lately?",
+      "graph": {
+        "response": "Based on your knowledge graph, here's a picture of what's been on your mind lately:\n\n---\n\n**Your main focus seems to be building an AI memory tool** \u2014 likely a CLI-based Python project. TRAVERSAL: AI Memory Tools -> CLI Tools -> Python project ideation -> Click framework exploration\n\nYou're designing something with a **knowledge graph at its core**, using it as a retrieval index rather than just a data store \u2014 that's a notable architectural insight you've had. TRAVERSAL: Knowledge graph architecture research -> Graph as retrieval index insight\n\nYou're also thinking carefully about **how memory should decay** \u2014 the Hebbian decay design node suggests you're modeling forgetting/reinforcement in a biologically-inspired way, which fits neatly into the AI memory space. TRAVERSAL: AI Memory Tools -> Hebbian decay design\n\n---\n\n**On the career/research side**, you've been developing a research identity and working toward your **first academic paper**, with concrete steps like planning for conferences, understanding the arXiv submission process, and thinking about citation building. TRAVERSAL: Research Identity -> First academic paper idea -> arXiv submission process -> Conference paper planning\n\n---\n\n**On the learning side**, you've been doing a deep dive into **distributed systems** \u2014 reading *Designing Data-Intensive Applications* and going deep on B-tree indexes specifically. TRAVERSAL: Distributed systems fundamentals -> Data intensive applications reading -> B-tree index deep dive\n\n---\n\n**And personally**, you've recently been introduced to **Marcus Aurelius and Stoicism**, just starting *Meditations*. TRAVERSAL: Stoicism -> Marcus Aurelius introduction -> Meditations first reading\n\n---\n\nIt looks like you're in a pretty generative phase \u2014 building something real, thinking about publishing, and reading broadly. Does any of these threads feel most alive right now?",
+        "tokens_used": 994
+      },
+      "flat_list": {
+        "response": "Based on our previous discussions, here's a summary of what you've been working on lately:\n\n## Technical Projects\n- **Asterism** \u2013 Your personal knowledge assistant (this very tool!)\n- **CLI Prototype & Python CLI tool** \u2013 Building a command-line interface, likely using the **Click framework**\n- **Knowledge Graph Architecture** \u2013 Exploring graphs as retrieval indexes\n- **Constellation visualization** \u2013 A visualization build connected to your knowledge system\n- **PyPI packaging & package structure design** \u2013 Preparing your project for open source distribution\n\n## Research & Academic Work\n- **First academic paper** \u2013 Planning and working toward your first conference paper\n- **arXiv submission** \u2013 Preparing to submit research\n- **Distributed systems fundamentals** \u2013 Deep study, including reading *Designing Data-Intensive Applications*\n- **B-tree index deep dive** \u2013 Technical research, possibly feeding into your paper\n\n## Open Source & Community\n- **Reddit launch preparation** \u2013 Getting ready to release something publicly\n- **User adoption optimization** \u2013 Thinking about how to grow usage\n- **Peer review participation** \u2013 Engaging with the academic community\n\n## Personal Development\n- **Stoicism / Marcus Aurelius / Meditations** \u2013 Reading and applying Stoic principles\n- **Gym routine & nutrition** \u2013 Working on health and fitness\n\nWould you like to dive deeper into any of these areas?",
+        "tokens_used": 726
+      },
+      "none": {
+        "response": "I don't have any information about what you've been working on lately. This is the start of our conversation, and I don't have access to your knowledge graph, prior chat history, or any notes you may have stored.\n\nTo help you, you'd need to share that context with me directly here in our conversation! What's on your mind?",
+        "tokens_used": 125
+      }
+    },
+    {
+      "query": "What's my top priority right now?",
+      "graph": {
+        "response": "Based on your knowledge graph, your top priorities right now are centered around **Open Source Development** and **AI Memory Tools** \u2014 these are your highest-weighted active domains after your core identity node.\n\nTRAVERSAL: Alex -> Open Source Development -> AI Memory Tools\n\nMore specifically, it looks like you're deep in the build phase of a personal knowledge/memory tool, with several tightly clustered concepts pointing to active work:\n\n- **LLM context window limitations** \u2014 likely the core *problem* your tool is solving\n- **Knowledge graph architecture research** \u2014 the structural foundation you're designing around\n- **Hebbian decay design** \u2014 a nuanced weighting mechanism (nodes fade if unused, strengthen with recency \u2014 much like this graph itself!)\n- **CLI Tools + Click framework exploration** \u2014 you're building a command-line interface\n- **Python project ideation + Package structure design + PyPI packaging strategy** \u2014 you're thinking end-to-end, from code to distribution\n\nTRAVERSAL: AI Memory Tools -> Knowledge graph architecture research -> Hebbian decay design\n\nIn short: **your top priority is shipping this AI memory/knowledge graph tool** \u2014 getting the architecture solid, the CLI working, and eventually getting it onto PyPI.\n\nA secondary cluster around **Career Growth \u2192 Research Identity \u2192 First academic paper idea \u2192 arXiv submission** suggests you're also thinking about how this project could become something *publishable*, not just releasable.\n\nWant me to help you focus on any specific part of the build?",
+        "tokens_used": 917
+      },
+      "flat_list": {
+        "response": "Based on our previous discussions, I can see you've been working across several active fronts, but I don't have enough context about your *current* priorities or timeline to give you a confident answer.\n\nFrom what I can see, strong candidates might be:\n\n- **arXiv Submission** \u2014 if your academic paper is ready or near-ready, this feels time-sensitive\n- **Reddit Launch Preparation** \u2014 suggests a product/tool release is imminent\n- **CLI Prototype / Constellation Visualization** \u2014 active build work\n\n---\n\nCould you help me with a bit more context?\n\n- What's most **time-sensitive** right now?\n- Is there a deadline or milestone coming up?\n\nThat way I can give you a much more useful answer rather than guessing. \ud83c\udfaf",
+        "tokens_used": 600
+      },
+      "none": {
+        "response": "I don't have any information about your priorities! I only have access to our current conversation, and this is the first message you've sent me.\n\nTo help you think through priorities, you could tell me what's on your plate right now, and I'd be happy to help you sort through them! \ud83d\ude0a",
+        "tokens_used": 118
+      }
+    },
+    {
+      "query": "How does my interest in Stoicism connect to my career?",
+      "graph": {
+        "response": "Great question to reflect on. Let me traverse your graph to find meaningful connections.\n\nTRAVERSAL: Stoicism -> Marcus Aurelius introduction -> Meditations first reading\n\nTRAVERSAL: Career Growth -> Research Identity -> First academic paper idea\n\nThe connections I see aren't immediately obvious, but they're genuinely meaningful:\n\n---\n\n**The Equanimity Angle**\n\nYour Stoicism nodes are relatively recent (Marcus Aurelius introduction, Meditations first reading), and they're sitting alongside some high-pressure career concepts \u2014 *arXiv submission process*, *peer review participation*, *conference paper planning*. Academic publishing involves a lot of rejection and waiting. Stoic practice is almost tailor-made for that.\n\n---\n\n**The Research Identity Connection**\n\nTRAVERSAL: Research Identity -> First academic paper idea -> Citation building strategy\n\nStoicism emphasizes focusing on what's *in your control* \u2014 your effort, your rigor, your thinking \u2014 not outcomes like citations or acceptance rates. That maps directly onto the anxiety that comes with building a research identity from scratch.\n\n---\n\n**The Builder's Mindset**\n\nTRAVERSAL: Open Source Development -> User adoption optimization -> Reddit launch preparation\n\nMarcus Aurelius kept returning to *doing good work quietly*. You're building tools (Asterism, CLI tools, PyPI packaging) where adoption is uncertain. Stoic indifference to outcomes while maintaining commitment to craft seems relevant here.\n\n---\n\n**My honest read:** Your Stoicism interest may have emerged *partly* as a philosophical anchor for a period where you're taking on significant career risk \u2014 open source work, academic writing, public launches. That's not a coincidence worth ignoring.\n\nWhat aspect feels most resonant to you?",
+        "tokens_used": 975
+      },
+      "flat_list": {
+        "response": "# Stoicism & Your Career\n\nBased on what you've shared, there's a pretty direct thread connecting these:\n\n## The Core Link: Dichotomy of Control\n\nYou've explored **Marcus Aurelius** and the **Dichotomy of Control** \u2014 the Stoic principle of focusing only on what's within your power. This maps naturally onto career work:\n\n- You can control the **quality of your code**, your **research rigor**, your **consistency** \u2014 not whether a paper gets accepted or a project goes viral\n- This seems relevant given your work on **arXiv submission** and **peer review participation**, where outcomes aren't fully in your hands\n\n## Practical Expressions\n\n| Stoic Principle | Career Application |\n|---|---|\n| Dichotomy of Control | Ship the work; detach from reception |\n| Daily practice | **Daily practice implementation** you've worked on |\n| Discipline & virtue | Consistent open source contribution |\n\n## A Bigger Pattern\n\nYou've explicitly explored **Stoic principles for career**, suggesting you're intentionally using philosophy as a *framework for navigating* things like:\n- The uncertainty of **academic publishing**\n- Building a **research identity** without external validation yet\n- Long-term consistency in **open source development**\n\n## My Observation\n\nIt reads like Stoicism isn't decorative for you \u2014 it seems to be *load-bearing* for how you handle ambiguity in a technical career that's still taking shape.\n\nDoes that resonate, or is there a specific tension you're working through?",
+        "tokens_used": 779
+      },
+      "none": {
+        "response": "I don't have any information about your interests or your career from our current conversation \u2014 this is the start of our exchange, and I don't have access to your knowledge graph or any prior history about you.\n\nIf you'd like to explore that connection, feel free to share a bit about **your interest in Stoicism** and **what you do professionally**, and I'd be happy to help you think through how they might relate!",
+        "tokens_used": 147
+      }
+    },
+    {
+      "query": "Summarize what you know about me in a few sentences.",
+      "graph": {
+        "response": "Based on your knowledge graph, here's what I know about you:\n\nYou're **Alex**, a developer and aspiring researcher currently deep in the world of **AI memory tools** and **open source development**. Your primary focus is building a **Python CLI tool** \u2014 likely using the **Click framework** \u2014 that leverages a **knowledge graph architecture** to address **LLM context window limitations**, with features like **Hebbian decay design** for memory weighting. \n\nTRAVERSAL: AI Memory Tools -> Knowledge graph architecture research -> Graph as retrieval index insight\n\nYou're also cultivating a **research identity**, working toward your **first academic paper** with plans around **arXiv submission**, **peer review participation**, and **conference paper planning** \u2014 suggesting you're early in your academic career but moving deliberately.\n\nTRAVERSAL: Research Identity -> First academic paper idea -> arXiv submission process\n\nOutside of the technical work, you're drawn to **philosophy**, particularly **Stoicism** \u2014 you've recently been introduced to **Marcus Aurelius** and have begun reading the *Meditations*. And on the practical side, you're thinking about **career growth**, **user adoption**, and getting your work in front of people via a **Reddit launch**.\n\nIn short: you're someone building something real, thinking seriously about ideas, and trying to grow in multiple directions at once.",
+        "tokens_used": 891
+      },
+      "flat_list": {
+        "response": "Based on our previous discussions, here's what I know about you:\n\nYou're **Alex**, a technically-minded person with a strong interest in **distributed systems, knowledge graphs, and AI memory tooling** \u2014 you've been building **Asterism**, a personal knowledge assistant, and have explored its architecture deeply including graph-based retrieval indexes and Hebbian decay design. You're also working toward establishing a **research identity**, with plans around academic publishing, arXiv submissions, and conference papers. On the technical side, you're proficient in **Python**, have worked with the Click framework for CLI tools, and care about open source development and packaging. Beyond tech, you engage with **Stoic philosophy** (particularly Marcus Aurelius and the *Meditations*), and you pay attention to your **health and fitness**, including gym routines and nutrition. Overall, you seem to be someone intentionally cultivating both intellectual depth and personal discipline.",
+        "tokens_used": 636
+      },
+      "none": {
+        "response": "Based on our current conversation, I don't actually know anything about you yet \u2014 this is the start of our interaction, and you haven't shared any personal details with me.\n\nI'm Asterism, your personal knowledge assistant. I only work from what's shared within our current conversation, so feel free to tell me about yourself, and I'll be happy to help from there!",
+        "tokens_used": 136
+      }
+    },
+    {
+      "query": "What should I focus on next?",
+      "graph": {
+        "response": "Great question. Let me traverse your graph to find the most productive next step.\n\nTRAVERSAL: Alex -> Open Source Development -> AI Memory Tools -> LLM context window limitations\n\nTRAVERSAL: Alex -> Research Identity -> First academic paper idea -> arXiv submission process\n\nBased on your active nodes, here's what stands out:\n\n---\n\n## The Highest-Leverage Move Right Now\n\n**Ship the CLI tool and use it as your paper's foundation.**\n\nYour two heaviest clusters \u2014 *Open Source Development* and *Research Identity* \u2014 are pointing at the same thing from different angles. You're building something (Asterism-like tooling, knowledge graph + Hebbian decay) that is also a *research contribution*. That's rare and worth exploiting.\n\n### Concrete next steps, prioritized:\n\n1. **Finish the CLI scaffolding** *(Click framework exploration \u2192 Package structure design \u2192 PyPI packaging strategy)*\n Get something installable. Even a rough `pip install` moment builds momentum and gives you something real to write about.\n\n2. **Write the paper outline *now*, not later** *(First academic paper idea \u2192 arXiv submission process)*\n You don't need results to outline. Framing Hebbian decay as a retrieval architecture is a novel angle \u2014 document it before the insight fades.\n\n3. **Reddit launch prep can wait one more cycle** *(Reddit launch preparation \u2014 weight 56, lowest cluster)*\n Don't let launch anxiety pull you away from building depth.\n\n---\n\n**The pattern I notice:** your graph is dense but the edges between *building* and *writing* aren't connected yet. That's the gap to close.\n\nWhat feels most stuck right now?",
+        "tokens_used": 967
+      },
+      "flat_list": {
+        "response": "That's a broad question \u2014 I want to give you a genuinely useful answer rather than a generic one.\n\nBased on your topics, you seem to be juggling a few major threads:\n\n---\n\n**\ud83d\udd2c Research & Academic**\n- arXiv submission, conference paper planning, peer review, citation strategy\n- *Where are you in the submission process? Is there a deadline pulling on this?*\n\n**\ud83d\udee0\ufe0f Technical / Open Source**\n- CLI tool, Knowledge Graph Architecture, PyPI packaging, Reddit launch\n- *Is the tool ready to ship, or still in prototype?*\n\n**\ud83d\udcd6 Learning**\n- Designing Data-Intensive Applications, distributed systems, B-tree index deep dive\n- *Is this feeding your research or just exploration?*\n\n**\ud83e\uddd8 Philosophy & Wellbeing**\n- Stoicism, Marcus Aurelius, fitness, gym routine\n- *These tend to be maintenance rather than urgent.*\n\n---\n\nThe honest answer depends on **what has a deadline or dependency** \u2014 because that usually should win.\n\nA few useful questions to narrow it down:\n\n1. Is your **arXiv/conference paper** blocked on anything right now?\n2. Is your **CLI tool / open source project** close enough to launch that momentum matters?\n3. Are you feeling stretched thin, or do you have energy to push?\n\nWhat's the current state of things?",
+        "tokens_used": 744
+      },
+      "none": {
+        "response": "I don't have any context about your current projects, goals, or what you've been working on. This is the start of our conversation, so I don't have access to any prior history or notes about you.\n\nCould you share some details? For example:\n- **What you're currently working on**\n- **What's on your plate** or feeling unfinished\n- **Any goals or deadlines** you're tracking\n\nThen I can help you think through priorities!",
+        "tokens_used": 152
+      }
+    }
+  ]
+}

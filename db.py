@@ -33,6 +33,35 @@ def init_db():
 
 # --- NODE CRUD ---
 
+def _resolve_label(label: str, conn: sqlite3.Connection) -> str:
+    """
+    Map a proposed label onto an existing near-duplicate (case/whitespace
+    variant, or a verbose restatement that's a prefix of an existing
+    label — e.g. "AI memory tooling" -> "AI Memory Tools") so callers
+    strengthen the existing node instead of forking a new one per
+    LLM-extracted phrasing.
+    ponytail: prefix-only match, min 10 chars — catches case/whitespace
+    dupes and "X" vs "X reading"/"X process" extractor variants without
+    merging unrelated labels that share a suffix (e.g. "Gym routine
+    design" vs "Package structure design"). Misses mid-string variants
+    like "LLM context limitations" vs "LLM context window limitations";
+    upgrade to embedding similarity if that starts to matter.
+    """
+    norm = " ".join(label.strip().lower().split())
+    for row in conn.execute("SELECT label FROM nodes").fetchall():
+        existing = row["label"]
+        existing_norm = " ".join(existing.strip().lower().split())
+        if existing_norm == norm:
+            return existing
+        shorter, longer = (
+            (norm, existing_norm) if len(norm) <= len(existing_norm)
+            else (existing_norm, norm)
+        )
+        if len(shorter) >= 10 and longer.startswith(shorter):
+            return existing
+    return label
+
+
 def add_node(label: str, node_type: str = "concept", ttl_seconds: int = 604800) -> int:
     default_weight = 100.0 if node_type == "user" else 1.0
     sql = """
@@ -45,7 +74,8 @@ def add_node(label: str, node_type: str = "concept", ttl_seconds: int = 604800) 
         RETURNING id
     """
     with get_connection() as conn:
-        row = conn.execute(sql, (label, node_type, ttl_seconds, default_weight)).fetchone()
+        resolved_label = _resolve_label(label, conn)
+        row = conn.execute(sql, (resolved_label, node_type, ttl_seconds, default_weight)).fetchone()
         return row["id"]
 
 
