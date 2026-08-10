@@ -50,6 +50,7 @@ sys.path.insert(0, ROOT)
 from poc_compare import _seed_demo_graph, PRIORITY_QUERIES, MODES, EVAL_DB_PATH
 from poc_compare_v2 import validate, classify_commit_or_hedge, VALIDATION_SET
 from llm import converse
+from db import get_connection
 
 RESULTS_DIR = os.path.join(HERE, "results")
 
@@ -59,15 +60,47 @@ def _tag(model: str) -> str:
     return re.sub(r"[^a-zA-Z0-9_-]", "_", model)
 
 
+def _seed_node_edge_count() -> tuple[int, int]:
+    with get_connection() as conn:
+        n = conn.execute("SELECT COUNT(*) FROM nodes").fetchone()[0]
+        e = conn.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+    return n, e
+
+
 def run_once(model: str) -> list[dict]:
-    """One full 36-call pass: reseed the isolated eval DB, run all 12
-    PRIORITY queries x 3 conditions, score each response."""
-    _seed_demo_graph()
+    """One full 36-call pass: 12 PRIORITY queries x 3 conditions, scored.
+
+    E-FIX (reseed-per-call): the eval DB is wiped and reseeded from the
+    pristine seed graph immediately before EVERY individual call, not once
+    per run. Phase 1's audit (item E) found that graph-mode's own writes
+    (edge strengthening, triple extraction) mutate the shared DB mid-run,
+    so later queries - and flat_list, which reads the same DB - could see
+    state contaminated by earlier calls' graph-mode side effects. Reseeding
+    per call makes condition the only variable that differs between calls;
+    within-session Hebbian strengthening is intentionally out of scope for
+    this causal eval, not preserved here. The (node, edge) count is logged
+    before every call and asserted constant against the run's own first
+    call - if it ever isn't, the run aborts before spending the API call
+    rather than silently producing contaminated data.
+    """
     results = []
+    baseline: tuple[int, int] | None = None
     for q in PRIORITY_QUERIES:
         by_mode = {}
         for mode in MODES:
-            print(f"[{model}] Querying (inject_mode={mode}): {q!r}")
+            _seed_demo_graph()
+            counts = _seed_node_edge_count()
+            if baseline is None:
+                baseline = counts
+                print(f"[{model}] seed baseline established: {counts[0]} nodes, {counts[1]} edges")
+            elif counts != baseline:
+                raise RuntimeError(
+                    f"E-FIX INVARIANT VIOLATED at query={q!r} mode={mode!r}: "
+                    f"seed graph was {counts} (nodes, edges), expected constant "
+                    f"baseline {baseline}. Aborting before the API call - do not "
+                    f"trust any data from this run."
+                )
+            print(f"[{model}] seed OK {counts} | Querying (inject_mode={mode}): {q!r}")
             out = converse(q, [], inject_mode=mode, model=model)
             label = classify_commit_or_hedge(out["response"])
             by_mode[mode] = {
@@ -76,6 +109,9 @@ def run_once(model: str) -> list[dict]:
                 "label": label,
             }
         results.append({"query": q, **by_mode})
+
+    print(f"[{model}] E-FIX invariant confirmed: all 36 calls this run started "
+          f"from an identical seed {baseline} (nodes, edges).")
     return results
 
 
