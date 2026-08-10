@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 *.db
 .env
+.env.*
 .DS_Store
 .venv/
 *.egg-info/
@@ -9,3 +10,4 @@ asterism_graph.html
 lib/
 ~/.asterism/
 data/
+research/poc_eval.db
