@@ -50,6 +50,18 @@ def _make_client() -> anthropic.Anthropic:
     return anthropic.Anthropic(api_key=key)
 
 
+def _is_openai_model(model: str) -> bool:
+    return model.startswith(("gpt", "o1", "o3", "o4"))
+
+
+def _make_openai_client():
+    import os
+    import openai
+    from dotenv import load_dotenv
+    load_dotenv()
+    return openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
+
+
 def _load_graph_data() -> tuple[list[dict], dict[str, list[str]]]:
     """
     Returns:
@@ -126,19 +138,25 @@ def _parse_traversals(text: str) -> list[tuple[str, str]]:
     return pairs
 
 
-def converse(user_msg: str, conversation_history: list, inject_mode: str = "graph") -> dict:
+def converse(user_msg: str, conversation_history: list, inject_mode: str = "graph",
+             model: str = "claude-sonnet-4-6") -> dict:
     """
     inject_mode:
       "graph"     - top-N weighted graph nodes injected, traversal-aware (default, prior behavior)
       "flat_list" - all node labels injected as an unweighted, unstructured list
       "none"      - no graph context injected at all
+
+    model: the ASSISTANT model only (the model that answers user_msg). Model
+    strings starting with gpt/o1/o3/o4 route to OpenAI's chat.completions API;
+    everything else (default) routes to the existing Anthropic path unchanged.
+    extract_triples()'s own model choice (Haiku/local Ollama, for graph
+    maintenance) is independent of this and is not affected.
     """
     if inject_mode not in ("graph", "flat_list", "none"):
         raise ValueError(f"invalid inject_mode: {inject_mode!r}")
 
     config = load_config()
     user_name = config.get("user_name", "you")
-    client = _make_client()
 
     context_nodes: list[dict] = []
     context_labels: list[str] = []
@@ -166,13 +184,29 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
 
     messages = conversation_history + [{"role": "user", "content": user_msg}]
 
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=1024,
-        system=system_prompt,
-        messages=messages,
-    )
-    response_text = message.content[0].text
+    if _is_openai_model(model):
+        client = _make_openai_client()
+        openai_messages = [{"role": "system", "content": system_prompt}] + messages
+        try:
+            response = client.chat.completions.create(
+                model=model, max_completion_tokens=1024, messages=openai_messages,
+            )
+        except Exception:
+            response = client.chat.completions.create(
+                model=model, max_tokens=1024, messages=openai_messages,
+            )
+        response_text = response.choices[0].message.content
+        tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+    else:
+        client = _make_client()
+        message = client.messages.create(
+            model=model,
+            max_tokens=1024,
+            system=system_prompt,
+            messages=messages,
+        )
+        response_text = message.content[0].text
+        tokens_used = message.usage.input_tokens + message.usage.output_tokens
 
     traversals = []
     triples = []
@@ -212,7 +246,7 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
         "traversal_display": traversal_display,
         "traversed_nodes": context_labels,
         "triples_extracted": triples,
-        "tokens_used": message.usage.input_tokens + message.usage.output_tokens,
+        "tokens_used": tokens_used,
     }
 
 
