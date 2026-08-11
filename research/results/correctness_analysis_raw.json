@@ -1,0 +1,3089 @@
+[
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Hebbian decay design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "intersection of too many meaningful things simultaneously",
+    "extract_status": "off_graph",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Python project ideation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "core Asterism CLI prototype",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Conference paper planning",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Python project ideation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "convergence point",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Conference paper planning",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Data intensive applications reading",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Python project ideation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Your highest-tension cluster right now is the intersection of building and publi...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Python project ideation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Package structure design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "several high-ambition tracks simultaneously",
+    "extract_status": "off_graph",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Python project ideation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Stoic principles for career",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "What's actually competing for your time this week?",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "PyPI packaging strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Stoic principles for career",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Conference paper planning",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "none",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Is anything urgent or overdue?",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Tell me the context.",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Hebbian decay design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "PyPI packaging strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Stoic principles for career",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "PyPI packaging strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "arXiv submission process",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Hebbian decay design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "Package structure design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Daily practice implementation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Package structure design",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "PyPI packaging strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "none",
+    "query": "What's my top priority right now?",
+    "target": "So I can't tell you what your top priority is right now.",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "none",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "What has a hard deadline this week?",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "PyPI packaging strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Reddit launch preparation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "none",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "one",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's my top priority right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "one thing this week",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Conference paper planning",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's holding me back the most right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Finish the smallest shippable version of the thing you\u2019ve been keeping in \u201calmos...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Identify and unblock the single bottleneck that most affects your most important...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's my top priority right now?",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "LLM context window limitations",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "none",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Knowledge graph architecture research",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "none",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Identify the one commitment that would create the most stress, cost, or regret i...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Constellation visualization build",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Hebbian decay design",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "none",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Graph as retrieval index insight",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's my top priority right now?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Between my open source project and my academic paper, which should I prioritize?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "recovery + one high-leverage task",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Open Source Development",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Citation building strategy",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Research Identity",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Finish the blocker that turns uncertainty into motion.",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "CLI Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "Should I focus on shipping the CLI tool or writing the paper first?",
+    "target": "First academic paper idea",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "AI Memory Tools",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  }
+]

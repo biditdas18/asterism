@@ -1,21 +1,30 @@
 #!/usr/bin/env python3
 """
 Cohen's kappa between the frozen v2 scorer's labels and a human rater's
-labels, on the 36-row sheet in research/results/sonnet_run1_human_eval.csv
-(query, condition, response_text, scorer_label, human_label).
+labels, on a 36-row sheet (query, condition, response_text, scorer_label,
+human_label).
 
 This script does NOT fill in human_label - it only reads an already-filled
 sheet and reports agreement. Does not touch or re-run the scorer.
 
+Two sheets currently exist in research/results/:
+  sonnet_phase2_run1_human_eval.csv  - CURRENT: sonnet Phase 2 run 1
+                                        (temperature=1.0, reseed-per-call,
+                                        truncation guard), graph/flat_list/
+                                        none. This is the default.
+  sonnet_run1_human_eval.csv         - older, pre-Phase-2 sonnet run;
+                                        still present and untouched, not
+                                        deleted, usable via an explicit path.
+
 Usage: python research/score_agreement.py [path/to/filled.csv]
-  Defaults to research/results/sonnet_run1_human_eval.csv
+  Defaults to research/results/sonnet_phase2_run1_human_eval.csv
 """
 import csv
 import os
 import sys
 
 DEFAULT_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "results", "sonnet_run1_human_eval.csv"
+    os.path.dirname(os.path.abspath(__file__)), "results", "sonnet_phase2_run1_human_eval.csv"
 )
 
 
