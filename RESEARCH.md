@@ -102,18 +102,30 @@ high-priority entries, and decay is index eviction, not deletion of the
 underlying fact.
 
 This framing is not just descriptive — it makes a falsifiable prediction
-that the paper tests directly. Across three retrieval conditions (graph,
-an unweighted flat list of the same facts, and no memory) on twelve
-priority-ranking queries, the graph-conditioned model committed to a
-specific, weight-justified answer on **7/12** queries, versus **4/12**
-for the flat list (same facts, no weighting) and **0/12** with no memory.
-The measured effect is narrower than "graph beats flat memory": the gap
-shows up specifically as *decisiveness under ambiguity*, not as improved
-recall — on descriptive/recall-only queries the graph and flat-list
-conditions were comparable. See the paper (Section "Core Evaluation") for
-the full methodology, the pre-registered commit/hedge scoring rule, and
-the held-out validation of that scorer before it was run on the real
-evaluation set.
+that the paper tests directly, now across five retrieval conditions (not
+three) and three assistant models (not one), specifically to separate the
+value of the *weighted structure* from the value of an explicit
+"prioritize and commit" instruction that only the original `graph`
+condition happened to carry. Across 5 independent runs of 12
+priority-ranking queries each, mean COMMIT rate (of 12):
+
+|                     | graph | flat_list_prioritized | flat_list | graph_neutral | none |
+|---------------------|-------|------------------------|-----------|----------------|------|
+| claude-sonnet-4-6   | 5.4   | 3.6                    | 3.6       | 8.8            | 0.0  |
+| claude-opus-4-8     | 6.2   | 3.6                    | 1.6       | 5.8            | 1.0  |
+| gpt-5.5-2026-04-23  | 6.6   | 6.6                    | 7.0       | 6.6            | 2.2  |
+
+Structure alone (`graph_neutral` vs. `flat_list`, no instruction on either
+side) shows a real, positive effect for both Claude models (+5.2 sonnet,
++4.2 opus) — that is the part that replicates. GPT-5.5 shows no effect
+from either structure or instruction: its four non-`none` conditions are
+statistically indistinguishable. A further check (`correctness_analysis.md`)
+confirms the added decisiveness is *accurate*, not just confident, for all
+three models — though flagged honestly, sonnet's plain `graph` condition
+is still wrong more often than not in absolute terms (54%). See the paper
+and [`README.md`](README.md#research--evaluation) for the full
+methodology, the pre-registered commit/hedge scoring rule, the 11/11
+held-out scorer validation, and the κ=0.640 scorer-human agreement check.
 
 ### 5. Priority Inference from Conversation History
 
@@ -124,9 +136,10 @@ requiring the user to declare priorities explicitly.
 The claim that this produces *useful* prioritization is the one tested
 in component 4 above: the measured effect is that the resulting weights
 let the model commit to a ranked answer more often than an unweighted
-view of the same facts (7/12 vs. 4/12), not that the weights perfectly
-track the user's true priorities — we have not validated the latter
-against independent ground truth.
+view of the same facts, and (per the correctness check) commit to the
+*correct* answer more often too — not that the weights perfectly track
+the user's true priorities, which we have not validated against
+independent ground truth.
 
 ### 6. Chronological / Causal Conversation Grouping
 
