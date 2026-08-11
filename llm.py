@@ -38,6 +38,35 @@ Answer using only the current conversation. You have no access to {user}'s \
 knowledge graph or prior history.
 """
 
+# Phase 2 (instruction vs. structure isolation). Same node_lines construction
+# as their unprimed counterparts (flat_list_prioritized uses flat_list's
+# unweighted/unordered labels; graph_neutral uses graph's weighted top-30) -
+# only the surrounding instruction differs, by design.
+
+FLAT_LIST_PRIORITIZED_SYSTEM_TEMPLATE = """\
+You are Asterism, a personal knowledge assistant for {user}.
+
+Here are topics {user} has previously discussed, in no particular order:
+
+{node_lines}
+
+When answering, reference these topics naturally. Prioritize information from \
+these topics. Note when you are drawing on specific parts of this list.
+"""
+
+GRAPH_NEUTRAL_SYSTEM_TEMPLATE = """\
+You are Asterism, a personal knowledge assistant for {user}.
+
+You have access to {user}'s personal knowledge graph. The following nodes \
+represent their current priorities and thought patterns, weighted by recency \
+and usage frequency:
+
+ACTIVE NODES (highest weight first):
+{node_lines}
+
+Answer using this graph if relevant.
+"""
+
 
 def _make_client() -> anthropic.Anthropic:
     config = load_config()
@@ -139,20 +168,33 @@ def _parse_traversals(text: str) -> list[tuple[str, str]]:
 
 
 def converse(user_msg: str, conversation_history: list, inject_mode: str = "graph",
-             model: str = "claude-sonnet-4-6") -> dict:
+             model: str = "claude-sonnet-4-6", temperature: float = 1.0) -> dict:
     """
     inject_mode:
-      "graph"     - top-N weighted graph nodes injected, traversal-aware (default, prior behavior)
-      "flat_list" - all node labels injected as an unweighted, unstructured list
-      "none"      - no graph context injected at all
+      "graph"                - top-N weighted graph nodes injected, traversal-aware (default, prior behavior)
+      "flat_list"             - all node labels injected as an unweighted, unstructured list
+      "none"                  - no graph context injected at all
+      "flat_list_prioritized" - same unweighted/unordered labels as flat_list, but the
+                                 prompt carries the same prioritize/commit instruction
+                                 graph uses (no weights, no traversal directive) -
+                                 isolates the INSTRUCTION from the structure.
+      "graph_neutral"         - same weighted top-N node selection as graph, but the
+                                 prompt strips the prioritize/commit instruction and the
+                                 traversal directive, presenting the structure neutrally -
+                                 isolates the STRUCTURE from the instruction.
 
     model: the ASSISTANT model only (the model that answers user_msg). Model
     strings starting with gpt/o1/o3/o4 route to OpenAI's chat.completions API;
     everything else (default) routes to the existing Anthropic path unchanged.
     extract_triples()'s own model choice (Haiku/local Ollama, for graph
     maintenance) is independent of this and is not affected.
+
+    temperature: sent explicitly on both backends (default 1.0, pinned).
+    If a model rejects the param, this raises rather than silently retrying
+    without it - see the two backend blocks below.
     """
-    if inject_mode not in ("graph", "flat_list", "none"):
+    valid_modes = ("graph", "flat_list", "none", "flat_list_prioritized", "graph_neutral")
+    if inject_mode not in valid_modes:
         raise ValueError(f"invalid inject_mode: {inject_mode!r}")
 
     config = load_config()
@@ -162,7 +204,7 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
     context_labels: list[str] = []
     parent_map: dict[str, list[str]] = {}
 
-    if inject_mode == "graph":
+    if inject_mode in ("graph", "graph_neutral"):
         nodes, parent_map = _load_graph_data()
 
         # top 30 nodes for context injection, sorted by weight
@@ -173,40 +215,97 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
             f"- {n['label']} (weight: {n['weight']:.0f}, type: {n['node_type']})"
             for n in context_nodes
         )
-        system_prompt = SYSTEM_TEMPLATE.format(user=user_name, node_lines=node_lines)
-    elif inject_mode == "flat_list":
+        template = SYSTEM_TEMPLATE if inject_mode == "graph" else GRAPH_NEUTRAL_SYSTEM_TEMPLATE
+        system_prompt = template.format(user=user_name, node_lines=node_lines)
+    elif inject_mode in ("flat_list", "flat_list_prioritized"):
         nodes, _ = _load_graph_data()
         context_labels = sorted(n["label"] for n in nodes)
         node_lines = "\n".join(f"- {label}" for label in context_labels)
-        system_prompt = FLAT_LIST_SYSTEM_TEMPLATE.format(user=user_name, node_lines=node_lines)
+        template = FLAT_LIST_SYSTEM_TEMPLATE if inject_mode == "flat_list" else FLAT_LIST_PRIORITIZED_SYSTEM_TEMPLATE
+        system_prompt = template.format(user=user_name, node_lines=node_lines)
     else:  # "none"
         system_prompt = FLAT_SYSTEM_TEMPLATE.format(user=user_name)
 
     messages = conversation_history + [{"role": "user", "content": user_msg}]
+
+    # Generous ceilings - budgets, not targets. OpenAI reasoning models draw
+    # hidden reasoning tokens from the same max_completion_tokens pool as
+    # visible output, so they need much more headroom than a plain chat
+    # model; 1024 was found (empirically, via a live audit) to silently
+    # truncate ~8% of gpt-5.5 responses to nothing. Anthropic's audit found
+    # occasional near-ceiling/truncated responses from opus's longer
+    # answers at 1024, so it's raised too, well above the ~1030-token max
+    # observed in that audit.
+    OPENAI_MAX_COMPLETION_TOKENS = 8192
+    ANTHROPIC_MAX_TOKENS = 4096
 
     if _is_openai_model(model):
         client = _make_openai_client()
         openai_messages = [{"role": "system", "content": system_prompt}] + messages
         try:
             response = client.chat.completions.create(
-                model=model, max_completion_tokens=1024, messages=openai_messages,
+                model=model, max_completion_tokens=OPENAI_MAX_COMPLETION_TOKENS,
+                temperature=temperature, messages=openai_messages,
             )
-        except Exception:
-            response = client.chat.completions.create(
-                model=model, max_tokens=1024, messages=openai_messages,
-            )
+        except Exception as e1:
+            if "temperature" in str(e1).lower():
+                raise RuntimeError(
+                    f"Model {model!r} rejected temperature={temperature} on the OpenAI "
+                    f"path (max_completion_tokens attempt) - not falling back silently. "
+                    f"Original error: {e1}"
+                ) from e1
+            try:
+                response = client.chat.completions.create(
+                    model=model, max_tokens=OPENAI_MAX_COMPLETION_TOKENS,
+                    temperature=temperature, messages=openai_messages,
+                )
+            except Exception as e2:
+                if "temperature" in str(e2).lower():
+                    raise RuntimeError(
+                        f"Model {model!r} rejected temperature={temperature} on the "
+                        f"OpenAI path (max_tokens fallback attempt) - not falling back "
+                        f"silently. Original error: {e2}"
+                    ) from e2
+                raise
         response_text = response.choices[0].message.content
         tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+        finish_signal = response.choices[0].finish_reason
+        truncated = finish_signal == "length"
     else:
         client = _make_client()
-        message = client.messages.create(
-            model=model,
-            max_tokens=1024,
-            system=system_prompt,
-            messages=messages,
-        )
+        try:
+            message = client.messages.create(
+                model=model,
+                max_tokens=ANTHROPIC_MAX_TOKENS,
+                temperature=temperature,
+                system=system_prompt,
+                messages=messages,
+            )
+        except Exception as e:
+            if "temperature" in str(e).lower():
+                raise RuntimeError(
+                    f"Model {model!r} rejected temperature={temperature} on the "
+                    f"Anthropic path - not falling back silently. Original error: {e}"
+                ) from e
+            raise
         response_text = message.content[0].text
         tokens_used = message.usage.input_tokens + message.usage.output_tokens
+        finish_signal = message.stop_reason
+        truncated = finish_signal == "max_tokens"
+
+    # Universal fail-fast guard: no truncated or empty response may ever be
+    # silently scored, for any model on any backend. A truncated/empty
+    # response would otherwise flow into classify_commit_or_hedge() as an
+    # apparent HEDGE (nothing to match COMMIT patterns against), silently
+    # corrupting the eval rather than erroring - this stops that outright.
+    if truncated or not response_text or not response_text.strip():
+        raise RuntimeError(
+            f"Model {model!r} returned a truncated or empty response for "
+            f"inject_mode={inject_mode!r} (finish/stop reason={finish_signal!r}, "
+            f"content_len={len(response_text or '')}, tokens_used={tokens_used}). "
+            f"Refusing to score this - raise the token budget or investigate, do "
+            f"not silently continue."
+        )
 
     traversals = []
     triples = []
