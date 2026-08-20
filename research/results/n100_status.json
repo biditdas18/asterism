@@ -1,0 +1,54 @@
+{
+  "anthropic": {
+    "model": "",
+    "graph": "",
+    "condition": "",
+    "cell_index": 20,
+    "cells_total_this_provider": 20,
+    "calls_done_this_cell": 0,
+    "calls_total_this_cell": 0,
+    "pct_this_cell": 0,
+    "eta_this_cell_seconds": null,
+    "updated_at": "2026-08-14T17:32:34",
+    "state": "COMPLETE"
+  },
+  "openai": {
+    "model": "",
+    "graph": "",
+    "condition": "",
+    "cell_index": 10,
+    "cells_total_this_provider": 10,
+    "calls_done_this_cell": 0,
+    "calls_total_this_cell": 0,
+    "pct_this_cell": 0,
+    "eta_this_cell_seconds": null,
+    "updated_at": "2026-08-13T23:52:42",
+    "state": "COMPLETE"
+  },
+  "deepseek": {
+    "model": "",
+    "graph": "",
+    "condition": "",
+    "cell_index": 10,
+    "cells_total_this_provider": 10,
+    "calls_done_this_cell": 0,
+    "calls_total_this_cell": 0,
+    "pct_this_cell": 0,
+    "eta_this_cell_seconds": null,
+    "updated_at": "2026-08-14T15:22:44",
+    "state": "COMPLETE"
+  },
+  "kimi": {
+    "model": "",
+    "graph": "",
+    "condition": "",
+    "cell_index": 10,
+    "cells_total_this_provider": 10,
+    "calls_done_this_cell": 0,
+    "calls_total_this_cell": 0,
+    "pct_this_cell": 0,
+    "eta_this_cell_seconds": null,
+    "updated_at": "2026-08-16T10:09:59",
+    "state": "COMPLETE"
+  }
+}

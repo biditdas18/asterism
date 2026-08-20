@@ -1,0 +1,60 @@
+{
+  "completed_cells": [
+    "deepseek-v4-pro|graph1|graph",
+    "deepseek-v4-pro|graph1|flat_list_prioritized",
+    "deepseek-v4-pro|graph1|flat_list",
+    "deepseek-v4-pro|graph1|none",
+    "deepseek-v4-pro|graph2|graph",
+    "deepseek-v4-pro|graph2|flat_list_prioritized",
+    "deepseek-v4-pro|graph2|flat_list",
+    "deepseek-v4-pro|graph2|graph_neutral",
+    "deepseek-v4-pro|graph2|none"
+  ],
+  "history": [
+    {
+      "cell": "deepseek-v4-pro|graph1|graph",
+      "completed_at": "2026-08-13T16:11:31",
+      "duration_s": 9695
+    },
+    {
+      "cell": "deepseek-v4-pro|graph1|flat_list_prioritized",
+      "completed_at": "2026-08-13T19:30:26",
+      "duration_s": 11935
+    },
+    {
+      "cell": "deepseek-v4-pro|graph1|flat_list",
+      "completed_at": "2026-08-13T22:11:30",
+      "duration_s": 9664
+    },
+    {
+      "cell": "deepseek-v4-pro|graph1|none",
+      "completed_at": "2026-08-14T01:03:51",
+      "duration_s": 6565
+    },
+    {
+      "cell": "deepseek-v4-pro|graph2|graph",
+      "completed_at": "2026-08-14T04:54:29",
+      "duration_s": 13839
+    },
+    {
+      "cell": "deepseek-v4-pro|graph2|flat_list_prioritized",
+      "completed_at": "2026-08-14T07:54:11",
+      "duration_s": 10782
+    },
+    {
+      "cell": "deepseek-v4-pro|graph2|flat_list",
+      "completed_at": "2026-08-14T09:46:02",
+      "duration_s": 6711
+    },
+    {
+      "cell": "deepseek-v4-pro|graph2|graph_neutral",
+      "completed_at": "2026-08-14T13:37:33",
+      "duration_s": 8077
+    },
+    {
+      "cell": "deepseek-v4-pro|graph2|none",
+      "completed_at": "2026-08-14T15:22:44",
+      "duration_s": 6311
+    }
+  ]
+}

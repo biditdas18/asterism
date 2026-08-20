@@ -1,0 +1,14 @@
+[
+  {
+    "provider": "deepseek",
+    "cell": "deepseek-v4-pro|graph1|graph_neutral",
+    "reason": "deepseek-v4-pro produced recurring empty-but-token-consuming responses in the graph_neutral condition across >=2 distinct queries over 2 attempts; its structure-alone signal is unmeasurable on this setup",
+    "recorded_at": "2026-08-13T23:14:26"
+  },
+  {
+    "provider": "deepseek",
+    "cell": "deepseek-v4-pro|graph1|graph_neutral",
+    "reason": "deepseek-v4-pro produced recurring empty-but-token-consuming responses in the graph_neutral condition across >=2 distinct queries over 2 attempts; its structure-alone signal is unmeasurable on this setup",
+    "recorded_at": "2026-08-14T11:22:56"
+  }
+]

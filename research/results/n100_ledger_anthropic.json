@@ -1,0 +1,126 @@
+{
+  "completed_cells": [
+    "claude-sonnet-4-6|graph1|graph",
+    "claude-sonnet-4-6|graph1|flat_list_prioritized",
+    "claude-sonnet-4-6|graph1|flat_list",
+    "claude-sonnet-4-6|graph1|graph_neutral",
+    "claude-sonnet-4-6|graph1|none",
+    "claude-sonnet-4-6|graph2|graph",
+    "claude-sonnet-4-6|graph2|flat_list_prioritized",
+    "claude-sonnet-4-6|graph2|flat_list",
+    "claude-sonnet-4-6|graph2|graph_neutral",
+    "claude-sonnet-4-6|graph2|none",
+    "claude-opus-4-8|graph1|graph",
+    "claude-opus-4-8|graph1|flat_list_prioritized",
+    "claude-opus-4-8|graph1|flat_list",
+    "claude-opus-4-8|graph1|graph_neutral",
+    "claude-opus-4-8|graph1|none",
+    "claude-opus-4-8|graph2|graph",
+    "claude-opus-4-8|graph2|flat_list_prioritized",
+    "claude-opus-4-8|graph2|flat_list",
+    "claude-opus-4-8|graph2|graph_neutral",
+    "claude-opus-4-8|graph2|none"
+  ],
+  "history": [
+    {
+      "cell": "claude-sonnet-4-6|graph1|graph",
+      "completed_at": "2026-08-13T15:10:09",
+      "duration_s": 6016
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph1|flat_list_prioritized",
+      "completed_at": "2026-08-13T16:24:15",
+      "duration_s": 4447
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph1|flat_list",
+      "completed_at": "2026-08-13T17:29:49",
+      "duration_s": 3934
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph1|graph_neutral",
+      "completed_at": "2026-08-13T18:34:17",
+      "duration_s": 3868
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph1|none",
+      "completed_at": "2026-08-13T19:11:42",
+      "duration_s": 2246
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph2|graph",
+      "completed_at": "2026-08-13T20:43:39",
+      "duration_s": 5516
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph2|flat_list_prioritized",
+      "completed_at": "2026-08-13T21:55:29",
+      "duration_s": 4310
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph2|flat_list",
+      "completed_at": "2026-08-13T23:03:11",
+      "duration_s": 4063
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph2|graph_neutral",
+      "completed_at": "2026-08-14T00:13:11",
+      "duration_s": 4200
+    },
+    {
+      "cell": "claude-sonnet-4-6|graph2|none",
+      "completed_at": "2026-08-14T00:54:44",
+      "duration_s": 2492
+    },
+    {
+      "cell": "claude-opus-4-8|graph1|graph",
+      "completed_at": "2026-08-14T02:53:43",
+      "duration_s": 7139
+    },
+    {
+      "cell": "claude-opus-4-8|graph1|flat_list_prioritized",
+      "completed_at": "2026-08-14T04:19:41",
+      "duration_s": 5158
+    },
+    {
+      "cell": "claude-opus-4-8|graph1|flat_list",
+      "completed_at": "2026-08-14T05:31:25",
+      "duration_s": 4304
+    },
+    {
+      "cell": "claude-opus-4-8|graph1|graph_neutral",
+      "completed_at": "2026-08-14T06:58:32",
+      "duration_s": 5227
+    },
+    {
+      "cell": "claude-opus-4-8|graph1|none",
+      "completed_at": "2026-08-14T07:56:53",
+      "duration_s": 3500
+    },
+    {
+      "cell": "claude-opus-4-8|graph2|graph",
+      "completed_at": "2026-08-14T09:49:35",
+      "duration_s": 6762
+    },
+    {
+      "cell": "claude-opus-4-8|graph2|flat_list_prioritized",
+      "completed_at": "2026-08-14T12:54:09",
+      "duration_s": 5474
+    },
+    {
+      "cell": "claude-opus-4-8|graph2|flat_list",
+      "completed_at": "2026-08-14T14:13:38",
+      "duration_s": 4769
+    },
+    {
+      "cell": "claude-opus-4-8|graph2|graph_neutral",
+      "completed_at": "2026-08-14T16:32:14",
+      "duration_s": 5591
+    },
+    {
+      "cell": "claude-opus-4-8|graph2|none",
+      "completed_at": "2026-08-14T17:32:34",
+      "duration_s": 3620
+    }
+  ]
+}

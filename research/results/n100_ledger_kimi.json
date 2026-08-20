@@ -1,0 +1,66 @@
+{
+  "completed_cells": [
+    "kimi-k3|graph1|graph",
+    "kimi-k3|graph1|flat_list_prioritized",
+    "kimi-k3|graph1|flat_list",
+    "kimi-k3|graph1|graph_neutral",
+    "kimi-k3|graph1|none",
+    "kimi-k3|graph2|graph",
+    "kimi-k3|graph2|flat_list_prioritized",
+    "kimi-k3|graph2|flat_list",
+    "kimi-k3|graph2|graph_neutral",
+    "kimi-k3|graph2|none"
+  ],
+  "history": [
+    {
+      "cell": "kimi-k3|graph1|graph",
+      "completed_at": "2026-08-13T20:09:24",
+      "duration_s": 23966
+    },
+    {
+      "cell": "kimi-k3|graph1|flat_list_prioritized",
+      "completed_at": "2026-08-14T05:09:26",
+      "duration_s": 26522
+    },
+    {
+      "cell": "kimi-k3|graph1|flat_list",
+      "completed_at": "2026-08-14T11:59:24",
+      "duration_s": 24598
+    },
+    {
+      "cell": "kimi-k3|graph1|graph_neutral",
+      "completed_at": "2026-08-14T21:10:06",
+      "duration_s": 20257
+    },
+    {
+      "cell": "kimi-k3|graph1|none",
+      "completed_at": "2026-08-15T00:50:57",
+      "duration_s": 13250
+    },
+    {
+      "cell": "kimi-k3|graph2|graph",
+      "completed_at": "2026-08-15T08:03:12",
+      "duration_s": 25935
+    },
+    {
+      "cell": "kimi-k3|graph2|flat_list_prioritized",
+      "completed_at": "2026-08-15T17:27:52",
+      "duration_s": 21924
+    },
+    {
+      "cell": "kimi-k3|graph2|flat_list",
+      "completed_at": "2026-08-16T00:01:02",
+      "duration_s": 23590
+    },
+    {
+      "cell": "kimi-k3|graph2|graph_neutral",
+      "completed_at": "2026-08-16T05:47:41",
+      "duration_s": 20799
+    },
+    {
+      "cell": "kimi-k3|graph2|none",
+      "completed_at": "2026-08-16T10:09:59",
+      "duration_s": 15737
+    }
+  ]
+}

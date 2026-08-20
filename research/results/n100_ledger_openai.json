@@ -1,0 +1,66 @@
+{
+  "completed_cells": [
+    "gpt-5.5-2026-04-23|graph1|graph",
+    "gpt-5.5-2026-04-23|graph1|flat_list_prioritized",
+    "gpt-5.5-2026-04-23|graph1|flat_list",
+    "gpt-5.5-2026-04-23|graph1|graph_neutral",
+    "gpt-5.5-2026-04-23|graph1|none",
+    "gpt-5.5-2026-04-23|graph2|graph",
+    "gpt-5.5-2026-04-23|graph2|flat_list_prioritized",
+    "gpt-5.5-2026-04-23|graph2|flat_list",
+    "gpt-5.5-2026-04-23|graph2|graph_neutral",
+    "gpt-5.5-2026-04-23|graph2|none"
+  ],
+  "history": [
+    {
+      "cell": "gpt-5.5-2026-04-23|graph1|graph",
+      "completed_at": "2026-08-13T15:03:19",
+      "duration_s": 5604
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph1|flat_list_prioritized",
+      "completed_at": "2026-08-13T16:25:19",
+      "duration_s": 4919
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph1|flat_list",
+      "completed_at": "2026-08-13T17:19:18",
+      "duration_s": 3239
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph1|graph_neutral",
+      "completed_at": "2026-08-13T18:14:11",
+      "duration_s": 3294
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph1|none",
+      "completed_at": "2026-08-13T18:53:45",
+      "duration_s": 2374
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph2|graph",
+      "completed_at": "2026-08-13T20:12:17",
+      "duration_s": 4712
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph2|flat_list_prioritized",
+      "completed_at": "2026-08-13T21:12:27",
+      "duration_s": 3610
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph2|flat_list",
+      "completed_at": "2026-08-13T22:06:00",
+      "duration_s": 3213
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph2|graph_neutral",
+      "completed_at": "2026-08-13T23:06:17",
+      "duration_s": 3617
+    },
+    {
+      "cell": "gpt-5.5-2026-04-23|graph2|none",
+      "completed_at": "2026-08-13T23:52:42",
+      "duration_s": 2785
+    }
+  ]
+}
