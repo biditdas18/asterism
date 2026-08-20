@@ -102,30 +102,43 @@ high-priority entries, and decay is index eviction, not deletion of the
 underlying fact.
 
 This framing is not just descriptive — it makes a falsifiable prediction
-that the paper tests directly, now across five retrieval conditions (not
-three) and three assistant models (not one), specifically to separate the
-value of the *weighted structure* from the value of an explicit
-"prioritize and commit" instruction that only the original `graph`
-condition happened to carry. Across 5 independent runs of 12
-priority-ranking queries each, mean COMMIT rate (of 12):
+that the paper tests directly, across five retrieval conditions designed
+to separate the value of the *weighted structure* from the value of an
+explicit "prioritize and commit" instruction that only the original
+`graph` condition happened to carry. An initial 12-query, single-graph
+pilot across 3 models suggested this might be Claude-specific. A
+follow-up scale-up — 2 independent seed graphs, 100 priority-ranking
+queries per graph, 5 runs, across a 5-model / 4-vendor panel (Anthropic,
+OpenAI, DeepSeek, Moonshot) — tested that directly. Key gaps in
+commit-rate points (`graph` vs `flat_list` = deployed benefit;
+`graph_neutral` vs `flat_list` = structure alone):
 
-|                     | graph | flat_list_prioritized | flat_list | graph_neutral | none |
-|---------------------|-------|------------------------|-----------|----------------|------|
-| claude-sonnet-4-6   | 5.4   | 3.6                    | 3.6       | 8.8            | 0.0  |
-| claude-opus-4-8     | 6.2   | 3.6                    | 1.6       | 5.8            | 1.0  |
-| gpt-5.5-2026-04-23  | 6.6   | 6.6                    | 7.0       | 6.6            | 2.2  |
+|                     | graph1: graph−flat | graph1: structure-only | graph2: graph−flat | graph2: structure-only |
+|---------------------|---------------------|--------------------------|---------------------|--------------------------|
+| claude-sonnet-4-6   | +21.8               | +19.4                    | +38.8               | +20.2                    |
+| claude-opus-4-8     | +36.0               | +23.6                    | +32.6               | +16.4                    |
+| gpt-5.5-2026-04-23  | +15.2               | +5.2                     | +18.4               | +4.2                     |
+| deepseek-v4-pro     | +4.4                | N/A (disclosed skip)     | +9.4                | +7.0                     |
+| kimi-k3             | +2.6                | −2.6                     | +8.2                | +3.2                     |
 
-Structure alone (`graph_neutral` vs. `flat_list`, no instruction on either
-side) shows a real, positive effect for both Claude models (+5.2 sonnet,
-+4.2 opus) — that is the part that replicates. GPT-5.5 shows no effect
-from either structure or instruction: its four non-`none` conditions are
-statistically indistinguishable. A further check (`correctness_analysis.md`)
-confirms the added decisiveness is *accurate*, not just confident, for all
-three models — though flagged honestly, sonnet's plain `graph` condition
-is still wrong more often than not in absolute terms (54%). See the paper
-and [`README.md`](README.md#research--evaluation) for the full
-methodology, the pre-registered commit/hedge scoring rule, the 11/11
-held-out scorer validation, and the κ=0.640 scorer-human agreement check.
+The deployed-benefit gap is positive for every model on both graphs. The
+structure-alone gap is positive in 8 of 10 measured cells — broader than
+the pilot suggested, since GPT-5.5 and DeepSeek both show it too, just
+smaller in magnitude than Claude's. The two exceptions are disclosed, not
+smoothed over: `kimi-k3`'s structure-alone effect reverses sign on graph1
+(a real run-level pattern, not noise — it loses 3 of 5 runs), and
+`deepseek-v4-pro` is missing graph1's structure-only cell entirely after
+two attempts both produced empty-but-token-consuming responses (a
+reliability finding about a day-old model release, not a harness bug —
+the same condition succeeded cleanly on graph2). A correctness check
+(`n100_analysis.md`) confirms the added decisiveness is *accurate*, not
+just confident, for every model on both graphs — though flagged honestly,
+absolute correctness stays modest even at its best (~40% for GPT-5.5,
+lower for every other model). See the paper and
+[`README.md`](README.md#research--evaluation) for the full methodology,
+the pre-registered commit/hedge scoring rule, the 11/11 held-out scorer
+validation, the query-local near-tie exclusion for correctness scoring,
+and the κ=0.640 scorer-human agreement check.
 
 ### 5. Priority Inference from Conversation History
 
@@ -204,7 +217,7 @@ it is not a claim of exhaustive prior-art review.
 - **Mem0, MemGPT** — both are agent/conversational memory systems whose
   primary function is recall and context-window management. Asterism's
   point of difference is emphasis, not existence: it treats
-  *prioritization* as the function under test, and the three-condition
+  *prioritization* as the function under test, and the five-condition
   comparison (component 4) is designed specifically to separate that
   from the recall benefit those systems target. Neither, to our
   knowledge, ships a visual constellation render or a session-based
