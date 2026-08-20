@@ -1,0 +1,1973 @@
+[
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Here's how I'd think through it:",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "The core tension: You're load-bearing in too many directions simultaneously.",
+    "extract_status": "off_graph",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "In-home care aide search",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "In-home care aide search",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Ceramics Hobby",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-sonnet-4-6",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Active Client Projects",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Hiring a part-time contractor",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "none",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "What are the 3\u20135 things currently on your plate?",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Ceramics Hobby",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Community studio membership renewal",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the single most important thing I should be doing today?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "In-home care aide search",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Figma advanced prototyping course",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Mom's cardiology appointment follow-up",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Figma advanced prototyping course",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "In-home care aide search",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "claude-opus-4-8",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's my top priority right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Kids' School Transition",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "none",
+    "query": "What's holding me back the most right now?",
+    "target": "lack of clarity about the actual bottleneck",
+    "extract_status": "off_graph",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Studio Business Operations",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 1,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Identify the single bottleneck that would make everything else easier, then prot...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "30\u201360 min: reset your space or life admin",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's holding me back the most right now?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "In-home care aide search",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Finish the smallest shippable version of the thing that creates external feedbac...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 2,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Do a short strategic review, identify the one bottleneck that matters most, then...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Health & Recovery",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Studio Business Operations",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Ceramics Hobby",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "none",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Studio Business Operations",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 3,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's my top priority right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "Invoice follow-up for overdue client",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Which of my interests deserves the most attention this month?",
+    "target": "Studio Business Operations",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Active Client Projects",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "none",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "flat_list",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Active Client Projects",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 4,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Spend 30\u201345 minutes identifying the single bottleneck that most affects your mos...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's my top priority right now?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What should I focus on next?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What should I focus on next?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What should I focus on next?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "If I could only work on one thing this week, what should it be?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Between the bakery brand identity project and my mom's care coordination, which should I prioritize?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "Rank my current projects from most to least urgent.",
+    "target": "Business savings buffer goal",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "I only have a few free hours this weekend - what should I spend them on?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's holding me back the most right now?",
+    "target": "Family & Caregiving",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's holding me back the most right now?",
+    "target": "Parent's Care Coordination",
+    "extract_status": "high",
+    "verdict": "N/A"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Client intake process automation",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "New client onboarding backlog",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "target": "Finish the most upstream, blocking deliverable \u2014 the thing that would make sever...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "Should I focus on client work or my ceramics practice first?",
+    "target": "Client Design Work",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "flat_list_prioritized",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Studio Business Operations",
+    "extract_status": "high",
+    "verdict": "WRONG"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "graph_neutral",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Brand identity project deadline for local bakery",
+    "extract_status": "high",
+    "verdict": "CORRECT"
+  },
+  {
+    "model": "gpt-5.5-2026-04-23",
+    "run": 5,
+    "condition": "none",
+    "query": "What's the highest-leverage use of my time this week?",
+    "target": "Identify the one bottleneck that, if resolved, would make the most important pro...",
+    "extract_status": "off_graph",
+    "verdict": "WRONG"
+  }
+]
