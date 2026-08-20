@@ -1,0 +1,1638 @@
+[
+  {
+    "id": "generic_1",
+    "text": "What's my top priority right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_2",
+    "text": "What should I focus on next?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_3",
+    "text": "If I could only work on one thing this week, what should it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_4",
+    "text": "What's the single most important thing I should be doing today?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_5",
+    "text": "Rank my current projects from most to least urgent.",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_6",
+    "text": "I only have a few free hours this weekend - what should I spend them on?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_7",
+    "text": "What's holding me back the most right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "ambiguous",
+      "correct": null,
+      "wrong": null,
+      "near_tie": false
+    }
+  },
+  {
+    "id": "generic_8",
+    "text": "Which of my interests deserves the most attention this month?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_9",
+    "text": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_10",
+    "text": "What's the highest-leverage use of my time this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_11",
+    "text": "If you had to pick just one thing for me to work on tomorrow, what would it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_12",
+    "text": "What deserves my full attention this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_13",
+    "text": "Out of everything on my plate, what matters most right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_14",
+    "text": "What should be at the top of my to-do list today?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_15",
+    "text": "If I had to drop everything else and focus on one thing, what should it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_16",
+    "text": "What's the smartest use of my next free hour?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_17",
+    "text": "Which of my current efforts is most urgent?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_18",
+    "text": "What should I prioritize above everything else this month?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_19",
+    "text": "If someone asked what I'm most focused on right now, what should the honest answer be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "generic_20",
+    "text": "What's the one project I shouldn't let slip this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Open Source Development",
+        "AI Memory Tools",
+        "LLM context window limitations"
+      ],
+      "wrong": null,
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "pairwise_1",
+    "text": "Between Open Source Development and Career Growth, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Career Growth"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_2",
+    "text": "Should I focus on Open Source Development or Research Identity first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_3",
+    "text": "If I had to choose between Open Source Development and Technical Skills this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_4",
+    "text": "Open Source Development or Philosophy & Identity - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_5",
+    "text": "Between Open Source Development and Stoicism, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 25.0
+    }
+  },
+  {
+    "id": "pairwise_6",
+    "text": "Should I focus on Open Source Development or Health & Wellbeing first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 60.0
+    }
+  },
+  {
+    "id": "pairwise_7",
+    "text": "If I had to choose between Open Source Development and Fitness this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 63.0
+    }
+  },
+  {
+    "id": "pairwise_8",
+    "text": "AI Memory Tools or CLI Tools - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_9",
+    "text": "Between AI Memory Tools and Career Growth, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "pairwise_10",
+    "text": "Should I focus on AI Memory Tools or Research Identity first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_11",
+    "text": "If I had to choose between AI Memory Tools and Technical Skills this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_12",
+    "text": "AI Memory Tools or Philosophy & Identity - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_13",
+    "text": "Between AI Memory Tools and Stoicism, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_14",
+    "text": "Should I focus on AI Memory Tools or Health & Wellbeing first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 55.0
+    }
+  },
+  {
+    "id": "pairwise_15",
+    "text": "If I had to choose between AI Memory Tools and Fitness this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 58.0
+    }
+  },
+  {
+    "id": "pairwise_16",
+    "text": "CLI Tools or Career Growth - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Career Growth"
+      ],
+      "wrong": [
+        "CLI Tools"
+      ],
+      "near_tie": true,
+      "gap": 3.0
+    }
+  },
+  {
+    "id": "pairwise_17",
+    "text": "Between CLI Tools and Research Identity, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Research Identity"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_18",
+    "text": "Should I focus on CLI Tools or Technical Skills first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 7.0
+    }
+  },
+  {
+    "id": "pairwise_19",
+    "text": "If I had to choose between CLI Tools and Philosophy & Identity this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 7.0
+    }
+  },
+  {
+    "id": "pairwise_20",
+    "text": "CLI Tools or Stoicism - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 12.0
+    }
+  },
+  {
+    "id": "pairwise_21",
+    "text": "Between CLI Tools and Health & Wellbeing, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 47.0
+    }
+  },
+  {
+    "id": "pairwise_22",
+    "text": "Should I focus on CLI Tools or Fitness first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "CLI Tools"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 50.0
+    }
+  },
+  {
+    "id": "pairwise_23",
+    "text": "If I had to choose between Career Growth and Philosophy & Identity this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Career Growth"
+      ],
+      "wrong": [
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_24",
+    "text": "Career Growth or Stoicism - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Career Growth"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_25",
+    "text": "Between Career Growth and Health & Wellbeing, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Career Growth"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 50.0
+    }
+  },
+  {
+    "id": "pairwise_26",
+    "text": "Should I focus on Career Growth or Fitness first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Career Growth"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 53.0
+    }
+  },
+  {
+    "id": "pairwise_27",
+    "text": "If I had to choose between Research Identity and Technical Skills this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Research Identity"
+      ],
+      "wrong": [
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "pairwise_28",
+    "text": "Research Identity or Philosophy & Identity - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Research Identity"
+      ],
+      "wrong": [
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "pairwise_29",
+    "text": "Between Research Identity and Stoicism, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Research Identity"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_30",
+    "text": "Should I focus on Research Identity or Health & Wellbeing first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Research Identity"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 45.0
+    }
+  },
+  {
+    "id": "pairwise_31",
+    "text": "If I had to choose between Research Identity and Fitness this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Research Identity"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 48.0
+    }
+  },
+  {
+    "id": "pairwise_32",
+    "text": "Technical Skills or Philosophy & Identity - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Philosophy & Identity"
+      ],
+      "wrong": [
+        "Technical Skills"
+      ],
+      "near_tie": true,
+      "gap": 0.0
+    }
+  },
+  {
+    "id": "pairwise_33",
+    "text": "Between Technical Skills and Stoicism, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Technical Skills"
+      ],
+      "wrong": [
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "pairwise_34",
+    "text": "Should I focus on Technical Skills or Health & Wellbeing first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Technical Skills"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 40.0
+    }
+  },
+  {
+    "id": "pairwise_35",
+    "text": "If I had to choose between Technical Skills and Fitness this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Technical Skills"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 43.0
+    }
+  },
+  {
+    "id": "pairwise_36",
+    "text": "Philosophy & Identity or Health & Wellbeing - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Philosophy & Identity"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 40.0
+    }
+  },
+  {
+    "id": "pairwise_37",
+    "text": "Between Philosophy & Identity and Fitness, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Philosophy & Identity"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 43.0
+    }
+  },
+  {
+    "id": "pairwise_38",
+    "text": "Should I focus on Stoicism or Health & Wellbeing first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Stoicism"
+      ],
+      "wrong": [
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 35.0
+    }
+  },
+  {
+    "id": "pairwise_39",
+    "text": "If I had to choose between Stoicism and Fitness this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Stoicism"
+      ],
+      "wrong": [
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 38.0
+    }
+  },
+  {
+    "id": "triple_1",
+    "text": "Among Open Source Development, Career Growth, and Philosophy & Identity, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_2",
+    "text": "Of Open Source Development, Career Growth, and Stoicism, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_3",
+    "text": "Among Open Source Development, Career Growth, and Health & Wellbeing, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_4",
+    "text": "Of Open Source Development, Career Growth, and Fitness, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_5",
+    "text": "Among Open Source Development, Research Identity, and Technical Skills, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_6",
+    "text": "Of Open Source Development, Research Identity, and Philosophy & Identity, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_7",
+    "text": "Among Open Source Development, Research Identity, and Stoicism, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_8",
+    "text": "Of Open Source Development, Research Identity, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_9",
+    "text": "Among Open Source Development, Research Identity, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_10",
+    "text": "Of Open Source Development, Technical Skills, and Philosophy & Identity, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_11",
+    "text": "Among Open Source Development, Technical Skills, and Stoicism, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_12",
+    "text": "Of Open Source Development, Technical Skills, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_13",
+    "text": "Among Open Source Development, Technical Skills, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_14",
+    "text": "Of Open Source Development, Philosophy & Identity, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Philosophy & Identity",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_15",
+    "text": "Among Open Source Development, Philosophy & Identity, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Philosophy & Identity",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_16",
+    "text": "Of Open Source Development, Stoicism, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Stoicism",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 25.0
+    }
+  },
+  {
+    "id": "triple_17",
+    "text": "Among Open Source Development, Stoicism, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Open Source Development"
+      ],
+      "wrong": [
+        "Stoicism",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 25.0
+    }
+  },
+  {
+    "id": "triple_18",
+    "text": "Of AI Memory Tools, CLI Tools, and Career Growth, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth",
+        "CLI Tools"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "triple_19",
+    "text": "Among AI Memory Tools, CLI Tools, and Research Identity, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Research Identity"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_20",
+    "text": "Of AI Memory Tools, CLI Tools, and Technical Skills, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_21",
+    "text": "Among AI Memory Tools, CLI Tools, and Philosophy & Identity, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_22",
+    "text": "Of AI Memory Tools, CLI Tools, and Stoicism, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_23",
+    "text": "Among AI Memory Tools, CLI Tools, and Health & Wellbeing, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_24",
+    "text": "Of AI Memory Tools, CLI Tools, and Fitness, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "CLI Tools",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "triple_25",
+    "text": "Among AI Memory Tools, Career Growth, and Philosophy & Identity, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "triple_26",
+    "text": "Of AI Memory Tools, Career Growth, and Stoicism, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "triple_27",
+    "text": "Among AI Memory Tools, Career Growth, and Health & Wellbeing, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "triple_28",
+    "text": "Of AI Memory Tools, Career Growth, and Fitness, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Career Growth",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "triple_29",
+    "text": "Among AI Memory Tools, Research Identity, and Technical Skills, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Technical Skills"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_30",
+    "text": "Of AI Memory Tools, Research Identity, and Philosophy & Identity, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_31",
+    "text": "Among AI Memory Tools, Research Identity, and Stoicism, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_32",
+    "text": "Of AI Memory Tools, Research Identity, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_33",
+    "text": "Among AI Memory Tools, Research Identity, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Research Identity",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_34",
+    "text": "Of AI Memory Tools, Technical Skills, and Philosophy & Identity, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Philosophy & Identity"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_35",
+    "text": "Among AI Memory Tools, Technical Skills, and Stoicism, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Stoicism"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_36",
+    "text": "Of AI Memory Tools, Technical Skills, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_37",
+    "text": "Among AI Memory Tools, Technical Skills, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Technical Skills",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_38",
+    "text": "Of AI Memory Tools, Philosophy & Identity, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Philosophy & Identity",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_39",
+    "text": "Among AI Memory Tools, Philosophy & Identity, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Philosophy & Identity",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "triple_40",
+    "text": "Of AI Memory Tools, Stoicism, and Health & Wellbeing, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Stoicism",
+        "Health & Wellbeing"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "triple_41",
+    "text": "Among AI Memory Tools, Stoicism, and Fitness, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "AI Memory Tools"
+      ],
+      "wrong": [
+        "Stoicism",
+        "Fitness"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  }
+]

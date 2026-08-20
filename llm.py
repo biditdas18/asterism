@@ -91,6 +91,159 @@ def _make_openai_client():
     return openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
 
 
+# Phase B: Gemini and Groq, both OpenAI-compatible via base_url + key. Only
+# the two specific research-selected Groq model ids are routed here - Groq
+# hosts non-chat models (whisper, TTS, prompt-guard classifiers) under the
+# same /models listing with no reliable prefix to distinguish them, so an
+# explicit set is used instead of a prefix guess. Gemini model ids all start
+# with "gemini", which is unambiguous.
+_GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+_GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+_GROQ_MODELS = {"openai/gpt-oss-120b", "llama-3.3-70b-versatile"}
+
+
+def _make_gemini_client():
+    import os
+    import openai
+    from dotenv import load_dotenv
+    load_dotenv()
+    return openai.OpenAI(api_key=os.environ.get("GEMINI_API_KEY", ""), base_url=_GEMINI_BASE_URL)
+
+
+def _make_groq_client():
+    import os
+    import openai
+    from dotenv import load_dotenv
+    load_dotenv()
+    return openai.OpenAI(api_key=os.environ.get("GROQ_API_KEY", ""), base_url=_GROQ_BASE_URL)
+
+
+# Phase C: DeepSeek and Kimi (Moonshot), both OpenAI-compatible, token-billed
+# (no daily request cap). Confirmed against each provider's own current docs
+# before use, not guessed - see conversation record.
+_DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+_KIMI_BASE_URL = "https://api.moonshot.ai/v1"
+_DEEPSEEK_MODELS = {"deepseek-v4-pro"}
+# Kimi K3's temperature is fixed server-side at 1.0 and Moonshot's own docs
+# say the param "should be omitted" - it is never sent on this path (see
+# _one_openai_compatible_attempt's kimi special-case below). This still
+# satisfies the project's temperature=1.0-pinned-on-every-backend guard: the
+# pin is enforced by the provider's fixed default rather than an explicit
+# param for this one model, and that exception is disclosed, not silent.
+_KIMI_MODELS = {"kimi-k3"}
+
+
+def _make_deepseek_client():
+    import os
+    import openai
+    from dotenv import load_dotenv
+    load_dotenv()
+    return openai.OpenAI(api_key=os.environ.get("DEEPSEEK_API_KEY", ""), base_url=_DEEPSEEK_BASE_URL)
+
+
+def _make_kimi_client():
+    import os
+    import openai
+    from dotenv import load_dotenv
+    load_dotenv()
+    return openai.OpenAI(api_key=os.environ.get("MOONSHOT_API_KEY", ""), base_url=_KIMI_BASE_URL)
+
+
+def _is_rate_limit_error(exc: Exception) -> bool:
+    """Transient errors eligible for backoff retry: 429 (rate limit) and 503
+    (service unavailable - DeepSeek's docs note V4-Pro may return 503 under
+    load). Anything else (4xx client errors, connection resets after a
+    provider-side timeout, etc.) is not retried - it raises immediately."""
+    import openai as openai_module
+    if isinstance(exc, openai_module.RateLimitError):
+        return True
+    status = getattr(getattr(exc, "response", None), "status_code", None)
+    return status in (429, 503)
+
+
+def _retry_after_seconds(exc: Exception) -> float | None:
+    resp = getattr(exc, "response", None)
+    headers = getattr(resp, "headers", None)
+    if not headers:
+        return None
+    header = headers.get("retry-after")
+    if header is None:
+        return None
+    try:
+        return float(header)
+    except ValueError:
+        return None
+
+
+def _one_openai_compatible_attempt(client, model: str, temperature: float, openai_messages: list,
+                                    token_ceiling: int, backend_name: str):
+    """Same temperature-rejection fail-loud + token-param-name fallback pattern as the
+    OpenAI branch below, generalized for any OpenAI-compatible endpoint (Gemini, Groq,
+    DeepSeek, Kimi). A rate-limit error is re-raised untouched so the caller's backoff
+    loop can see it.
+
+    kimi-k3 special case: Moonshot's own docs state temperature is fixed server-side
+    at 1.0 and the param "should be omitted". Since this project pins temperature=1.0
+    everywhere, the fixed default already satisfies that pin - the param is dropped
+    for this model specifically rather than sent redundantly, and this function
+    refuses to proceed at all if a *different* temperature were ever requested for
+    it, since that could not actually be honored."""
+    send_temperature = model not in _KIMI_MODELS
+    if not send_temperature and temperature != 1.0:
+        raise RuntimeError(
+            f"Model {model!r} has temperature fixed server-side at 1.0 (Moonshot docs) - "
+            f"cannot honor a requested temperature={temperature}. Refusing to silently proceed."
+        )
+    base_kwargs = dict(model=model, messages=openai_messages)
+    if send_temperature:
+        base_kwargs["temperature"] = temperature
+    try:
+        return client.chat.completions.create(max_tokens=token_ceiling, **base_kwargs)
+    except Exception as e1:
+        if "temperature" in str(e1).lower():
+            raise RuntimeError(
+                f"Model {model!r} rejected temperature={temperature} on the {backend_name} "
+                f"path (max_tokens attempt) - not falling back silently. Original error: {e1}"
+            ) from e1
+        if _is_rate_limit_error(e1):
+            raise
+        return client.chat.completions.create(max_completion_tokens=token_ceiling, **base_kwargs)
+
+
+def _openai_compatible_call(client, model: str, temperature: float, openai_messages: list,
+                             token_ceiling: int, backend_name: str, max_retries: int = 0):
+    """Exponential backoff on 429 only, respecting Retry-After when the backend sends
+    one, capped at max_retries with jitter. Any other error, or a rate limit that
+    survives max_retries, raises immediately - no silent fallback, no retry past the
+    cap, and (since the caller only writes output after this returns) a run that
+    exhausts retries fails clean with no partial output written."""
+    attempt = 0
+    while True:
+        try:
+            return _one_openai_compatible_attempt(client, model, temperature, openai_messages,
+                                                   token_ceiling, backend_name)
+        except RuntimeError:
+            raise  # temperature rejection - never retried
+        except Exception as e:
+            if not _is_rate_limit_error(e):
+                raise
+            if attempt >= max_retries:
+                raise RuntimeError(
+                    f"Model {model!r} on {backend_name}: exhausted {max_retries} retries on "
+                    f"repeated 429 rate limiting. Failing clean - no partial output will be "
+                    f"written for this call. Original error: {e}"
+                ) from e
+            wait = _retry_after_seconds(e)
+            if wait is None:
+                import random
+                wait = (2 ** attempt) + random.uniform(0, 1)
+            attempt += 1
+            print(f"[{backend_name}] 429 rate limited on {model!r}, retry {attempt}/{max_retries} "
+                  f"after {wait:.1f}s")
+            import time
+            time.sleep(wait)
+
+
 def _load_graph_data() -> tuple[list[dict], dict[str, list[str]]]:
     """
     Returns:
@@ -238,8 +391,50 @@ def converse(user_msg: str, conversation_history: list, inject_mode: str = "grap
     # observed in that audit.
     OPENAI_MAX_COMPLETION_TOKENS = 8192
     ANTHROPIC_MAX_TOKENS = 4096
+    # Groq's free/on-demand tier caps openai/gpt-oss-120b at 8000 TPM total
+    # (prompt + reserved max_tokens counted together) - found via a live 413
+    # during Phase B smoke testing. 4096 leaves comfortable headroom under
+    # that cap even for the largest (30-node graph) prompt while still far
+    # exceeding any real response length observed from either Groq model.
+    GROQ_MAX_COMPLETION_TOKENS = 4096
 
-    if _is_openai_model(model):
+    if model.startswith("gemini"):
+        client = _make_gemini_client()
+        openai_messages = [{"role": "system", "content": system_prompt}] + messages
+        response = _openai_compatible_call(client, model, temperature, openai_messages,
+                                            OPENAI_MAX_COMPLETION_TOKENS, "gemini", max_retries=5)
+        response_text = response.choices[0].message.content
+        tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+        finish_signal = response.choices[0].finish_reason
+        truncated = finish_signal == "length"
+    elif model in _GROQ_MODELS:
+        client = _make_groq_client()
+        openai_messages = [{"role": "system", "content": system_prompt}] + messages
+        response = _openai_compatible_call(client, model, temperature, openai_messages,
+                                            GROQ_MAX_COMPLETION_TOKENS, "groq", max_retries=5)
+        response_text = response.choices[0].message.content
+        tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+        finish_signal = response.choices[0].finish_reason
+        truncated = finish_signal == "length"
+    elif model in _DEEPSEEK_MODELS:
+        client = _make_deepseek_client()
+        openai_messages = [{"role": "system", "content": system_prompt}] + messages
+        response = _openai_compatible_call(client, model, temperature, openai_messages,
+                                            OPENAI_MAX_COMPLETION_TOKENS, "deepseek", max_retries=5)
+        response_text = response.choices[0].message.content
+        tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+        finish_signal = response.choices[0].finish_reason
+        truncated = finish_signal == "length"
+    elif model in _KIMI_MODELS:
+        client = _make_kimi_client()
+        openai_messages = [{"role": "system", "content": system_prompt}] + messages
+        response = _openai_compatible_call(client, model, temperature, openai_messages,
+                                            OPENAI_MAX_COMPLETION_TOKENS, "kimi", max_retries=5)
+        response_text = response.choices[0].message.content
+        tokens_used = response.usage.prompt_tokens + response.usage.completion_tokens
+        finish_signal = response.choices[0].finish_reason
+        truncated = finish_signal == "length"
+    elif _is_openai_model(model):
         client = _make_openai_client()
         openai_messages = [{"role": "system", "content": system_prompt}] + messages
         try:

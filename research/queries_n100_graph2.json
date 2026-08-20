@@ -1,0 +1,1607 @@
+[
+  {
+    "id": "generic_1",
+    "text": "What's my top priority right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_2",
+    "text": "What should I focus on next?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_3",
+    "text": "If I could only work on one thing this week, what should it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_4",
+    "text": "What's the single most important thing I should be doing today?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_5",
+    "text": "Rank my current projects from most to least urgent.",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_6",
+    "text": "I only have a few free hours this weekend - what should I spend them on?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_7",
+    "text": "What's holding me back the most right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "ambiguous",
+      "correct": null,
+      "wrong": null,
+      "near_tie": false
+    }
+  },
+  {
+    "id": "generic_8",
+    "text": "Which of my interests deserves the most attention this month?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_9",
+    "text": "What's the one thing that, if I finished it, would unlock the most progress?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_10",
+    "text": "What's the highest-leverage use of my time this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_11",
+    "text": "If you had to pick just one thing for me to work on tomorrow, what would it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_12",
+    "text": "What deserves my full attention this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_13",
+    "text": "Out of everything on my plate, what matters most right now?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_14",
+    "text": "What should be at the top of my to-do list today?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_15",
+    "text": "If I had to drop everything else and focus on one thing, what should it be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_16",
+    "text": "What's the smartest use of my next free hour?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_17",
+    "text": "Which of my current efforts is most urgent?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_18",
+    "text": "What should I prioritize above everything else this month?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_19",
+    "text": "If someone asked what I'm most focused on right now, what should the honest answer be?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "generic_20",
+    "text": "What's the one project I shouldn't let slip this week?",
+    "family": "generic",
+    "ground_truth": {
+      "mode": "top_path",
+      "correct": [
+        "Client Design Work",
+        "Active Client Projects",
+        "Brand identity project deadline for local bakery"
+      ],
+      "wrong": null,
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_1",
+    "text": "Between Client Design Work and Family & Caregiving, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Family & Caregiving"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "pairwise_2",
+    "text": "Should I focus on Client Design Work or Parent's Care Coordination first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Parent's Care Coordination"
+      ],
+      "near_tie": false,
+      "gap": 11.0
+    }
+  },
+  {
+    "id": "pairwise_3",
+    "text": "If I had to choose between Client Design Work and Kids' School Transition this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 18.0
+    }
+  },
+  {
+    "id": "pairwise_4",
+    "text": "Client Design Work or Studio Business Operations - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Studio Business Operations"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_5",
+    "text": "Between Client Design Work and Financial Planning, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Financial Planning"
+      ],
+      "near_tie": false,
+      "gap": 12.0
+    }
+  },
+  {
+    "id": "pairwise_6",
+    "text": "Should I focus on Client Design Work or Studio Growth first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_7",
+    "text": "If I had to choose between Client Design Work and Creative Practice this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 23.0
+    }
+  },
+  {
+    "id": "pairwise_8",
+    "text": "Client Design Work or Ceramics Hobby - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 28.0
+    }
+  },
+  {
+    "id": "pairwise_9",
+    "text": "Between Client Design Work and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 38.0
+    }
+  },
+  {
+    "id": "pairwise_10",
+    "text": "Should I focus on Client Design Work or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 42.0
+    }
+  },
+  {
+    "id": "pairwise_11",
+    "text": "If I had to choose between Active Client Projects and Design Skill Development this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Design Skill Development"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "pairwise_12",
+    "text": "Active Client Projects or Family & Caregiving - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Family & Caregiving"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_13",
+    "text": "Between Active Client Projects and Parent's Care Coordination, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Parent's Care Coordination"
+      ],
+      "near_tie": false,
+      "gap": 7.0
+    }
+  },
+  {
+    "id": "pairwise_14",
+    "text": "Should I focus on Active Client Projects or Kids' School Transition first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 14.0
+    }
+  },
+  {
+    "id": "pairwise_15",
+    "text": "If I had to choose between Active Client Projects and Studio Business Operations this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Studio Business Operations"
+      ],
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "pairwise_16",
+    "text": "Active Client Projects or Financial Planning - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Financial Planning"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_17",
+    "text": "Between Active Client Projects and Studio Growth, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 16.0
+    }
+  },
+  {
+    "id": "pairwise_18",
+    "text": "Should I focus on Active Client Projects or Creative Practice first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 19.0
+    }
+  },
+  {
+    "id": "pairwise_19",
+    "text": "If I had to choose between Active Client Projects and Ceramics Hobby this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 24.0
+    }
+  },
+  {
+    "id": "pairwise_20",
+    "text": "Active Client Projects or Personal Health - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 34.0
+    }
+  },
+  {
+    "id": "pairwise_21",
+    "text": "Between Active Client Projects and Health & Recovery, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 38.0
+    }
+  },
+  {
+    "id": "pairwise_22",
+    "text": "Should I focus on Design Skill Development or Family & Caregiving first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Design Skill Development"
+      ],
+      "near_tie": false,
+      "gap": 4.0
+    }
+  },
+  {
+    "id": "pairwise_23",
+    "text": "If I had to choose between Design Skill Development and Parent's Care Coordination this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Parent's Care Coordination"
+      ],
+      "near_tie": true,
+      "gap": 1.0
+    }
+  },
+  {
+    "id": "pairwise_24",
+    "text": "Design Skill Development or Kids' School Transition - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_25",
+    "text": "Between Design Skill Development and Studio Business Operations, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Design Skill Development"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_26",
+    "text": "Should I focus on Design Skill Development or Financial Planning first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Financial Planning"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_27",
+    "text": "If I had to choose between Design Skill Development and Studio Growth this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_28",
+    "text": "Design Skill Development or Creative Practice - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 13.0
+    }
+  },
+  {
+    "id": "pairwise_29",
+    "text": "Between Design Skill Development and Ceramics Hobby, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 18.0
+    }
+  },
+  {
+    "id": "pairwise_30",
+    "text": "Should I focus on Design Skill Development or Personal Health first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 28.0
+    }
+  },
+  {
+    "id": "pairwise_31",
+    "text": "If I had to choose between Design Skill Development and Health & Recovery this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 32.0
+    }
+  },
+  {
+    "id": "pairwise_32",
+    "text": "Family & Caregiving or Studio Business Operations - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Studio Business Operations"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_33",
+    "text": "Between Family & Caregiving and Financial Planning, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Financial Planning"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "pairwise_34",
+    "text": "Should I focus on Family & Caregiving or Studio Growth first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 14.0
+    }
+  },
+  {
+    "id": "pairwise_35",
+    "text": "If I had to choose between Family & Caregiving and Creative Practice this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 17.0
+    }
+  },
+  {
+    "id": "pairwise_36",
+    "text": "Family & Caregiving or Ceramics Hobby - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 22.0
+    }
+  },
+  {
+    "id": "pairwise_37",
+    "text": "Between Family & Caregiving and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 32.0
+    }
+  },
+  {
+    "id": "pairwise_38",
+    "text": "Should I focus on Family & Caregiving or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 36.0
+    }
+  },
+  {
+    "id": "pairwise_39",
+    "text": "If I had to choose between Parent's Care Coordination and Kids' School Transition this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 7.0
+    }
+  },
+  {
+    "id": "pairwise_40",
+    "text": "Parent's Care Coordination or Studio Business Operations - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Parent's Care Coordination"
+      ],
+      "near_tie": true,
+      "gap": 3.0
+    }
+  },
+  {
+    "id": "pairwise_41",
+    "text": "Between Parent's Care Coordination and Financial Planning, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Financial Planning"
+      ],
+      "near_tie": true,
+      "gap": 1.0
+    }
+  },
+  {
+    "id": "pairwise_42",
+    "text": "Should I focus on Parent's Care Coordination or Studio Growth first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 9.0
+    }
+  },
+  {
+    "id": "pairwise_43",
+    "text": "If I had to choose between Parent's Care Coordination and Creative Practice this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 12.0
+    }
+  },
+  {
+    "id": "pairwise_44",
+    "text": "Parent's Care Coordination or Ceramics Hobby - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 17.0
+    }
+  },
+  {
+    "id": "pairwise_45",
+    "text": "Between Parent's Care Coordination and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 27.0
+    }
+  },
+  {
+    "id": "pairwise_46",
+    "text": "Should I focus on Parent's Care Coordination or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 31.0
+    }
+  },
+  {
+    "id": "pairwise_47",
+    "text": "If I had to choose between Kids' School Transition and Studio Business Operations this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_48",
+    "text": "Kids' School Transition or Financial Planning - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Kids' School Transition"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "pairwise_49",
+    "text": "Between Kids' School Transition and Studio Growth, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  },
+  {
+    "id": "pairwise_50",
+    "text": "Should I focus on Kids' School Transition or Creative Practice first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 5.0
+    }
+  },
+  {
+    "id": "pairwise_51",
+    "text": "If I had to choose between Kids' School Transition and Ceramics Hobby this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_52",
+    "text": "Kids' School Transition or Personal Health - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_53",
+    "text": "Between Kids' School Transition and Health & Recovery, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 24.0
+    }
+  },
+  {
+    "id": "pairwise_54",
+    "text": "Should I focus on Studio Business Operations or Creative Practice first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_55",
+    "text": "If I had to choose between Studio Business Operations and Ceramics Hobby this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 20.0
+    }
+  },
+  {
+    "id": "pairwise_56",
+    "text": "Studio Business Operations or Personal Health - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 30.0
+    }
+  },
+  {
+    "id": "pairwise_57",
+    "text": "Between Studio Business Operations and Health & Recovery, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Business Operations"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 34.0
+    }
+  },
+  {
+    "id": "pairwise_58",
+    "text": "Should I focus on Financial Planning or Studio Growth first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Studio Growth"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_59",
+    "text": "If I had to choose between Financial Planning and Creative Practice this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 11.0
+    }
+  },
+  {
+    "id": "pairwise_60",
+    "text": "Financial Planning or Ceramics Hobby - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 16.0
+    }
+  },
+  {
+    "id": "pairwise_61",
+    "text": "Between Financial Planning and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 26.0
+    }
+  },
+  {
+    "id": "pairwise_62",
+    "text": "Should I focus on Financial Planning or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Financial Planning"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 30.0
+    }
+  },
+  {
+    "id": "pairwise_63",
+    "text": "If I had to choose between Studio Growth and Creative Practice this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Growth"
+      ],
+      "wrong": [
+        "Creative Practice"
+      ],
+      "near_tie": true,
+      "gap": 3.0
+    }
+  },
+  {
+    "id": "pairwise_64",
+    "text": "Studio Growth or Ceramics Hobby - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Growth"
+      ],
+      "wrong": [
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 8.0
+    }
+  },
+  {
+    "id": "pairwise_65",
+    "text": "Between Studio Growth and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Growth"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 18.0
+    }
+  },
+  {
+    "id": "pairwise_66",
+    "text": "Should I focus on Studio Growth or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Studio Growth"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 22.0
+    }
+  },
+  {
+    "id": "pairwise_67",
+    "text": "If I had to choose between Creative Practice and Personal Health this week, which comes first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Creative Practice"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 15.0
+    }
+  },
+  {
+    "id": "pairwise_68",
+    "text": "Creative Practice or Health & Recovery - which one deserves my attention right now?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Creative Practice"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 19.0
+    }
+  },
+  {
+    "id": "pairwise_69",
+    "text": "Between Ceramics Hobby and Personal Health, which should I prioritize?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Ceramics Hobby"
+      ],
+      "wrong": [
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "pairwise_70",
+    "text": "Should I focus on Ceramics Hobby or Health & Recovery first?",
+    "family": "pairwise",
+    "ground_truth": {
+      "mode": "pairwise",
+      "correct": [
+        "Ceramics Hobby"
+      ],
+      "wrong": [
+        "Health & Recovery"
+      ],
+      "near_tie": false,
+      "gap": 14.0
+    }
+  },
+  {
+    "id": "triple_1",
+    "text": "Among Client Design Work, Family & Caregiving, and Studio Business Operations, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Family & Caregiving",
+        "Studio Business Operations"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "triple_2",
+    "text": "Of Client Design Work, Kids' School Transition, and Personal Health, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Client Design Work"
+      ],
+      "wrong": [
+        "Kids' School Transition",
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 18.0
+    }
+  },
+  {
+    "id": "triple_3",
+    "text": "Among Active Client Projects, Design Skill Development, and Parent's Care Coordination, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Design Skill Development",
+        "Parent's Care Coordination"
+      ],
+      "near_tie": false,
+      "gap": 6.0
+    }
+  },
+  {
+    "id": "triple_4",
+    "text": "Of Active Client Projects, Parent's Care Coordination, and Creative Practice, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Parent's Care Coordination",
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 7.0
+    }
+  },
+  {
+    "id": "triple_5",
+    "text": "Among Active Client Projects, Studio Growth, and Creative Practice, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Active Client Projects"
+      ],
+      "wrong": [
+        "Studio Growth",
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 16.0
+    }
+  },
+  {
+    "id": "triple_6",
+    "text": "Of Design Skill Development, Parent's Care Coordination, and Ceramics Hobby, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Parent's Care Coordination",
+        "Ceramics Hobby"
+      ],
+      "near_tie": true,
+      "gap": 1.0
+    }
+  },
+  {
+    "id": "triple_7",
+    "text": "Among Design Skill Development, Studio Growth, and Ceramics Hobby, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Design Skill Development"
+      ],
+      "wrong": [
+        "Studio Growth",
+        "Ceramics Hobby"
+      ],
+      "near_tie": false,
+      "gap": 10.0
+    }
+  },
+  {
+    "id": "triple_8",
+    "text": "Of Family & Caregiving, Creative Practice, and Personal Health, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Family & Caregiving"
+      ],
+      "wrong": [
+        "Creative Practice",
+        "Personal Health"
+      ],
+      "near_tie": false,
+      "gap": 17.0
+    }
+  },
+  {
+    "id": "triple_9",
+    "text": "Among Parent's Care Coordination, Studio Growth, and Creative Practice, which should take priority?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Parent's Care Coordination"
+      ],
+      "wrong": [
+        "Studio Growth",
+        "Creative Practice"
+      ],
+      "near_tie": false,
+      "gap": 9.0
+    }
+  },
+  {
+    "id": "triple_10",
+    "text": "Of Kids' School Transition, Studio Growth, and Health & Recovery, which one comes first?",
+    "family": "triple",
+    "ground_truth": {
+      "mode": "triple",
+      "correct": [
+        "Kids' School Transition"
+      ],
+      "wrong": [
+        "Studio Growth",
+        "Health & Recovery"
+      ],
+      "near_tie": true,
+      "gap": 2.0
+    }
+  }
+]
