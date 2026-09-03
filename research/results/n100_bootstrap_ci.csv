@@ -1,0 +1,21 @@
+model,graph,contrast,mean_gap_pp,ci95_lo,ci95_hi,p_two_sided,runs_positive,n_runs,run_sd_pp,excludes_zero
+Sonnet,G1,graph - flat_list (deployed),21.8,15.2,28.6,0.0001,5,5,4.32,yes
+Sonnet,G1,graph_neutral - flat_list (structure-only),19.4,11.6,27.6,0.0001,5,5,3.91,yes
+Sonnet,G2,graph - flat_list (deployed),38.8,31.6,45.8,0.0001,5,5,4.92,yes
+Sonnet,G2,graph_neutral - flat_list (structure-only),20.2,13.8,26.8,0.0001,5,5,1.48,yes
+Opus,G1,graph - flat_list (deployed),36.0,30.4,41.8,0.0001,5,5,4.64,yes
+Opus,G1,graph_neutral - flat_list (structure-only),23.6,18.4,28.8,0.0001,5,5,5.81,yes
+Opus,G2,graph - flat_list (deployed),32.6,27.2,38.0,0.0001,5,5,6.43,yes
+Opus,G2,graph_neutral - flat_list (structure-only),16.4,11.0,21.8,0.0001,5,5,7.3,yes
+GPT,G1,graph - flat_list (deployed),15.2,9.4,21.0,0.0001,5,5,5.54,yes
+GPT,G1,graph_neutral - flat_list (structure-only),5.2,0.4,10.0,0.0368,5,5,3.63,yes
+GPT,G2,graph - flat_list (deployed),18.4,13.4,23.6,0.0001,5,5,3.58,yes
+GPT,G2,graph_neutral - flat_list (structure-only),4.2,-1.4,9.8,0.1456,4,5,5.4,no
+DeepSeek,G1,graph - flat_list (deployed),4.4,0.6,8.4,0.0248,4,5,4.72,yes
+DeepSeek,G1,graph_neutral - flat_list (structure-only),,,,,,,,not measured
+DeepSeek,G2,graph - flat_list (deployed),9.4,5.2,13.8,0.0001,5,5,6.11,yes
+DeepSeek,G2,graph_neutral - flat_list (structure-only),7.0,2.6,11.4,0.0018,5,5,4.18,yes
+Kimi,G1,graph - flat_list (deployed),2.6,-3.0,8.2,0.3692,3,5,6.02,no
+Kimi,G1,graph_neutral - flat_list (structure-only),-2.6,-7.4,2.2,0.293,2,5,6.69,no
+Kimi,G2,graph - flat_list (deployed),8.2,3.4,13.2,0.0014,5,5,3.27,yes
+Kimi,G2,graph_neutral - flat_list (structure-only),3.2,-0.6,7.0,0.119,5,5,0.45,no
