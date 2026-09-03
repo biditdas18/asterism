@@ -11,3 +11,6 @@ lib/
 ~/.asterism/
 data/
 research/poc_eval.db
+
+# Local editor/agent settings
+.claude/

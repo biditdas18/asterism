@@ -76,7 +76,7 @@ The core architectural claim — that a weighted knowledge graph acts as a *prio
 
 ### The finding
 
-A weighted knowledge graph, injected as context with a prioritization instruction, increases **decisive, more-accurate commitment** over flat, unweighted memory — replicated across **5 models spanning 4 vendors** (Anthropic, OpenAI, DeepSeek, Moonshot), **2 independently-designed seed graphs**, and **100 priority-ranking queries per graph** (24,500 scored responses). The benefit is driven by graph **structure itself**, not the instruction riding along with it: a structure-only condition (`graph_neutral`, weighted context with the prioritize/commit instruction stripped out) reproduces most of the gain in **8 of the 10 model×graph cells measured** — a broader, more model-general result than an earlier 12-query pilot suggested, which had looked Claude-specific rather than structural.
+A weighted knowledge graph, injected as context with a prioritization instruction, increases **decisive, more-accurate commitment** over flat, unweighted memory — replicated across **5 models spanning 4 vendors** (Anthropic, OpenAI, DeepSeek, Moonshot), **2 independently-designed seed graphs**, and **100 priority-ranking queries per graph** (24,500 scored responses). The benefit is driven by graph **structure itself**, not the instruction riding along with it: a structure-only condition (`graph_neutral`, weighted context with the prioritize/commit instruction stripped out) reproduces most of the gain in **8 of the 9 measured model×graph cells** (of 10 total; `deepseek-v4-pro` on graph 1 was not measured) — a broader, more model-general result than an earlier 12-query pilot suggested, which had looked Claude-specific rather than structural.
 
 **Stated without spin:** absolute priority-routing accuracy stays modest even where the effect is strongest — the best model tops out around 40% correct, most sit well below that. Decisive is not the same claim as reliably correct, and this eval reports both.
 
@@ -123,7 +123,9 @@ An initial 12-query pilot (below) suggested the structural effect might be speci
 | `deepseek-v4-pro` | G1 / G2 | +4.4 / +9.4 | N/A (skip) / +7.0 |
 | `kimi-k3` | G1 / G2 | +2.6 / +8.2 | **−2.6** / +3.2 |
 
-The deployed-benefit gap (`graph` vs `flat_list`) is positive for **every model on both graphs** — no exceptions. The structure-only gap is positive in 8 of 10 measured cells; the two exceptions are disclosed, not hidden: `kimi-k3` is the only model where structure-alone is negative on one graph (G1, −2.6 — run-level, this loses 3/5 runs, not a rounding artifact), and `deepseek-v4-pro` is missing a data point on G1 entirely (see below).
+The deployed-benefit gap (`graph` vs `flat_list`) is positive for **every model on both graphs** — no exceptions. The structure-only gap is positive in 8 of the 9 measured cells (10 total); the two exceptions are disclosed, not hidden: `kimi-k3` is the only model where structure-alone is negative on one graph (G1, −2.6 — run-level, this loses 3/5 runs, not a rounding artifact), and `deepseek-v4-pro` is missing a data point on G1 entirely (see below).
+
+**Interval estimates.** A paired bootstrap over the shared query set (10,000 resamples, seed 20260902; `research/results/n100_bootstrap_ci.csv`) puts 95% confidence intervals on both gaps. The deployed gap excludes zero in **9 of 10** cells — `kimi-k3` G1 (+2.6, [−3.0, +8.2]) is the exception. The structure-only gap excludes zero in **6 of the 9** measured cells: both Claude models on both graphs, `gpt-5.5` G1, and `deepseek-v4-pro` G2. It does *not* separate from zero for `gpt-5.5` G2 (+4.2, [−1.4, +9.8]) or either `kimi-k3` cell. So the structural claim rests on the six cells where it is separable, not on the panel as a whole. The frozen scorer's labels were read as-is for this; nothing was recomputed or relabelled.
 
 ### Correctness methodology (commit ≠ correct)
 

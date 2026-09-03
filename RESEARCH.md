@@ -122,9 +122,17 @@ commit-rate points (`graph` vs `flat_list` = deployed benefit;
 | kimi-k3             | +2.6                | −2.6                     | +8.2                | +3.2                     |
 
 The deployed-benefit gap is positive for every model on both graphs. The
-structure-alone gap is positive in 8 of 10 measured cells — broader than
+structure-alone gap is positive in 8 of the 9 measured cells (10 total,
+one unmeasured) — broader than
 the pilot suggested, since GPT-5.5 and DeepSeek both show it too, just
-smaller in magnitude than Claude's. The two exceptions are disclosed, not
+smaller in magnitude than Claude's. A paired bootstrap over the query set
+(`results/n100_bootstrap_ci.csv`) narrows that further: the structure-alone
+gap has a 95% CI excluding zero in only **6 of the 9** measured cells — both
+Claude models on both graphs, GPT-5.5 graph1, and DeepSeek graph2. GPT-5.5
+graph2 (+4.2, [−1.4, +9.8]) and both `kimi-k3` cells are not separable from
+zero at this sample size, so the structural claim is carried by the six
+separable cells rather than by the panel as a whole. The deployed gap
+excludes zero in 9 of 10 cells (`kimi-k3` graph1 is the exception). The two exceptions are disclosed, not
 smoothed over: `kimi-k3`'s structure-alone effect reverses sign on graph1
 (a real run-level pattern, not noise — it loses 3 of 5 runs), and
 `deepseek-v4-pro` is missing graph1's structure-only cell entirely after
