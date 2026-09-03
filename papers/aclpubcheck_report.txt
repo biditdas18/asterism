@@ -1,0 +1,33 @@
+aclpubcheck (acl-org/aclpubcheck, --paper_type long)
+
+  Asterism_SSRN_revised.pdf                   (\anonfalse, named)   ->  All Clear!
+  Asterism_workshop_paper.pdf                 (\anonfalse, named)   ->  All Clear!
+  Asterism_NORA2026_anonymous_submission.pdf  (\anontrue, [review]) ->  892 margin errors, 0 warnings
+
+The three PDFs are two builds of one source, selected by the \ifanon toggle at
+the top of asterism.tex (\anontrue = anonymous review; \anonfalse = named).
+Asterism_SSRN_revised.pdf and Asterism_workshop_paper.pdf are the same named
+build under two names, one for the SSRN posting and one as the camera-ready.
+
+The 892 errors on the review build are all "Text bleeds into the {right,bottom}
+margin", one per numbered line plus one per page footer. They are review-mode
+furniture: acl.sty's [review] option prints line numbers and page numbers
+outside the text block by design. The two builds differ only in the \ifanon
+toggle, and the identical check on the named build is clean, which isolates
+every finding to that furniture. aclpubcheck is a camera-ready instrument; it
+is not meaningful against a [review] artifact. No overfull hboxes in either
+build.
+
+Page budget (NORA @ AACL 2026, long track, 8 pages of main body):
+  main body ends p8 | Limitations + Ethics p9 | References p10 | Appendices p10-11
+The limits bind the main body only; back matter and appendices are unlimited.
+
+Anonymity (review build): no occurrence of the author name, handle,
+affiliation phrase, live repository URL, or any address-like token.
+Author line reads "Anonymous ACL submission"; the appendix cites the
+anonymized code mirror. Embedded /Author metadata is empty.
+
+Named build: author block and appendix both carry
+https://github.com/biditdas18/asterism, no anonymized-mirror reference, and
+embedded /Author, /Title, /Subject, /Keywords metadata is populated for
+public-repository indexing.
