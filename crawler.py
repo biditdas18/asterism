@@ -198,7 +198,7 @@ def crawl_claude(path: str):
     init_db()
 
     config = load_config()
-    user_node = config.get("user_name", "Bidit")
+    user_node = config.get("user_name", "Anonymous")
     api_key = config.get("anthropic_api_key", "")
 
     with open(path, "r", encoding="utf-8") as f:

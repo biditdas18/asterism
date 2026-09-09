@@ -10,9 +10,9 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 
 ![Asterism Demo](docs/asterism.gif)
 
-![Constellation zoomed out — Bidit as central star](docs/screenshot-zoomed.png)
+<!-- ![Constellation zoomed out — Anonymous as central star](docs/screenshot-zoomed.png) -->
 
-![Asterism central node — pulsar effect with radiating edges](docs/screenshot-hover.png)
+<!-- ![Asterism central node — pulsar effect with radiating edges](docs/screenshot-hover.png) -->
 
 ## How it works
 
@@ -27,7 +27,7 @@ Every conversation you have with Claude leaves a trace. Asterism maps those trac
 ## Quick Start
 
 ```bash
-git clone https://github.com/biditdas18/asterism
+git clone <repository-url>
 cd asterism
 chmod +x setup.sh && ./setup.sh
 ```
@@ -238,4 +238,4 @@ See [`research/README.md`](research/README.md) for the full script-by-script ind
 
 ## Author
 
-**Bidit** — [github.com/biditdas18](https://github.com/biditdas18)
+**Anonymous** — [anonymous.4open.science/r/asterism-7023](https://anonymous.4open.science/r/asterism-7023)

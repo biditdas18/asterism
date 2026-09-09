@@ -1,7 +1,7 @@
 # Asterism — Development Record & Research Notes
 
-**Author:** Bidit Das  
-**GitHub:** https://github.com/biditdas18/asterism  
+**Author:** Anonymous  
+**GitHub:** https://anonymous.4open.science/r/asterism-7023  
 **First public commit:** June 28, 2026  
 **License:** MIT  
 
@@ -257,9 +257,9 @@ it is not a claim of exhaustive prior-art review.
 
 If you build on this work, please cite:
 
-Bidit Das. "Asterism: A Hebbian-Weighted Knowledge Graph as a Priority
+Anonymous. "Asterism: A Hebbian-Weighted Knowledge Graph as a Priority
 Index over Long-Term LLM Memory." GitHub repository, June 2026.
-https://github.com/biditdas18/asterism
+https://anonymous.4open.science/r/asterism-7023
 
 A workshop paper draft is included in this repository
 ([`papers/asterism.tex`](papers/asterism.tex), PDF alongside it), and a
