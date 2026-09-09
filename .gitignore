@@ -14,3 +14,12 @@ research/poc_eval.db
 
 # Local editor/agent settings
 .claude/
+
+# LaTeX + format-checker build artifacts
+papers/*.aux
+papers/*.log
+papers/*.out
+papers/*.bbl
+papers/*.blg
+papers/errors-*.png
+papers/errors-*.json

@@ -130,8 +130,17 @@ smaller in magnitude than Claude's. A paired bootstrap over the query set
 gap has a 95% CI excluding zero in only **6 of the 9** measured cells — both
 Claude models on both graphs, GPT-5.5 graph1, and DeepSeek graph2. GPT-5.5
 graph2 (+4.2, [−1.4, +9.8]) and both `kimi-k3` cells are not separable from
-zero at this sample size, so the structural claim is carried by the six
-separable cells rather than by the panel as a whole. The deployed gap
+zero at this sample size, so on commit rate the structure-alone effect is
+carried by six of nine cells rather than by the panel as a whole. Note also
+that the instruction alone (`flat_list_prioritized` − `flat_list`) raises
+commit rate in all 10 cells by a mean of +11.2 points, against +10.7 for
+structure alone: **decisiveness does not separate structure from
+instruction**, and the claim that the graph's structure is what drives it is
+retracted. The structural claim is instead made on accuracy — see
+`results/n100_followup_ci.csv`, where structure-only correctness beats flat
+memory in all 9 measured cells (7 separable) and structure-only precision
+among committed answers beats the instruction-only condition in all 9
+(+5.1 to +31.4 points, 4 separable). The deployed gap
 excludes zero in 9 of 10 cells (`kimi-k3` graph1 is the exception). The two exceptions are disclosed, not
 smoothed over: `kimi-k3`'s structure-alone effect reverses sign on graph1
 (a real run-level pattern, not noise — it loses 3 of 5 runs), and

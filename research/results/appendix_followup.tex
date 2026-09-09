@@ -1,0 +1,162 @@
+\section{Absolute Correctness, Precision, and Follow-up Intervals}
+\label{app:followup}
+
+Table~\ref{tab:commit} reports gaps; this section reports the absolute
+levels those gaps are computed from, and the interval estimates behind every
+bolded and unbolded entry. Correctness is the fraction of \emph{scorable}
+queries (ground-truth weight margin exceeding one decay step: 96 of 100 on
+graph 1, 69 of 100 on graph 2) on which the condition committed to the
+actually-highest-priority node. Precision is the fraction of \emph{committed}
+answers that were correct, with the number of committed answers in
+parentheses; it is the metric that separates the structural from the
+instructional component, and its denominators vary widely across conditions,
+so we print them. The \textsc{None} column's precision rests on single-digit
+denominators in most cells and should not be read as an estimate.
+Interval estimates use the same procedure as Appendix~\ref{app:ci} --- paired
+by query over $10{,}000$ resamples of the frozen labels, no additional model
+calls, no relabelling --- computed by \texttt{research/followup\_ci.py}. That
+script draws its randomness from a generator seeded per row from the cell's
+own identifiers, so adding a contrast cannot perturb an interval already
+published in Table~\ref{tab:ci}. Table~\ref{tab:fci1} covers the
+instruction-only contrast on both metrics together with the structure-only
+correctness gap; Table~\ref{tab:fci2} covers the deployed correctness gap and
+the precision difference between the two single components. Every table body
+in this paper is emitted from the committed result files by
+\texttt{research/make\_paper\_tables.py} rather than transcribed.
+
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}ll|ccccc|ccccc@{}}
+\toprule
+ & & \multicolumn{5}{c|}{\textbf{Correct per scorable query (\%)}} & \multicolumn{5}{c}{\textbf{Precision among commits (\%), (n committed)}} \\
+\textbf{Model} & \textbf{Gr} & None & Flat & Fl+in & Gr,neut & Graph & None & Flat & Fl+in & Gr,neut & Graph \\
+\midrule
+Sonnet & G1 & 0.0 & 8.3 & 8.1 & 22.5 & 23.3 & 0.0\,\tiny{(4)} & 32.0\,\tiny{(125)} & 25.3\,\tiny{(154)} & 50.9\,\tiny{(212)} & 48.9\,\tiny{(229)} \\
+Sonnet & G2 & 0.3 & 5.8 & 14.5 & 13.3 & 29.9 & 100.0\,\tiny{(1)} & 45.5\,\tiny{(44)} & 41.7\,\tiny{(120)} & 47.9\,\tiny{(96)} & 61.7\,\tiny{(167)} \\
+Opus & G1 & 0.0 & 8.1 & 16.0 & 21.0 & 31.0 & 0.0\,\tiny{(5)} & 60.0\,\tiny{(65)} & 51.7\,\tiny{(149)} & 56.7\,\tiny{(178)} & 63.1\,\tiny{(236)} \\
+Opus & G2 & 0.3 & 3.5 & 14.8 & 11.0 & 21.2 & 50.0\,\tiny{(2)} & 57.1\,\tiny{(21)} & 43.2\,\tiny{(118)} & 49.4\,\tiny{(77)} & 56.2\,\tiny{(130)} \\
+GPT & G1 & 7.9 & 18.3 & 18.8 & 31.7 & 37.9 & 34.9\,\tiny{(109)} & 52.7\,\tiny{(167)} & 47.4\,\tiny{(190)} & 78.8\,\tiny{(193)} & 76.2\,\tiny{(239)} \\
+GPT & G2 & 17.7 & 25.5 & 34.2 & 33.6 & 42.0 & 49.2\,\tiny{(124)} & 62.4\,\tiny{(141)} & 61.1\,\tiny{(193)} & 71.6\,\tiny{(162)} & 69.7\,\tiny{(208)} \\
+DeepSeek & G1 & 1.7 & 2.7 & 5.6 & --- & 9.0 & 33.3\,\tiny{(24)} & 26.0\,\tiny{(50)} & 34.6\,\tiny{(78)} & --- & 62.3\,\tiny{(69)} \\
+DeepSeek & G2 & 2.3 & 3.5 & 8.7 & 10.4 & 10.4 & 53.3\,\tiny{(15)} & 54.5\,\tiny{(22)} & 57.7\,\tiny{(52)} & 75.0\,\tiny{(48)} & 70.6\,\tiny{(51)} \\
+Kimi & G1 & 0.0 & 8.3 & 11.0 & 9.2 & 12.5 & 0.0\,\tiny{(10)} & 54.1\,\tiny{(74)} & 54.6\,\tiny{(97)} & 73.3\,\tiny{(60)} & 72.3\,\tiny{(83)} \\
+Kimi & G2 & 0.3 & 4.9 & 6.1 & 8.7 & 11.0 & 16.7\,\tiny{(6)} & 56.7\,\tiny{(30)} & 56.8\,\tiny{(37)} & 69.8\,\tiny{(43)} & 60.3\,\tiny{(63)} \\
+\bottomrule
+\end{tabular}
+\caption{Absolute correctness and precision by model, graph, and
+condition, the levels underlying the correctness gaps in
+Table~\ref{tab:commit}. Correctness is over scorable queries (96 on graph 1,
+69 on graph 2); precision is over committed answers only, with committed
+counts in parentheses, pooled over the five runs. Absolute correctness is low
+throughout --- the best cell is GPT graph 2 at 42.0\% --- which is the ceiling
+we report rather than the relative gap alone. Precision is where the
+structure-only condition separates from the instruction-only condition: it is
+higher in all nine measured cells. \textsc{None}-column precision rests on
+denominators as small as one and is reported only for completeness.}
+\label{tab:correct}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Gr} & Gap & 95\% CI & $p$ & Runs$>$0 & SD \\
+\midrule
+\multicolumn{7}{@{}l}{\textit{Commit rate: \textsc{Fl+in} $-$ \textsc{Flat} (instruction only)}} \\
+Sonnet & G1 & \textbf{+6.4} & [0.6, 12.2] & 0.034 & 5/5 & 3.9 \\
+Sonnet & G2 & \textbf{+21.4} & [16.0, 26.8] & $<$0.001 & 5/5 & 4.5 \\
+Opus & G1 & \textbf{+17.6} & [12.6, 23.2] & $<$0.001 & 5/5 & 9.0 \\
+Opus & G2 & \textbf{+25.2} & [20.6, 29.8] & $<$0.001 & 5/5 & 5.0 \\
+GPT & G1 & +4.8 & [$-$0.2, 9.8] & 0.062 & 5/5 & 3.0 \\
+GPT & G2 & \textbf{+14.6} & [9.2, 20.0] & $<$0.001 & 5/5 & 4.5 \\
+DeepSeek & G1 & \textbf{+6.8} & [2.6, 11.0] & 0.002 & 4/5 & 7.2 \\
+DeepSeek & G2 & \textbf{+6.0} & [1.6, 10.6] & 0.010 & 5/5 & 2.7 \\
+Kimi & G1 & \textbf{+5.4} & [1.2, 9.4] & 0.014 & 4/5 & 8.2 \\
+Kimi & G2 & +3.4 & [$-$0.2, 7.0] & 0.066 & 4/5 & 3.6 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Correct per scorable query: \textsc{Fl+in} $-$ \textsc{Flat} (instruction only)}} \\
+Sonnet & G1 & $-$0.2 & [$-$3.5, 3.1] & 0.959 & 1/5 & 3.5 \\
+Sonnet & G2 & \textbf{+8.7} & [4.1, 13.6] & $<$0.001 & 5/5 & 4.2 \\
+Opus & G1 & \textbf{+7.9} & [3.8, 12.3] & $<$0.001 & 4/5 & 7.4 \\
+Opus & G2 & \textbf{+11.3} & [6.4, 16.5] & $<$0.001 & 5/5 & 4.2 \\
+GPT & G1 & +0.4 & [$-$4.2, 5.0] & 0.888 & 2/5 & 4.9 \\
+GPT & G2 & \textbf{+8.7} & [2.9, 14.5] & 0.005 & 5/5 & 4.7 \\
+DeepSeek & G1 & +2.9 & [0.0, 5.8] & 0.054 & 4/5 & 2.3 \\
+DeepSeek & G2 & \textbf{+5.2} & [2.0, 8.7] & $<$0.001 & 5/5 & 2.6 \\
+Kimi & G1 & +2.7 & [$-$0.6, 6.0] & 0.111 & 4/5 & 2.4 \\
+Kimi & G2 & +1.2 & [$-$1.7, 4.1] & 0.506 & 3/5 & 4.0 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Correct per scorable query: \textsc{Gr,neut} $-$ \textsc{Flat} (structure only)}} \\
+Sonnet & G1 & \textbf{+14.2} & [9.2, 19.4] & $<$0.001 & 5/5 & 2.5 \\
+Sonnet & G2 & \textbf{+7.5} & [2.9, 12.2] & 0.003 & 4/5 & 6.9 \\
+Opus & G1 & \textbf{+12.9} & [8.3, 17.7] & $<$0.001 & 5/5 & 7.0 \\
+Opus & G2 & \textbf{+7.5} & [3.8, 11.9] & $<$0.001 & 5/5 & 5.5 \\
+GPT & G1 & \textbf{+13.3} & [8.1, 18.8] & $<$0.001 & 5/5 & 5.2 \\
+GPT & G2 & \textbf{+8.1} & [0.6, 15.4] & 0.033 & 3/5 & 10.3 \\
+DeepSeek & G1 & --- & --- & --- & --- & --- \\
+DeepSeek & G2 & \textbf{+7.0} & [2.6, 11.9] & $<$0.001 & 4/5 & 6.1 \\
+Kimi & G1 & +0.8 & [$-$3.1, 4.8] & 0.707 & 4/5 & 6.0 \\
+Kimi & G2 & +3.8 & [$-$0.3, 7.8] & 0.077 & 4/5 & 2.6 \\
+\bottomrule
+\end{tabular}
+\caption{Paired bootstrap intervals, in percentage points, for the
+instruction-only contrast on both metrics and the structure-only contrast on
+correctness. \textsc{Runs}$>$0 counts how many of the five runs show a positive
+gap; SD is the standard deviation across runs. \textbf{Bold} marks an interval
+excluding zero. The instruction alone raises the commit rate in all ten cells
+(eight separably), matching the structure-only commit gap of
+Table~\ref{tab:ci} in magnitude --- which is why decisiveness cannot attribute
+the effect to structure. On correctness the instruction alone is separable in
+only five of ten cells, against seven of nine for the structure.}
+\label{tab:fci1}
+\end{table}
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Gr} & Gap & 95\% CI & $p$ & Runs$>$0 & SD \\
+\midrule
+\multicolumn{7}{@{}l}{\textit{Correct per scorable query: \textsc{Graph} $-$ \textsc{Flat} (deployed)}} \\
+Sonnet & G1 & \textbf{+15.0} & [9.6, 20.4] & $<$0.001 & 5/5 & 5.5 \\
+Sonnet & G2 & \textbf{+24.1} & [16.8, 31.6] & $<$0.001 & 5/5 & 3.3 \\
+Opus & G1 & \textbf{+22.9} & [17.3, 28.8] & $<$0.001 & 5/5 & 4.5 \\
+Opus & G2 & \textbf{+17.7} & [12.5, 23.2] & $<$0.001 & 5/5 & 4.0 \\
+GPT & G1 & \textbf{+19.6} & [14.0, 25.4] & $<$0.001 & 5/5 & 6.2 \\
+GPT & G2 & \textbf{+16.5} & [10.1, 23.5] & $<$0.001 & 5/5 & 3.3 \\
+DeepSeek & G1 & \textbf{+6.2} & [3.1, 9.4] & $<$0.001 & 5/5 & 2.9 \\
+DeepSeek & G2 & \textbf{+7.0} & [3.2, 11.0] & $<$0.001 & 5/5 & 3.1 \\
+Kimi & G1 & +4.2 & [$-$0.6, 9.2] & 0.104 & 4/5 & 4.5 \\
+Kimi & G2 & \textbf{+6.1} & [1.7, 10.7] & 0.008 & 5/5 & 3.1 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Precision among commits: \textsc{Gr,neut} $-$ \textsc{Fl+in}}} \\
+Sonnet & G1 & \textbf{+25.6} & [13.6, 36.9] & $<$0.001 & 5/5 & 6.3 \\
+Sonnet & G2 & +6.2 & [$-$6.8, 19.3] & 0.348 & 3/5 & 18.4 \\
+Opus & G1 & +5.1 & [$-$6.4, 16.7] & 0.390 & 2/5 & 14.2 \\
+Opus & G2 & +6.1 & [$-$8.0, 21.1] & 0.410 & 4/5 & 17.4 \\
+GPT & G1 & \textbf{+31.4} & [22.7, 40.2] & $<$0.001 & 5/5 & 9.8 \\
+GPT & G2 & \textbf{+10.5} & [0.6, 20.2] & 0.039 & 4/5 & 8.7 \\
+DeepSeek & G1 & --- & --- & --- & --- & --- \\
+DeepSeek & G2 & +17.3 & [$-$0.8, 33.7] & 0.062 & 4/5 & 25.6 \\
+Kimi & G1 & \textbf{+18.7} & [4.4, 31.8] & 0.011 & 4/5 & 17.0 \\
+Kimi & G2 & +13.0 & [$-$7.1, 33.8] & 0.204 & 3/5 & 32.2 \\
+\bottomrule
+\end{tabular}
+\caption{Paired bootstrap intervals, in percentage points, for the
+deployed correctness gap and for the precision difference between the two
+single components. The deployed correctness gap excludes zero in nine of ten
+cells, more than either component alone. The precision contrast is positive in
+all nine measured cells but separable in four, with run consistency between
+2/5 and 5/5: the direction is unanimous while individual cells are
+underpowered, so we report the sign pattern and not per-cell effect sizes. No
+pooled statistic is given because cells share query sets across models and are
+therefore not independent.}
+\label{tab:fci2}
+\end{table}
+
