@@ -23,10 +23,10 @@ def test_serialize_graph_empty():
     assert "Edges" in result
 
 def test_serialize_graph_with_data():
-    add_edge("Bidit", "Python")
+    add_edge("Anonymous", "Python")
     add_edge("Python", "Machine Learning")
     result = serialize_graph()
-    assert "Bidit" in result
+    assert "Anonymous" in result
     assert "Python" in result
     assert "Machine Learning" in result
 
@@ -41,10 +41,10 @@ def test_parse_traversals():
     assert ("Machine Learning", "Neural Networks") in result
 
 def test_parse_traversals_chained():
-    text = "TRAVERSAL: Bidit -> Python -> Machine Learning -> Neural Networks\n"
+    text = "TRAVERSAL: Anonymous -> Python -> Machine Learning -> Neural Networks\n"
     result = _parse_traversals(text)
     assert result == [
-        ("Bidit", "Python"),
+        ("Anonymous", "Python"),
         ("Python", "Machine Learning"),
         ("Machine Learning", "Neural Networks"),
     ]
@@ -55,9 +55,9 @@ def test_parse_traversals_empty():
 
 def test_live_query_returns_response():
     """Live API call — requires ANTHROPIC_API_KEY in environment."""
-    add_edge("Bidit", "Python")
+    add_edge("Anonymous", "Python")
     add_edge("Python", "Machine Learning")
-    result = query("What does Bidit know about Machine Learning?")
+    result = query("What does Anonymous know about Machine Learning?")
     assert "response" in result
     assert isinstance(result["response"], str)
     assert len(result["response"]) > 0
