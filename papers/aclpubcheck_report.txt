@@ -28,6 +28,6 @@ Author line reads "Anonymous ACL submission"; the appendix cites the
 anonymized code mirror. Embedded /Author metadata is empty.
 
 Named build: author block and appendix both carry
-https://anonymous.4open.science/r/asterism-7023, no anonymized-mirror reference, and
+https://github.com/biditdas18/asterism, no anonymized-mirror reference, and
 embedded /Author, /Title, /Subject, /Keywords metadata is populated for
 public-repository indexing.

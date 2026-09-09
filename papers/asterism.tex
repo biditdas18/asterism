@@ -39,13 +39,13 @@
 \ifanon
   \author{Anonymous ACL submission}
 \else
-  \author{Anonymous \\
+  \author{Bidit Das \\
     Independent Researcher \\
-    \texttt{anonymous.4open.science/r/asterism-7023} \\}
+    \texttt{github.com/biditdas18/asterism} \\}
   % Named builds are posted publicly (SSRN, preprint repositories), where
   % indexers read the embedded metadata. Deliberately left empty under \anontrue.
   \hypersetup{
-    pdfauthor={Anonymous},
+    pdfauthor={Bidit Das},
     pdftitle={Asterism: A Hebbian-Weighted Knowledge Graph as a Priority Index
       over Long-Term LLM Memory},
     pdfsubject={Long-term memory for LLM agents; knowledge graphs; context
@@ -329,7 +329,7 @@ Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. 2008.
 
 \paragraph{Models excluded from the full-scale campaign.} Earlier pilot runs also included two Gemini models and two free-tier open-weight models. The Gemini models' 250-request daily quota made a hundred-query, five-condition, two-graph campaign infeasible within the evaluation window. The two free-tier open-weight models failed both on throughput and on task comprehension, frequently naming the user node itself as the top priority. We therefore report the five token-billed models at full scale and exclude these four, which is a constraint of evaluating across vendors on consumer and free tiers rather than a property of the models' best available configurations.
 
-The system is implemented in Python over SQLite, with the graph loaded into NetworkX \citep{hagberg2008exploring} for analysis. Triple extraction uses a small instruction-tuned model; entity-resolution embeddings use a compact local sentence-embedding model \citep{xiao2023cpack} producing 384-dimensional vectors, run offline on CPU. The evaluation graph, the five-condition comparison script and its multi-model runner, the latency benchmark, and the entity-resolution and supersession test suites are included in the public repository, together with the frozen scorer, the scorer--human agreement sheet, and all per-run results; reproduction instructions are in the repository README\ifanon{} (anonymized repository: \url{https://anonymous.4open.science/r/asterism-7023/README.md})\else{} (\url{https://anonymous.4open.science/r/asterism-7023})\fi. Latency figures were produced by timing the retrieval function directly with a monotonic clock over 20 runs per scale, on synthetic graphs seeded with weighted domain/theme/concept chains; the real user database is never touched by the benchmark.
+The system is implemented in Python over SQLite, with the graph loaded into NetworkX \citep{hagberg2008exploring} for analysis. Triple extraction uses a small instruction-tuned model; entity-resolution embeddings use a compact local sentence-embedding model \citep{xiao2023cpack} producing 384-dimensional vectors, run offline on CPU. The evaluation graph, the five-condition comparison script and its multi-model runner, the latency benchmark, and the entity-resolution and supersession test suites are included in the public repository, together with the frozen scorer, the scorer--human agreement sheet, and all per-run results; reproduction instructions are in the repository README\ifanon{} (anonymized repository: \url{https://anonymous.4open.science/r/asterism-7023/README.md})\else{} (\url{https://github.com/biditdas18/asterism})\fi. Latency figures were produced by timing the retrieval function directly with a monotonic clock over 20 runs per scale, on synthetic graphs seeded with weighted domain/theme/concept chains; the real user database is never touched by the benchmark.
 
 
 \section{Bootstrap Confidence Intervals on the Commit-Rate Gaps}
