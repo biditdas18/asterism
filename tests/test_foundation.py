@@ -125,7 +125,7 @@ def test_strengthen_edge():
 # --- GRAPH TESTS ---
 
 def test_build_graph():
-    add_edge("Anonymous", "Python")
+    add_edge("Bidit", "Python")
     add_edge("Python", "Machine Learning")
     G = build_graph()
     assert G.number_of_nodes() >= 2
@@ -133,18 +133,18 @@ def test_build_graph():
 
 
 def test_get_neighbors():
-    add_edge("Anonymous", "Python")
-    add_edge("Anonymous", "SQLite")
-    neighbors = get_neighbors("Anonymous")
+    add_edge("Bidit", "Python")
+    add_edge("Bidit", "SQLite")
+    neighbors = get_neighbors("Bidit")
     assert "Python" in neighbors
     assert "SQLite" in neighbors
 
 
 def test_traverse_strengthens_edges():
-    add_edge("Anonymous", "Python")
+    add_edge("Bidit", "Python")
     add_edge("Python", "Machine Learning")
-    path = traverse("Anonymous", "Machine Learning")
-    assert path == ["Anonymous", "Python", "Machine Learning"]
+    path = traverse("Bidit", "Machine Learning")
+    assert path == ["Bidit", "Python", "Machine Learning"]
     edges = get_edges("Python")
     for e in edges:
         if e["source_label"] == "Python" and e["target_label"] == "Machine Learning":
@@ -152,7 +152,7 @@ def test_traverse_strengthens_edges():
 
 
 def test_graph_summary():
-    add_edge("Anonymous", "Python")
+    add_edge("Bidit", "Python")
     summary = graph_summary()
     assert summary["nodes"] >= 2
     assert summary["edges"] >= 1
@@ -160,7 +160,7 @@ def test_graph_summary():
 
 
 def test_run_decay_does_not_crash():
-    add_edge("Anonymous", "Python")
+    add_edge("Bidit", "Python")
     run_decay()  # should not raise
 
 
