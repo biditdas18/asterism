@@ -23,3 +23,6 @@ papers/*.bbl
 papers/*.blg
 papers/errors-*.png
 papers/errors-*.json
+
+# Personal working notes, not research artifacts
+POSITIONING.md

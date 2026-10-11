@@ -3,7 +3,11 @@
 % Anonymous double-blind submission build (line numbers, no author identity).
 % For the camera-ready, change \anontrue to \anonfalse below -- nothing else.
 \newif\ifanon
-\anontrue
+\anonfalse
+% \ssrntrue builds the public preprint: adds the venue line under the author
+% block. Must stay false for the NORA camera-ready upload.
+\newif\ifssrn
+\ssrnfalse
 
 \ifanon
   \usepackage[review]{acl}
@@ -40,8 +44,13 @@
   \author{Anonymous ACL submission}
 \else
   \author{Bidit Das \\
-    Independent Researcher \\
-    \texttt{github.com/biditdas18/asterism} \\}
+    Independent Researcher, Plano, Texas, USA \\
+    \texttt{orcid.org/0009-0009-3810-2946} \\
+    \texttt{github.com/biditdas18/asterism} \\
+    \ifssrn\parbox{0.72\textwidth}{\centering\normalfont\small
+    Accepted to NORA 2026, the 3rd Workshop on Knowledge Graphs \& Agentic\\
+    Systems Interplay, co-located with AACL-IJCNLP 2026.\\
+    This is the author's accepted version.}\fi}
   % Named builds are posted publicly (SSRN, preprint repositories), where
   % indexers read the embedded metadata. Deliberately left empty under \anontrue.
   \hypersetup{
@@ -53,6 +62,14 @@
     pdfkeywords={LLM memory, knowledge graph, Hebbian weighting, context
       prioritization, personalization, agent memory}}
 \fi
+
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\floatpagefraction}{0.80}
+\setcounter{dbltopnumber}{4}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.90}
 
 \begin{document}
 \maketitle
@@ -67,7 +84,7 @@ Conversational LLM systems now routinely retain information about a user between
 
 In database terms, a flat memory summary is an \emph{unindexed heap}: a store you can scan but cannot query by priority. The contribution of this paper is to take that analogy literally and build the missing index. Asterism constructs a weighted directed graph from a user's conversation history, where nodes are concepts and entities, edges are relations, and edge and node weights encode how frequently and recently the user has engaged with each. At inference time, the highest-weight region of the graph is serialized into the model's context. The weight ordering is the index: it tells the retrieval step which facts to surface first, exactly as an index key tells a query planner where to look before touching the underlying data.
 
-This framing makes a falsifiable prediction. If the graph acts as a priority index and not merely as a memory store, its benefit over an unstructured list of the same facts should appear specifically on tasks requiring prioritization and largely vanish on tasks requiring only recall. We test this directly, designing the test to survive the obvious confounds. The deployed graph condition does two things at once: it imposes a weighted structure \emph{and} instructs the model to prioritize high-weight nodes. A naive graph-versus-flat comparison cannot separate these, so we run five conditions against the same underlying facts, two of which add the instruction without the structure and impose the structure without the instruction (Section~\ref{sec:poc}). We hold decoding fixed, reseed the graph before every call so no response conditions on state a prior response wrote, and repeat the entire design across two independently authored personal graphs, one hundred priority queries per graph, and five assistant models spanning four vendors, five runs each.
+This framing makes a falsifiable prediction. If the graph acts as a priority index and not merely as a memory store, its benefit over an unstructured list of the same facts should appear specifically on tasks requiring prioritization and largely vanish on tasks requiring only recall. We test the prioritization half directly; the recall half is not tested (Limitations). The deployed graph condition does two things at once: it imposes a weighted structure \emph{and} instructs the model to prioritize high-weight nodes. A naive graph-versus-flat comparison cannot separate these, so we run five conditions against the same underlying facts, two of which add the instruction without the structure and impose the structure without the instruction (Section~\ref{sec:poc}). We hold decoding fixed, reseed the graph before every call so no response conditions on state a prior response wrote, and repeat the entire design across two independently authored personal graphs, one hundred priority queries per graph, and five assistant models spanning four vendors, five runs each.
 
 We report three findings, each at its actual scope. First, on priority queries the weighted-graph-plus-instruction condition produces more decisive commitment than a flat list of the same facts in every model we test, over two graphs and one hundred queries each, in nearly every run. Second, that decisiveness is \emph{more accurate} than flat memory in every model, but we state absolute levels plainly rather than only the relative lift: even the strongest model is correct only about 40\% of the time and most well below that, so the graph improves priority routing without solving it. Third, we decompose the benefit into the graph \emph{structure} and the prioritization \emph{instruction}, correcting a reading a smaller pilot had encouraged. On decisiveness the two are indistinguishable, so a commit-rate gap cannot attribute the effect to structure; accuracy distinguishes them, with structure alone more often right than instruction alone in every measured cell, and the two act complementarily rather than redundantly. We prefer this decomposition, with its low absolute ceiling and underpowered cells stated openly, to the cleaner-sounding structural claim the full data does not support.
 
@@ -107,7 +124,7 @@ Asterism is a local-first Python system. The entire graph lives in a single SQLi
 \draw[arr] (llm.south) to[out=-90,in=-90] node[below,font=\scriptsize,align=center] {traversal strengthens edges} (extract.south);
 
 \end{tikzpicture}
-\caption{Asterism pipeline. Conversation history is extracted into (source, relation, target) triples, canonicalized by entity resolution, and written to a local SQLite graph. A background process applies decay and supersession. At inference time the highest-weight subgraph is ranked and injected into the model's context. When the model traverses a relation in its response, the corresponding edge is strengthened, closing a Hebbian feedback loop.}
+\caption{Asterism pipeline. Conversation history is extracted into (source, relation, target) triples, canonicalized by entity resolution, and written to a local SQLite graph. A background process applies decay and supersession. At inference time the highest-weight nodes are ranked and injected into the model's context. When the model traverses a relation in its response, the corresponding edge is strengthened, closing a Hebbian feedback loop.}
 \label{fig:arch}
 \end{figure*}
 
@@ -136,8 +153,8 @@ Graph-structured memory for LLMs is not itself new (Section~\ref{sec:related}). 
 Evaluating a memory system risks conflating three different benefits: the benefit of having memory at all, the benefit of the particular structure imposed on it, and the benefit of instructing the model to act on that structure. The graph condition as deployed carries all three: it supplies facts, it imposes a weighted structure, and its system prompt instructs the model to prioritize high-weight nodes. To separate them, we run five conditions against the \emph{same underlying facts}:
 
 \begin{enumerate}
-  \item \textbf{Graph.} The top-weighted subgraph is injected, preserving weight ordering and relational structure, with an instruction to prioritize high-weight nodes (the deployed condition).
-  \item \textbf{Flat list.} Every node label is injected as an unordered, unweighted list: the same facts are present, and only the structure and salience signal are removed.
+  \item \textbf{Graph.} The thirty highest-weight nodes are injected in weight order, each labelled with weight and type, with an instruction to prioritize high-weight nodes (the deployed condition). No condition injects edges.
+  \item \textbf{Flat list.} Every node label is injected alphabetically and unweighted: the same facts are present, with the weight ordering and salience signal removed.
   \item \textbf{Flat list + instruction.} The same unordered list, with the prioritize-and-commit instruction the graph carries added. This isolates the \emph{instruction}.
   \item \textbf{Graph, neutral.} The same weighted structure, with the explicit prioritize/commit instruction removed. This isolates the \emph{structure}.
   \item \textbf{None.} No memory is injected.
@@ -185,7 +202,7 @@ Kimi & G2 & 1.8 & 8.0 & 11.4 & 11.2 & 16.2 & +3.4 & +3.2 & \textbf{+8.2} & +1.2 
 
 Table~\ref{tab:commit} reports the result across five models, two graphs, and one hundred queries per graph. We read it in three passes.
 
-\paragraph{Finding 1: the deployed system increases decisiveness in every model.} Compare the \textsc{Graph} column (the weighted graph plus prioritization instruction, as deployed) to \textsc{Flat list} (the same facts, unweighted). The graph$-$flat gap (column G$-$F) is positive for all five models on both graphs, from $+2.6$ (Kimi G1) to $+38.8$ (Sonnet G2), and run-consistent (\textsc{Graph} $>$ \textsc{Flat list} in all five runs for most model--graph pairs, the weakest case being Kimi graph 1 at 3/5, the one cell whose interval spans zero). \textsc{None} commits least throughout. Even GPT shows clear positive gaps here ($+15.2$, $+18.4$), though at pilot scale it had committed at a high baseline that masked any structural benefit. With a larger and harder query set, its no-memory rate is no longer a ceiling. The decisiveness benefit is not confined to models that hedge by default; it appears across the panel.
+\paragraph{Finding 1: the deployed system increases decisiveness in every model.} Compare the \textsc{Graph} column (the weighted graph plus prioritization instruction, as deployed) to \textsc{Flat list} (the same facts, unweighted). The graph$-$flat gap (column G$-$F) is positive for all five models on both graphs, from $+2.6$ (Kimi G1) to $+38.8$ (Sonnet G2). It is also run-consistent: \textsc{Graph} beats \textsc{Flat list} in all five runs for most model--graph pairs. The weakest case is Kimi graph 1 at 3/5, the one cell whose interval spans zero. \textsc{None} commits least throughout. Even GPT shows clear positive gaps here ($+15.2$, $+18.4$), though at pilot scale it had committed at a high baseline that masked any structural benefit. With a larger and harder query set, its no-memory rate is no longer a ceiling. The decisiveness benefit is not confined to models that hedge by default; it appears across the panel.
 
 \paragraph{Finding 2: the decisiveness is more accurate than flat memory, but absolute accuracy is low.} A metric rewarding commitment could reward confident error. Because each seed graph has known weights, the correct top-priority item is defined. We score correctness only on queries whose ground-truth weight separation exceeds the decay step, excluding near-ties, for which ``correct'' is not well defined. That leaves 96 of 100 scorable queries on graph 1 and 69 of 100 on graph 2, which has many near-ties by construction. We lead with the absolute numbers rather than the relative lift. Among scorable queries, the graph condition identifies the actually-highest-priority item in the following fractions: Sonnet 23\%/30\%, Opus 31\%/21\%, GPT 38\%/42\%, DeepSeek 9\%/10\%, Kimi 12\%/11\% (graph 1 / graph 2). So even the strongest model is correct on roughly four in ten priority queries, and most models on one to three in ten. Absolute priority routing is a hard, unsolved problem, and the weighted graph does not solve it. What it does is improve it: in every model and graph the graph condition is more often correct than the flat list (e.g.\ Sonnet 23\% vs.\ 8\%, Opus 31\% vs.\ 8\%, GPT 38\% vs.\ 18\%), so the added commitment is disproportionately correct commitment rather than confident noise. The finding is a real relative gain on top of a low absolute base, and we state both. The correctness gaps for all three contrasts, with intervals, two-sided $p$ values, and run consistency, are the right-hand block of Table~\ref{tab:commit} and Appendix~\ref{app:followup}; absolute correctness and precision for every condition are in Table~\ref{tab:correct}.
 
@@ -195,7 +212,7 @@ Accuracy separates them. Against the flat list, the structure-only condition imp
 
 The components are complementary, not redundant. The deployed system's correctness gain matches or exceeds the better of its two single-component gains in all ten cells and strictly exceeds it in nine, and it is the only condition whose correctness gain excludes zero in nine of ten cells. The instruction gets a model to answer; the weighted structure is what makes the answer right; coupling them is worth more than either alone. Kimi graph 1, the weakest cell in the panel, is where nothing separates from zero on either metric, and DeepSeek's graph-1 structure-only cell is missing to the empty-response failure discussed below.
 
-Qualitatively, no-memory responses hedge honestly (``I don't have your priorities''), while flat-list responses, holding the same facts, hedge through filler and reflect the question back to the user; the graph's contribution is the salience signal that lets a model resolve the question rather than perform helpfulness around it.
+Qualitatively, no-memory responses hedge honestly (``I don't have your priorities''), while flat-list responses, holding the same facts, defer the choice back to the user. Hedging is defensible when no priority signal is present, so commitment measures resolution rather than correctness; Finding 2 supplies that check.
 
 We record one model-specific failure, because the guard against it is part of the method. DeepSeek, in graph\_neutral on graph 1, repeatedly returned responses reporting normal completion yet containing no text while still consuming output tokens. A universal guard that refuses to score empty or truncated content caught every instance and aborted the affected cell rather than recording a spurious hedge, so we report that cell as missing; it caught an analogous failure in another model during development (Appendix~\ref{app:followup}). Detecting and excluding such outputs, rather than silently scoring them as hedges, is a necessary property of automated LLM evaluation.
 
@@ -239,7 +256,9 @@ The comparison these results motivate, which we do not frame as a contest, is ag
 
 Our core metric is a single binary outcome (commit vs.\ hedge), scored over one hundred priority queries per graph, five models, and five runs each. This is a substantial sample, but the queries are templated variations on a fixed bank of prioritization phrasings, so they span the intended task without spanning the full range of ways real users express priority. Two graphs is better than one but is still not a population of users; the two were authored to differ in domain and priority shape, yet both were authored by us, and author-constructed personas may share latent structure a real user distribution would not.
 
-Two limitations of the effect itself deserve emphasis. First, absolute accuracy is low: even the best model identifies the true top priority on only about 40\% of scorable queries, and most models on 10--30\%, so our claim is a relative improvement over flat memory, not a solved priority-routing problem. Second, the structure-only effect is not uniform, and which metric it is measured on matters. On \emph{commit rate} the structure-only gap is separable from zero in only six of the nine measured cells --- the interval includes zero for GPT graph 2 and both Kimi cells, and Kimi graph 1 is outright negative ($-2.6$ points) --- which is part of why we do not rest the structural claim on decisiveness. On \emph{correctness} the structure-only gap is positive in all nine measured cells and separable in seven, the two Kimi cells being the exceptions at $+0.8$ and $+3.8$ points; on precision among committed answers it is positive in all nine measured cells but separable in only four. Kimi is the weakest and least consistent model throughout, and DeepSeek's graph-1 structure-only cell is missing entirely because that model returned recurring empty responses in that condition. So the honest scope is that the correctness effect holds across nearly the whole panel, with one weak model, one missing cell, and several underpowered cells stated openly. Our controls isolate structure from instruction but not the two components \emph{within} the structure: the weighted graph carries both a topology and explicit weight values, and we did not run a condition holding topology fixed while shuffling the weights, so we show structure matters, not whether the weights specifically or the graph shape carry it. Our panel also omits models we attempted but could not complete at this scale --- two Gemini models (daily-quota-limited) and two free-tier open-weight models (throughput and task-comprehension failures) --- which is a disclosed constraint of cross-vendor evaluation on consumer and free tiers.
+The system named in our title is not what the evaluation exercises. The weights in both benchmark graphs are authored, and the graph is reseeded from that pristine state before every call, so the reinforcement rule, the session-time decay, entity resolution and supersession never shape the evaluated context. What we measure is the index: whether a weight signal, once present, is usable as a ranking key. Whether the Hebbian loop produces a weight signal that tracks what a user actually treats as important is untested here, and it is the first thing a deployment study would have to establish. The strengthening rule is also ungated, in that an edge is reinforced whenever the model traverses it whether or not the answer was correct; Kairos \citep{singh2025validation} gates consolidation on a quality check for exactly this reason, and we did not test a gated variant. A further implication we do not test is the negative half of our own prediction (Section~\ref{sec:framing}): that the graph's advantage should largely vanish on pure recall queries, which our commit/hedge metric cannot score.
+
+Two limitations of the effect itself deserve emphasis. First, absolute accuracy is low: even the best model identifies the true top priority on only about 40\% of scorable queries, and most models on 10--30\%, so our claim is a relative improvement over flat memory, not a solved priority-routing problem. Second, the structure-only effect is not uniform, and which metric it is measured on matters. On \emph{commit rate} the structure-only gap is separable from zero in only six of the nine measured cells --- the interval includes zero for GPT graph 2 and both Kimi cells, and Kimi graph 1 is outright negative ($-2.6$ points) --- which is part of why we do not rest the structural claim on decisiveness. On \emph{correctness} the structure-only gap is positive in all nine measured cells and separable in seven, the two Kimi cells being the exceptions at $+0.8$ and $+3.8$ points; on precision among committed answers it is positive in all nine measured cells but separable in only four. Kimi is the weakest and least consistent model throughout, and DeepSeek's graph-1 structure-only cell is missing entirely because that model returned recurring empty responses in that condition. So the honest scope is that the correctness effect holds across nearly the whole panel, with one weak model, one missing cell, and several underpowered cells stated openly. Our controls isolate structure from instruction, but not the components within the structure, and the graph and flat arms differ in more than one way. The graph conditions inject the thirty highest-weight nodes with each weight printed; the flat conditions inject every node label alphabetically with no weights. The graph arm therefore receives the salience signal, a candidate set already pruned to the high-weight end, and an ordering, while the flat arm receives none of the three; all five prompts are reproduced verbatim in Appendix~\ref{app:prompts}. We did not run a weighted flat list, which would separate showing the weights from arranging them as a graph, nor a shuffled-weight condition holding topology fixed, which would separate the weights from the graph shape. What we show is that the deployed bundle beats an unranked list, the comparison a user actually faces, and not which element of the bundle is responsible. That the effect is bounded well below ceiling bears on this: a model handed an explicit ranking key identifies the top-weighted item on only 9--42\% of scorable queries, so the contrast is not reducible to reading the answer off the prompt. Our panel also omits models we attempted but could not complete at this scale --- two Gemini models (daily-quota-limited) and two free-tier open-weight models (throughput and task-comprehension failures) --- which is a disclosed constraint of cross-vendor evaluation on consumer and free tiers.
 
 We also do not compare end-task accuracy against a retrieval baseline such as RAG, or against external memory systems on a shared benchmark; the findings here are characterized behavioral effects on this setup, and the retrieval comparison is the forward direction outlined in the conclusion rather than a result we claim now. The entity-resolution ceiling is a limitation of the current unsupervised approach: true synonym pairs are not reliably merged and can still fragment the index. Supersession is scoped to the same-source/same-relation/different-target case and misses subtler contradictions. Because decay is measured in active-session rather than wall-clock time, decay topology depends on usage frequency: a daily user prunes old interests quickly while a sparse user's graph decays little in real time and can accumulate stale structure over a year. Latency, while linear and small, is measured on synthetic graphs and on retrieval alone; end-to-end latency is dominated by the model call. Finally, the system is single-user and local by design, and we have not studied multi-user or privacy-preserving extensions.
 
@@ -249,7 +268,11 @@ Asterism is local-first: the graph is stored on the user's own device and no con
 
 \section*{Declaration on Generative AI}
 
-The authors used generative AI tools to assist with code for the system implementation and evaluation harness, and to support editing and refinement of the manuscript text (grammar, clarity, and structure). LLMs also appear as objects of study in the evaluation, as the assistant models being measured; those uses are described in the relevant sections. All research design, experimental decisions, analysis, and conclusions are the authors' own, and the authors reviewed and verified all content and take full responsibility for it.
+The author used generative AI tools to assist with code for the system implementation and evaluation harness, and to assist with the language of the manuscript, by paraphrasing and polishing the author's own text for grammar, clarity, and organization rather than to generate new content. LLMs also appear as objects of study in the evaluation, as the assistant models being measured; those uses are described in the relevant sections. All research design, experimental decisions, analysis, and conclusions are the author's own, and the author reviewed and verified all content and takes full responsibility for it.
+
+\section*{Acknowledgements}
+
+The author thanks the NORA 2026 reviewers, whose comments prompted the disclosures added to the Limitations section and the prompts reproduced in Appendix~\ref{app:prompts}. Generative AI tools were used in preparing this work: to assist with code for the system implementation and evaluation harness, and to assist with language editing of the author's own manuscript text. No text presenting research ideas, results, or conclusions was model-generated, and all research design, experimental decisions, analysis, and conclusions are the author's own. The Declaration on Generative AI above states this in full.
 
 \begin{thebibliography}{99}
 
@@ -318,19 +341,132 @@ Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. 2008.
 \newblock Exploring network structure, dynamics, and function using NetworkX.
 \newblock In \emph{Proceedings of the 7th Python in Science Conference (SciPy2008)}, pages 11--15, Pasadena, CA.
 
+\bibitem{singh2025validation}
+Pragya Singh and Stanley Yu. 2025.
+\newblock Validation-gated {H}ebbian learning for adaptive agent memory.
+\newblock In \emph{Proceedings of the 1st Workshop on Knowledge Graphs \& Agentic Systems Interplay (NORA 2025)}, volume 4162 of \emph{CEUR Workshop Proceedings}, pages 42--54.
+
 \end{thebibliography}
 
 \appendix
 
-\section{Reproducibility Details}
-\label{app:repro}
+\section{Injected context for all five conditions}
+\label{app:prompts}
 
-\paragraph{Scorer--human agreement.} Of the six disagreements in the 36-response validation run, the frozen classifier labeled as \textsc{hedge} four graph-condition responses a human read as commitments --- for instance a bare imperative (``Ship the package'') whose form the frozen rule's vocabulary did not cover --- and over-credited two flat-list responses as commitments. Both directions understate the graph$-$flat gap, which is why we report it as a conservative estimate. We did not retune the classifier after seeing these disagreements, since doing so would fit the frozen scorer to the evaluation data it is used to score.
+The system prompt is the only thing that differs across conditions; the user turn is the
+query verbatim and the assistant has no conversation history. In the two graph conditions
+$k=30$: the thirty highest-weight nodes are injected, each rendered as
+\texttt{- \{label\} (weight: \{w\}, type: \{t\})} with the weight rounded to an integer.
+In the two flat conditions every node label is injected, alphabetically ordered, with no
+weight and no type. Both benchmark graphs hold roughly fifty nodes, so the graph conditions
+see a pruned candidate set and the flat conditions see all of it. \textbf{Relations are not
+injected in any condition}: the graph conditions receive a weighted node list, not a
+subgraph with edges, and the \texttt{TRAVERSAL} directive in the \texttt{graph} prompt only
+asks the model to label traversals it states in its own answer, which we parse for display.
+Table~\ref{tab:prompts} reproduces all five system prompts verbatim. Long lines are
+wrapped there for the page; the strings themselves are single lines.
 
-\paragraph{Models excluded from the full-scale campaign.} Earlier pilot runs also included two Gemini models and two free-tier open-weight models. The Gemini models' 250-request daily quota made a hundred-query, five-condition, two-graph campaign infeasible within the evaluation window. The two free-tier open-weight models failed both on throughput and on task comprehension, frequently naming the user node itself as the top priority. We therefore report the five token-billed models at full scale and exclude these four, which is a constraint of evaluating across vendors on consumer and free tiers rather than a property of the models' best available configurations.
+\begin{table*}[t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{\texttt{graph}}\\[1pt]
+\begin{scriptsize}\begin{verbatim}
+You are Asterism, a personal knowledge assistant
+for {user}.
 
-The system is implemented in Python over SQLite, with the graph loaded into NetworkX \citep{hagberg2008exploring} for analysis. Triple extraction uses a small instruction-tuned model; entity-resolution embeddings use a compact local sentence-embedding model \citep{xiao2023cpack} producing 384-dimensional vectors, run offline on CPU. The evaluation graph, the five-condition comparison script and its multi-model runner, the latency benchmark, and the entity-resolution and supersession test suites are included in the public repository, together with the frozen scorer, the scorer--human agreement sheet, and all per-run results; reproduction instructions are in the repository README\ifanon{} (anonymized repository: \url{https://anonymous.4open.science/r/asterism-7023/README.md})\else{} (\url{https://github.com/biditdas18/asterism})\fi. Latency figures were produced by timing the retrieval function directly with a monotonic clock over 20 runs per scale, on synthetic graphs seeded with weighted domain/theme/concept chains; the real user database is never touched by the benchmark.
+You have access to {user}'s personal knowledge
+graph. The following nodes represent their current
+priorities and thought patterns, weighted by
+recency and usage frequency:
 
+ACTIVE NODES (highest weight first):
+{node_lines}
+
+When answering, reference these nodes naturally.
+Prioritize information from high-weight nodes.
+Note when you are drawing on specific parts of
+their graph.
+When you traverse a concept explicitly, format it
+as: TRAVERSAL: NodeA -> NodeB
+\end{verbatim}\end{scriptsize}
+\medskip
+
+\textbf{\texttt{graph\_neutral}}\\[1pt]
+\begin{scriptsize}\begin{verbatim}
+You are Asterism, a personal knowledge assistant
+for {user}.
+
+You have access to {user}'s personal knowledge
+graph. The following nodes represent their current
+priorities and thought patterns, weighted by
+recency and usage frequency:
+
+ACTIVE NODES (highest weight first):
+{node_lines}
+
+Answer using this graph if relevant.
+\end{verbatim}\end{scriptsize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{\texttt{flat\_list}}\\[1pt]
+\begin{scriptsize}\begin{verbatim}
+You are Asterism, a personal knowledge assistant
+for {user}.
+
+Here are topics {user} has previously discussed,
+in no particular order:
+
+{node_lines}
+
+Answer using this list if relevant.
+\end{verbatim}\end{scriptsize}
+\medskip
+
+\textbf{\texttt{flat\_list\_prioritized}}\\[1pt]
+\begin{scriptsize}\begin{verbatim}
+You are Asterism, a personal knowledge assistant
+for {user}.
+
+Here are topics {user} has previously discussed,
+in no particular order:
+
+{node_lines}
+
+When answering, reference these topics naturally.
+Prioritize information from these topics. Note
+when you are drawing on specific parts of this
+list.
+\end{verbatim}\end{scriptsize}
+\medskip
+
+\textbf{\texttt{none}}\\[1pt]
+\begin{scriptsize}\begin{verbatim}
+You are Asterism, a personal knowledge assistant
+for {user}.
+
+Answer using only the current conversation. You
+have no access to {user}'s knowledge graph or
+prior history.
+\end{verbatim}\end{scriptsize}
+\end{minipage}
+\caption{System prompts for all five retrieval conditions, verbatim. \texttt{\{node\_lines\}} is the injected memory block: in the two graph conditions it is the thirty highest-weight nodes in weight order, each line \texttt{- \{label\} (weight: \{w\}, type: \{t\})}; in the two flat conditions it is every node label, alphabetical, with no weight and no type. No condition injects edges.}
+\label{tab:prompts}
+\end{table*}
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_forest.pdf}
+\caption{Change in commit rate relative to a flat list of the same facts, by
+model and graph, with 95\% paired bootstrap confidence intervals. Filled markers
+denote intervals that exclude zero; open markers denote intervals that include
+it. The deployed contrast (graph plus prioritization instruction) is separated
+from the structure-only contrast (weighted graph, instruction removed) to show
+how much of the deployed benefit survives stripping the instruction. DeepSeek's
+graph-1 structure-only cell is annotated rather than plotted because the
+empty-response guard aborted it.}
+\label{fig:forest}
+\end{figure*}
 
 \section{Bootstrap Confidence Intervals on the Commit-Rate Gaps}
 \label{app:ci}
@@ -546,18 +682,17 @@ therefore not independent.}
 \end{table}
 
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{fig_forest.pdf}
-\caption{Change in commit rate relative to a flat list of the same facts, by
-model and graph, with 95\% paired bootstrap confidence intervals. Filled markers
-denote intervals that exclude zero; open markers denote intervals that include
-it. The deployed contrast (graph plus prioritization instruction) is separated
-from the structure-only contrast (weighted graph, instruction removed) to show
-how much of the deployed benefit survives stripping the instruction. DeepSeek's
-graph-1 structure-only cell is annotated rather than plotted because the
-empty-response guard aborted it.}
-\label{fig:forest}
-\end{figure*}
+
+
+\section{Reproducibility Details}
+\label{app:repro}
+
+\paragraph{Scorer--human agreement.} Of the six disagreements in the 36-response validation run, the frozen classifier labeled as \textsc{hedge} four graph-condition responses a human read as commitments --- for instance a bare imperative (``Ship the package'') whose form the frozen rule's vocabulary did not cover --- and over-credited two flat-list responses as commitments. Both directions understate the graph$-$flat gap, which is why we report it as a conservative estimate. We did not retune the classifier after seeing these disagreements, since doing so would fit the frozen scorer to the evaluation data it is used to score.
+
+\paragraph{Models excluded from the full-scale campaign.} Earlier pilot runs also included two Gemini models and two free-tier open-weight models. The Gemini models' 250-request daily quota made a hundred-query, five-condition, two-graph campaign infeasible within the evaluation window. The two free-tier open-weight models failed both on throughput and on task comprehension, frequently naming the user node itself as the top priority. We therefore report the five token-billed models at full scale and exclude these four, which is a constraint of evaluating across vendors on consumer and free tiers rather than a property of the models' best available configurations.
+
+The system is implemented in Python over SQLite, with the graph loaded into NetworkX \citep{hagberg2008exploring} for analysis. Triple extraction uses a small instruction-tuned model; entity-resolution embeddings use a compact local sentence-embedding model \citep{xiao2023cpack} producing 384-dimensional vectors, run offline on CPU. The evaluation graph, the five-condition comparison script and its multi-model runner, the latency benchmark, and the entity-resolution and supersession test suites are included in the public repository, together with the frozen scorer, the scorer--human agreement sheet, and all per-run results; reproduction instructions are in the repository README\ifanon{} (anonymized repository: \url{https://anonymous.4open.science/r/asterism-7023/README.md})\else{} (\url{https://github.com/biditdas18/asterism}). The exact state of the code behind every number in this paper is tagged \texttt{nora2026-camera-ready}: \url{https://github.com/biditdas18/asterism/tree/nora2026-camera-ready}\fi. Latency figures were produced by timing the retrieval function directly with a monotonic clock over 20 runs per scale, on synthetic graphs seeded with weighted domain/theme/concept chains; the real user database is never touched by the benchmark.
+
+
 
 \end{document}
