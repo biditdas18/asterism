@@ -4,6 +4,8 @@
 
 **A local-first personal knowledge graph that thinks like a brain and looks like a constellation.**
 
+> **Research snapshot.** The code behind every number in *Asterism: A Hebbian-Weighted Knowledge Graph as a Priority Index over Long-Term LLM Memory* (NORA 2026, AACL-IJCNLP) is tagged [`nora2026-camera-ready`](https://github.com/biditdas18/asterism/tree/nora2026-camera-ready). `main` continues to develop and may diverge from the paper.
+
 Every conversation you have with Claude leaves a trace. Asterism maps those traces into a living star map — the more you think about something, the brighter it glows. Stop thinking about it, and it fades into the dark.
 
 ## What it looks like
